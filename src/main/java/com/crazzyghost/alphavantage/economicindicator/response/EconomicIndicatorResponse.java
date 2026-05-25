@@ -24,7 +24,6 @@ package com.crazzyghost.alphavantage.economicindicator.response;
 
 import com.crazzyghost.alphavantage.parser.Parser;
 import com.squareup.moshi.Json;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -37,14 +36,19 @@ import java.util.Objects;
  * @since 1.7.0
  */
 public class EconomicIndicatorResponse {
+
     @Json(name = "name")
     private String name;
+
     @Json(name = "interval")
     private String interval;
+
     @Json(name = "unit")
     private String unit;
+
     @Json(name = "data")
     private List<EconomicIndicatorUnit> data;
+
     private final String errorMessage;
 
     private EconomicIndicatorResponse(String name, String interval, String unit, List<EconomicIndicatorUnit> data) {
@@ -60,59 +64,40 @@ public class EconomicIndicatorResponse {
     }
 
     public String getName() {
-        return name;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getInterval() {
-        return interval;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getUnit() {
-        return unit;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public List<EconomicIndicatorUnit> getData() {
-        return data;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getErrorMessage() {
-        return errorMessage;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static EconomicIndicatorResponse of(Map<String, Object> stringObjectMap) {
-        Parser<EconomicIndicatorResponse> parser = new EconomicIndicatorResponse.EconomicIndicatorParser();
-        return parser.parse(stringObjectMap);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static class EconomicIndicatorParser extends Parser<EconomicIndicatorResponse> {
 
         @Override
         public EconomicIndicatorResponse onParseError(String error) {
-            return new EconomicIndicatorResponse(error);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         @SuppressWarnings("unchecked")
         public EconomicIndicatorResponse parse(Map<String, Object> data) {
-            List<String> keys = new ArrayList<>(data.keySet());
-            try {
-                if (keys.isEmpty()) {
-                    return onParseError("Empty JSON response returned by the API.");
-                }
-
-                if (Objects.nonNull(data.getOrDefault("Information", null))) {
-                    throw new ClassCastException();
-                }
-
-                String name = String.valueOf(data.getOrDefault("name", ""));
-                String interval = String.valueOf(data.getOrDefault("interval", ""));;
-                String unit = String.valueOf(data.getOrDefault("unit", ""));;
-                List<EconomicIndicatorUnit> unitList = Parser.parseJSONList(data.get("data"),
-                        EconomicIndicatorUnit.class);
-                return new EconomicIndicatorResponse(name, interval, unit, unitList);
-            }catch (ClassCastException | IndexOutOfBoundsException e) {
-                return onParseError(data.get(keys.get(0)).toString());
-            }
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 }

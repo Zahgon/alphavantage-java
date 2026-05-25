@@ -4,25 +4,24 @@ import com.crazzyghost.alphavantage.parameters.Function;
 
 public class WeeklyRequest extends TimeSeriesRequest {
 
-   public WeeklyRequest(Builder builder){
+    public WeeklyRequest(Builder builder) {
         super(builder);
     }
 
-    public static class Builder extends TimeSeriesRequest.Builder<Builder>{
+    public static class Builder extends TimeSeriesRequest.Builder<Builder> {
 
-        public Builder(){
+        public Builder() {
             super();
             this.function(Function.TIME_SERIES_WEEKLY);
         }
 
-        public Builder adjusted(){
-            this.function(Function.TIME_SERIES_WEEKLY_ADJUSTED);
-            return this;
+        public Builder adjusted() {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public WeeklyRequest build() {
-            return new WeeklyRequest(this);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 }

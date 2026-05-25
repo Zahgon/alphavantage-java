@@ -3,10 +3,12 @@ package com.crazzyghost.alphavantage.indicator.response;
 public class SimpleIndicatorUnit {
 
     String date;
+
     Double value;
+
     String indicatorKey;
 
-	public SimpleIndicatorUnit(String date, Double value) {
+    public SimpleIndicatorUnit(String date, Double value) {
         this.date = date;
         this.value = value;
     }
@@ -16,20 +18,16 @@ public class SimpleIndicatorUnit {
         this.indicatorKey = indicatorKey;
     }
 
-
     public String getDate() {
-        return date;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getValue() {
-        return value;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String toString() {
-        String key = indicatorKey == null ? "SimpleIndicator" : indicatorKey; 
-        return key + "Unit {date=" + date + ", value=" + value + "}";
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-    
-    
 }

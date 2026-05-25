@@ -10,8 +10,7 @@ public class SimpleTechnicalIndicatorRequest extends TechnicalIndicatorRequest {
 
         @Override
         public TechnicalIndicatorRequest build() {
-            return new SimpleTechnicalIndicatorRequest(this);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
-
     }
 }

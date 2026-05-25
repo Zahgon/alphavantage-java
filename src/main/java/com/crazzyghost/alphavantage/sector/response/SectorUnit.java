@@ -8,30 +8,28 @@ package com.crazzyghost.alphavantage.sector.response;
 public final class SectorUnit {
 
     private String informationTechnology;
+
     private String consumerDiscretionary;
+
     private String healthCare;
+
     private String communicationServices;
+
     private String realEstate;
+
     private String utilities;
+
     private String financials;
+
     private String materials;
+
     private String industrials;
+
     private String consumerStaples;
+
     private String energy;
 
-    public SectorUnit(
-        String informationTechnology, 
-        String consumerDiscretionary, 
-        String healthCare,
-        String communicationServices, 
-        String realEstate, 
-        String utilities, 
-        String financials, 
-        String materials,
-        String industrials, 
-        String consumerStaples,
-        String energy
-    ) {
+    public SectorUnit(String informationTechnology, String consumerDiscretionary, String healthCare, String communicationServices, String realEstate, String utilities, String financials, String materials, String industrials, String consumerStaples, String energy) {
         this.informationTechnology = informationTechnology;
         this.consumerDiscretionary = consumerDiscretionary;
         this.healthCare = healthCare;
@@ -46,64 +44,51 @@ public final class SectorUnit {
     }
 
     public String getInformationTechnology() {
-        return informationTechnology;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-    
+
     public String getConsumerDiscretionary() {
-        return consumerDiscretionary;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getHealthCare() {
-        return healthCare;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getCommunicationServices() {
-        return communicationServices;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getRealEstate() {
-        return realEstate;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getUtilities() {
-        return utilities;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getFinancials() {
-        return financials;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getMaterials() {
-        return materials;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getIndustrials() {
-        return industrials;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getConsumerStaples() {
-        return consumerStaples;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getEnergy() {
-        return energy;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String toString() {
-        return "SectorUnit { communicationServices=" + communicationServices + 
-            ", consumerDiscretionary=" + consumerDiscretionary + 
-            ", consumerStaples=" + consumerStaples + 
-            ", energy=" + energy + 
-            ", financials=" + financials + 
-            ", healthCare=" + healthCare + 
-            ", industrials=" + industrials + 
-            ", informationTechnology=" + informationTechnology + 
-            ", materials=" + materials + 
-            ", realEstate=" + realEstate + 
-            ", utilities=" + utilities + 
-        "}";
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
-    
 }

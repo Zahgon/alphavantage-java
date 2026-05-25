@@ -39,7 +39,7 @@ public class DurableGoodsOrdersRequest extends EconomicIndicatorRequest {
 
         @Override
         public DurableGoodsOrdersRequest build() {
-            return new DurableGoodsOrdersRequest(this);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 }

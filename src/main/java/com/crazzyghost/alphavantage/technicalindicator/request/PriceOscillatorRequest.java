@@ -6,8 +6,11 @@ import com.crazzyghost.alphavantage.parameters.SeriesType;
 public class PriceOscillatorRequest extends TechnicalIndicatorRequest {
 
     private SeriesType series_type;
+
     private int fastPeriod;
+
     private int slowPeriod;
+
     private MAType maType;
 
     private PriceOscillatorRequest(Builder builder) {
@@ -21,35 +24,32 @@ public class PriceOscillatorRequest extends TechnicalIndicatorRequest {
     public static class Builder extends TechnicalIndicatorRequest.Builder<Builder> {
 
         private int fastPeriod = 12;
+
         private int slowPeriod = 26;
+
         private MAType maType = MAType.SMA;
+
         private SeriesType seriesType;
 
         public Builder fastPeriod(int fastPeriod) {
-            this.fastPeriod = fastPeriod;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder slowPeriod(int slowPeriod) {
-            this.slowPeriod = slowPeriod;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder seriesType(SeriesType seriesType) {
-            this.seriesType = seriesType;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder maType(MAType maType) {
-            this.maType = maType;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public TechnicalIndicatorRequest build() {
-            return new PriceOscillatorRequest(this);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
-
     }
-
 }

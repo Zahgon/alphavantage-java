@@ -23,13 +23,14 @@
 package com.crazzyghost.alphavantage.marketstatus.response;
 
 import com.crazzyghost.alphavantage.parser.Parser;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 public class MarketStatusResponse {
+
     private final List<Market> markets;
+
     private final String errorMessage;
 
     private MarketStatusResponse(List<Market> markets) {
@@ -43,46 +44,32 @@ public class MarketStatusResponse {
     }
 
     public List<Market> getMarkets() {
-        return markets;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getErrorMessage() {
-        return errorMessage;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static MarketStatusResponse of(Map<String, Object> data) {
-        MarketStatusParser parser = new MarketStatusParser();
-        return parser.parse(data);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     private static class MarketStatusParser extends Parser<MarketStatusResponse> {
+
         @Override
         public MarketStatusResponse onParseError(String error) {
-            return new MarketStatusResponse(error);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public MarketStatusResponse parse(Map<String, Object> object) {
-            List<String> keys = new ArrayList<>(object.keySet());
-            if (keys.isEmpty()) {
-                return onParseError("Empty JSON returned by the API, the symbol might not be supported.");
-            }
-            try {
-                int dataIndex = 1;
-                String dataKey = keys.get(dataIndex);
-                List<Market> data = Parser.parseJSONList(object.get(dataKey), Market.class);
-                return new MarketStatusResponse(data);
-            } catch (ClassCastException | IndexOutOfBoundsException e) {
-                return onParseError(object.get(keys.get(0)).toString());
-            }
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
     @Override
     public String toString() {
-        return "GlobalMarketStatusResponse{" +
-                "markets=" + markets +
-                ", errorMessage='" + errorMessage + '\'' +
-                '}';
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

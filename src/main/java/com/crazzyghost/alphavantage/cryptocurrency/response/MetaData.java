@@ -32,14 +32,23 @@ import com.crazzyghost.alphavantage.parameters.OutputSize;
  * @since 1.0.0
  */
 public class MetaData {
+
     private final String information;
+
     private final String digitalCurrencyCode;
+
     private final String digitalCurrencyName;
+
     private final String marketCode;
+
     private final String marketName;
+
     private final String lastRefreshed;
+
     private final String timeZone;
+
     private final String interval;
+
     private final String outputSize;
 
     private MetaData(Builder builder) {
@@ -54,125 +63,113 @@ public class MetaData {
         this.outputSize = builder.outputSize;
     }
 
-
     public static MetaData empty() {
-        return new MetaData(new Builder());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public static Builder builder(){
-        return new Builder();
+    public static Builder builder() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getDigitalCurrencyCode() {
-        return digitalCurrencyCode;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getDigitalCurrencyName() {
-        return digitalCurrencyName;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getInformation() {
-        return information;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getLastRefreshed() {
-        return lastRefreshed;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getTimeZone() {
-        return timeZone;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getMarketCode() {
-        return marketCode;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getMarketName() {
-        return marketName;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getInterval() {
-        return interval;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getOutputSize() {
-        return outputSize;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static class Builder {
+
         private String information;
+
         private String digitalCurrencyCode;
+
         private String digitalCurrencyName;
+
         private String marketCode;
+
         private String marketName;
+
         private String lastRefreshed;
+
         private String timeZone;
+
         private String interval;
+
         private String outputSize;
 
         public Builder information(String information) {
-            this.information = information;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder digitalCurrencyCode(String digitalCurrencyCode) {
-            this.digitalCurrencyCode = digitalCurrencyCode;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder digitalCurrencyName(String digitalCurrencyName) {
-            this.digitalCurrencyName = digitalCurrencyName;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder marketCode(String marketCode) {
-            this.marketCode = marketCode;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder marketName(String marketName) {
-            this.marketName = marketName;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder lastRefreshed(String lastRefreshed) {
-            this.lastRefreshed = lastRefreshed;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder timeZone(String timeZone) {
-            this.timeZone = timeZone;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder interval(String interval) {
-            this.interval = interval;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder outputSize(String outputSize) {
-            this.outputSize = outputSize;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public MetaData build() {
-            return new MetaData(this);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
-
     @Override
     public String toString() {
-        return "MetaData{" +
-                "information='" + information + '\'' +
-                ", digitalCurrencyCode='" + digitalCurrencyCode + '\'' +
-                ", digitalCurrencyName='" + digitalCurrencyName + '\'' +
-                ", marketCode='" + marketCode + '\'' +
-                ", marketName='" + marketName + '\'' +
-                ", lastRefreshed='" + lastRefreshed + '\'' +
-                ", timeZone='" + timeZone + '\'' +
-                ", interval=" + interval +
-                ", outputSize=" + outputSize +
-                '}';
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

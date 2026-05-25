@@ -5,6 +5,7 @@ import com.crazzyghost.alphavantage.parameters.SeriesType;
 public class PeriodicSeriesRequest extends TechnicalIndicatorRequest {
 
     private SeriesType series_type;
+
     private int time_period;
 
     private PeriodicSeriesRequest(Builder builder) {
@@ -16,23 +17,20 @@ public class PeriodicSeriesRequest extends TechnicalIndicatorRequest {
     public static class Builder extends TechnicalIndicatorRequest.Builder<Builder> {
 
         private SeriesType seriesType;
+
         private int timePeriod;
 
         public Builder timePeriod(int timePeriod) {
-            this.timePeriod = timePeriod;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder seriesType(SeriesType seriesType) {
-            this.seriesType = seriesType;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public TechnicalIndicatorRequest build() {
-
-            return new PeriodicSeriesRequest(this);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
-
     }
 }

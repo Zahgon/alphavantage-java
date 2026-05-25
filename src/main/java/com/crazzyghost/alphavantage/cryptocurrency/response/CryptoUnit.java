@@ -29,10 +29,15 @@ package com.crazzyghost.alphavantage.cryptocurrency.response;
  * @since 1.0.0
  */
 public class CryptoUnit {
+
     private final Double open;
+
     private final Double close;
+
     private final Double high;
+
     private final Double low;
+
     private final Double volume;
 
     public CryptoUnit(Builder builder) {
@@ -43,74 +48,65 @@ public class CryptoUnit {
         this.volume = builder.volume;
     }
 
-
     public static class Builder {
+
         private Double open;
+
         private Double high;
+
         private Double low;
+
         private Double close;
+
         private Double volume;
 
-        public Builder open(Double open){
-            this.open = open;
-            return this;
+        public Builder open(Double open) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public Builder high(Double high){
-            this.high = high;
-            return this;
-        }
-        public Builder low(Double low){
-            this.low = low;
-            return this;
+        public Builder high(Double high) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public Builder close(Double close){
-            this.close = close;
-            return this;
+        public Builder low(Double low) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public Builder volume(Double volume){
-            this.volume = volume;
-            return this;
+        public Builder close(Double close) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public CryptoUnit build(){
-            return new CryptoUnit(this);
+        public Builder volume(Double volume) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
+        public CryptoUnit build() {
+            throw new UnsupportedOperationException("STUB: not implemented");
+        }
     }
 
     public Double getOpen() {
-        return open;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getClose() {
-        return close;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getHigh() {
-        return high;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getLow() {
-        return low;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getVolume() {
-        return volume;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 
     @Override
     public String toString() {
-        return "\n" + "CryptoUnit {" +
-            ", close=" + close +
-            ", high=" + high +
-            ", low=" + low +
-            ", open=" + open +
-            ", volume=" + volume +
-        "}";
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 }

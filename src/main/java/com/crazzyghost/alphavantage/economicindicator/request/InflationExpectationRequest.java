@@ -39,7 +39,7 @@ public class InflationExpectationRequest extends EconomicIndicatorRequest {
 
         @Override
         public InflationExpectationRequest build() {
-            return new InflationExpectationRequest(this);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 }

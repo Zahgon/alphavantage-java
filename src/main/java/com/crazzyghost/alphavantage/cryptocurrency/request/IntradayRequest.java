@@ -6,8 +6,11 @@ import com.crazzyghost.alphavantage.parameters.Interval;
 import com.crazzyghost.alphavantage.parameters.OutputSize;
 
 public class IntradayRequest extends CryptoRequest {
+
     private final Interval interval;
+
     private final OutputSize outputSize;
+
     private final DataType dataType;
 
     private IntradayRequest(Builder builder) {
@@ -18,8 +21,11 @@ public class IntradayRequest extends CryptoRequest {
     }
 
     public static class Builder extends CryptoRequest.Builder<Builder> {
+
         private Interval interval;
+
         private OutputSize outputSize;
+
         private DataType dataType;
 
         public Builder() {
@@ -27,23 +33,20 @@ public class IntradayRequest extends CryptoRequest {
         }
 
         public Builder interval(Interval interval) {
-            this.interval = interval;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder outputSize(OutputSize outputSize) {
-            this.outputSize = outputSize;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder dataType(DataType dataType) {
-            this.dataType = dataType;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public IntradayRequest build() {
-            return new IntradayRequest(this);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 }

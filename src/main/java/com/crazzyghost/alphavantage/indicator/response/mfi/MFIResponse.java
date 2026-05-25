@@ -3,7 +3,6 @@ package com.crazzyghost.alphavantage.indicator.response.mfi;
 import com.crazzyghost.alphavantage.indicator.response.PeriodicResponse;
 import com.crazzyghost.alphavantage.indicator.response.SimpleIndicatorUnit;
 import com.crazzyghost.alphavantage.parser.Parser;
-
 import java.util.List;
 import java.util.Map;
 
@@ -17,26 +16,25 @@ public class MFIResponse extends PeriodicResponse {
         super(errorMessage);
     }
 
-    public static MFIResponse of(Map<String, Object> stringObjectMap){
-        Parser<MFIResponse> parser = new MFIParser();
-        return parser.parse(stringObjectMap);
+    public static MFIResponse of(Map<String, Object> stringObjectMap) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static class MFIParser extends PeriodicParser<MFIResponse> {
 
         @Override
         public MFIResponse get(List<SimpleIndicatorUnit> indicatorUnits, MetaData metaData) {
-            return new MFIResponse(indicatorUnits, metaData);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public MFIResponse get(String errorMessage) {
-            return new MFIResponse(errorMessage);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public String getIndicatorKey() {
-            return "MFI";
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 }

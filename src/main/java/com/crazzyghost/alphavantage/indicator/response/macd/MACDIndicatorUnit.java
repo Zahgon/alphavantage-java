@@ -1,9 +1,13 @@
 package com.crazzyghost.alphavantage.indicator.response.macd;
 
 public class MACDIndicatorUnit {
+
     private String date;
+
     private double macdHistValue;
+
     private double macdSignalValue;
+
     private double macdValue;
 
     public MACDIndicatorUnit(String date, double macdHistValue, double macdSignalValue, double macdValue) {
@@ -14,26 +18,23 @@ public class MACDIndicatorUnit {
     }
 
     public String getDate() {
-        return date;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public double getMacdHistValue() {
-        return macdHistValue;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public double getMacdSignalValue() {
-        return macdSignalValue;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public double getMacdValue() {
-        return macdValue;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String toString() {
-        return "MACDIndicatorUnit {date=" + date + ", macdHistValue=" + macdHistValue + ", macdSignalValue="
-                + macdSignalValue + ", macdValue=" + macdValue + "}";
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
-    
 }

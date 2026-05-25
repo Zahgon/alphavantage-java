@@ -23,13 +23,11 @@
 package com.crazzyghost.alphavantage.exchangerate;
 
 import java.io.IOException;
-
 import com.crazzyghost.alphavantage.AlphaVantageException;
 import com.crazzyghost.alphavantage.Config;
 import com.crazzyghost.alphavantage.Fetcher;
 import com.crazzyghost.alphavantage.UrlExtractor;
 import com.crazzyghost.alphavantage.parser.Parser;
-
 import okhttp3.Call;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
@@ -43,23 +41,24 @@ import okhttp3.ResponseBody;
 public final class ExchangeRate implements Fetcher {
 
     private final Config config;
+
     private final ExchangeRateRequest.Builder builder;
+
     private Fetcher.SuccessCallback<ExchangeRateResponse> successCallback;
+
     private Fetcher.FailureCallback failureCallback;
 
-    public ExchangeRate(Config config){
+    public ExchangeRate(Config config) {
         this.config = config;
         this.builder = new ExchangeRateRequest.Builder();
     }
 
     public ExchangeRate toCurrency(String toCurrency) {
-        this.builder.toCurrency(toCurrency);
-        return this;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public ExchangeRate fromCurrency(String fromCurrency) {
-        this.builder.fromCurrency(fromCurrency);
-        return this;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -68,9 +67,8 @@ public final class ExchangeRate implements Fetcher {
      * @param callback successful fetch handler
      * @return current instance of {@link ExchangeRateResponse}
      */
-    public ExchangeRate onSuccess(SuccessCallback<ExchangeRateResponse> callback){
-        this.successCallback = callback;
-        return this;
+    public ExchangeRate onSuccess(SuccessCallback<ExchangeRateResponse> callback) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -79,65 +77,24 @@ public final class ExchangeRate implements Fetcher {
      * @param callback failed fetch handler
      * @return current instance of {@link ExchangeRateResponse}
      */
-    public ExchangeRate onFailure(FailureCallback callback){
-        this.failureCallback = callback;
-        return this;
+    public ExchangeRate onFailure(FailureCallback callback) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 
     /**
      * Make a blocking synchronous http request to fetch the data.
-     * 
+     *
      * Using this method will overwrite any async callback
      *
      * @since 1.5.0
      * @throws AlphaVantageException exception thrown
      */
     public ExchangeRateResponse fetchSync() throws AlphaVantageException {
-        
-        Config.checkNotNullOrKeyEmpty(config);
-        
-        this.successCallback = null;
-        this.failureCallback = null;
-        okhttp3.OkHttpClient client = config.getOkHttpClient();
-
-        try (Response response = client.newCall(UrlExtractor.extract(builder.build(), config.getKey())).execute()) {
-            return ExchangeRateResponse.of(Parser.parseJSON(response.body().string()));
-        } catch(IOException e) {
-            throw new AlphaVantageException(e.getMessage());
-        }        
-
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void fetch() {
-
-        Config.checkNotNullOrKeyEmpty(config);
-
-        config.getOkHttpClient().newCall(UrlExtractor.extract(builder.build(), config.getKey())).enqueue(new okhttp3.Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                if(failureCallback != null) failureCallback.onFailure(new AlphaVantageException());
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                if(response.isSuccessful()){
-                    try(ResponseBody body = response.body()){
-                        ExchangeRateResponse exchangeResponse = ExchangeRateResponse.of(Parser.parseJSON(body.string()));
-                        if (exchangeResponse.getErrorMessage() != null && failureCallback != null) {
-                            failureCallback.onFailure(new AlphaVantageException(exchangeResponse.getErrorMessage()));
-                        }
-                        if (successCallback != null) {
-                            successCallback.onSuccess(exchangeResponse);
-                        }
-                    }
-                } else {
-                    if(failureCallback != null) {
-                        failureCallback.onFailure(new AlphaVantageException());
-                    }
-                }
-            }
-        });
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -3,7 +3,6 @@ package com.crazzyghost.alphavantage.technicalindicator.response.sar;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
 import com.crazzyghost.alphavantage.technicalindicator.response.SimpleTechnicalIndicatorUnit;
 import com.crazzyghost.alphavantage.parser.DefaultParser;
 import com.crazzyghost.alphavantage.parser.Parser;
@@ -11,7 +10,9 @@ import com.crazzyghost.alphavantage.parser.Parser;
 public class SARResponse {
 
     private MetaData metaData;
+
     private List<SimpleTechnicalIndicatorUnit> indicatorUnits;
+
     private String errorMessage;
 
     private SARResponse(List<SimpleTechnicalIndicatorUnit> indicatorUnits, MetaData metaData) {
@@ -27,87 +28,60 @@ public class SARResponse {
     }
 
     public String getErrorMessage() {
-        return errorMessage;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public List<SimpleTechnicalIndicatorUnit> getIndicatorUnits() {
-        return indicatorUnits;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public MetaData getMetaData() {
-        return metaData;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static SARResponse of(Map<String, Object> stringObjectMap) {
-        Parser<SARResponse> parser = new SARParser();
-        return parser.parse(stringObjectMap);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static class SARParser extends DefaultParser<SARResponse> {
 
         @Override
         public SARResponse parse(Map<String, String> metaDataMap, Map<String, Map<String, String>> indicatorData) {
-
-            MetaData metaData = new MetaData(
-                    String.valueOf(metaDataMap.get("1: Symbol")),
-                    String.valueOf(metaDataMap.get("2: Indicator")),
-                    String.valueOf(metaDataMap.get("3: Last Refreshed")),
-                    String.valueOf(metaDataMap.get("4: Interval")),
-                    Double.valueOf(String.valueOf(metaDataMap.get("5.1: Acceleration"))),
-                    Double.valueOf(String.valueOf(metaDataMap.get("5.2: Maximum"))),
-                    String.valueOf(metaDataMap.get("6: Time Zone")));
-
-            List<SimpleTechnicalIndicatorUnit> indicatorUnits = new ArrayList<>();
-
-            for (Map.Entry<String, Map<String, String>> e : indicatorData.entrySet()) {
-                Map<String, String> m = e.getValue();
-                SimpleTechnicalIndicatorUnit indicatorUnit = new SimpleTechnicalIndicatorUnit(
-                        e.getKey(),
-                        Double.parseDouble(m.get("SAR")),
-                        "SAR");
-                indicatorUnits.add(indicatorUnit);
-            }
-            return new SARResponse(indicatorUnits, metaData);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public SARResponse onParseError(String error) {
-            return new SARResponse(error);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
-
     }
 
     @Override
     public String toString() {
-        return "SARResponse{" +
-                "metaData=" + metaData +
-                ",indicatorUnits=" + indicatorUnits.size() +
-                ", errorMessage='" + errorMessage + '\'' +
-                '}';
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static class MetaData {
 
         private String symbol;
+
         private String indicator;
+
         private String lastRefreshed;
+
         private String interval;
+
         private double acceleration;
+
         private double maximum;
+
         private String timeZone;
 
         public MetaData() {
             this("", "", "", "", 0, 0, "");
         }
 
-        public MetaData(
-                String symbol,
-                String indicator,
-                String lastRefreshed,
-                String interval,
-                double acceleration,
-                double maximum,
-                String timeZone) {
+        public MetaData(String symbol, String indicator, String lastRefreshed, String interval, double acceleration, double maximum, String timeZone) {
             this.symbol = symbol;
             this.indicator = indicator;
             this.lastRefreshed = lastRefreshed;
@@ -118,40 +92,36 @@ public class SARResponse {
         }
 
         public String getSymbol() {
-            return symbol;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public String getIndicator() {
-            return indicator;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public String getLastRefreshed() {
-            return lastRefreshed;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public String getInterval() {
-            return interval;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public String getTimeZone() {
-            return timeZone;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public double getAcceleration() {
-            return acceleration;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public double getMaximum() {
-            return maximum;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public String toString() {
-            return "MetaData {acceleration=" + acceleration + ", indicator=" + indicator + ", interval=" + interval
-                    + ", lastRefreshed=" + lastRefreshed + ", maximum=" + maximum + ", symbol=" + symbol + ", timeZone="
-                    + timeZone + "}";
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
-
     }
-
 }

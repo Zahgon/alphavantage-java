@@ -3,59 +3,58 @@ package com.crazzyghost.alphavantage.marketstatus.response;
 import com.squareup.moshi.Json;
 
 public class Market {
+
     @Json(name = "market_type")
     private String marketType;
+
     @Json(name = "region")
     private String region;
+
     @Json(name = "primary_exchanges")
     private String primaryExchanges;
+
     @Json(name = "local_open")
     private String localOpen;
+
     @Json(name = "local_close")
     private String localClose;
+
     @Json(name = "current_status")
     private String currentStatus;
+
     @Json(name = "notes")
     private String notes;
 
     public String getMarketType() {
-        return marketType;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getRegion() {
-        return region;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getPrimaryExchanges() {
-        return primaryExchanges;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getLocalOpen() {
-        return localOpen;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getLocalClose() {
-        return localClose;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getCurrentStatus() {
-        return currentStatus;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getNotes() {
-        return notes;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String toString() {
-        return "GlobalMarketStatus{" +
-                "marketType='" + marketType + '\'' +
-                ", region='" + region + '\'' +
-                ", primaryExchanges='" + primaryExchanges + '\'' +
-                ", localOpen='" + localOpen + '\'' +
-                ", localClose='" + localClose + '\'' +
-                ", currentStatus='" + currentStatus + '\'' +
-                ", notes='" + notes + '\'' +
-                '}';
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

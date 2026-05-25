@@ -4,267 +4,239 @@ import com.crazzyghost.alphavantage.parser.NoneableLong;
 import com.squareup.moshi.Json;
 
 public class CashFlow {
-    @Json(name="fiscalDateEnding")
+
+    @Json(name = "fiscalDateEnding")
     private String fiscalDateEnding;
-    @Json(name="reportedCurrency")
+
+    @Json(name = "reportedCurrency")
     private String reportedCurrency;
 
-    @Json(name="operatingCashflow")
+    @Json(name = "operatingCashflow")
     @NoneableLong
     private Long operatingCashflow;
 
-    @Json(name="paymentsForOperatingActivities")
+    @Json(name = "paymentsForOperatingActivities")
     @NoneableLong
     private Long paymentsForOperatingActivities;
 
-    @Json(name="proceedsFromOperatingActivities")
+    @Json(name = "proceedsFromOperatingActivities")
     @NoneableLong
     private Long proceedsFromOperatingActivities;
 
-    @Json(name="changeInOperatingLiabilities")
+    @Json(name = "changeInOperatingLiabilities")
     @NoneableLong
     private Long changeInOperatingLiabilities;
 
-    @Json(name="changeInOperatingAssets")
+    @Json(name = "changeInOperatingAssets")
     @NoneableLong
     private Long changeInOperatingAssets;
 
-    @Json(name="depreciationDepletionAndAmortization")
+    @Json(name = "depreciationDepletionAndAmortization")
     @NoneableLong
     private Long depreciationDepletionAndAmortization;
 
-    @Json(name="capitalExpenditures")
+    @Json(name = "capitalExpenditures")
     @NoneableLong
     private Long capitalExpenditures;
 
-    @Json(name="changeInReceivables")
+    @Json(name = "changeInReceivables")
     @NoneableLong
     private Long changeInReceivables;
 
-    @Json(name="changeInInventory")
+    @Json(name = "changeInInventory")
     @NoneableLong
     private Long changeInInventory;
 
-    @Json(name="profitLoss")
+    @Json(name = "profitLoss")
     @NoneableLong
     private Long profitLoss;
 
-    @Json(name="cashflowFromInvestment")
+    @Json(name = "cashflowFromInvestment")
     @NoneableLong
     private Long cashflowFromInvestment;
 
-    @Json(name="cashflowFromFinancing")
+    @Json(name = "cashflowFromFinancing")
     @NoneableLong
     private Long cashflowFromFinancing;
 
-    @Json(name="proceedsFromRepaymentsOfShortTermDebt")
+    @Json(name = "proceedsFromRepaymentsOfShortTermDebt")
     @NoneableLong
     private Long proceedsFromRepaymentsOfShortTermDebt;
 
-    @Json(name="paymentsForRepurchaseOfCommonStock")
+    @Json(name = "paymentsForRepurchaseOfCommonStock")
     @NoneableLong
     private Long paymentsForRepurchaseOfCommonStock;
 
-    @Json(name="paymentsForRepurchaseOfEquity")
+    @Json(name = "paymentsForRepurchaseOfEquity")
     @NoneableLong
     private Long paymentsForRepurchaseOfEquity;
 
-    @Json(name="paymentsForRepurchaseOfPreferredStock")
+    @Json(name = "paymentsForRepurchaseOfPreferredStock")
     @NoneableLong
     private Long paymentsForRepurchaseOfPreferredStock;
 
-    @Json(name="dividendPayout")
+    @Json(name = "dividendPayout")
     @NoneableLong
     private Long dividendPayout;
 
-    @Json(name="dividendPayoutCommonStock")
+    @Json(name = "dividendPayoutCommonStock")
     @NoneableLong
     private Long dividendPayoutCommonStock;
 
-    @Json(name="dividendPayoutPreferredStock")
+    @Json(name = "dividendPayoutPreferredStock")
     @NoneableLong
     private Long dividendPayoutPreferredStock;
 
-    @Json(name="proceedsFromIssuanceOfCommonStock")
+    @Json(name = "proceedsFromIssuanceOfCommonStock")
     @NoneableLong
     private Long proceedsFromIssuanceOfCommonStock;
 
-    @Json(name="proceedsFromIssuanceOfLongTermDebtAndCapitalSecuritiesNet")
+    @Json(name = "proceedsFromIssuanceOfLongTermDebtAndCapitalSecuritiesNet")
     @NoneableLong
     private Long proceedsFromIssuanceOfLongTermDebtAndCapitalSecuritiesNet;
 
-    @Json(name="proceedsFromIssuanceOfPreferredStock")
+    @Json(name = "proceedsFromIssuanceOfPreferredStock")
     @NoneableLong
     private Long proceedsFromIssuanceOfPreferredStock;
 
-    @Json(name="proceedsFromRepurchaseOfEquity")
+    @Json(name = "proceedsFromRepurchaseOfEquity")
     @NoneableLong
     private Long proceedsFromRepurchaseOfEquity;
 
-    @Json(name="proceedsFromSaleOfTreasuryStock")
+    @Json(name = "proceedsFromSaleOfTreasuryStock")
     @NoneableLong
     private Long proceedsFromSaleOfTreasuryStock;
 
-    @Json(name="changeInCashAndCashEquivalents")
+    @Json(name = "changeInCashAndCashEquivalents")
     @NoneableLong
     private Long changeInCashAndCashEquivalents;
 
-    @Json(name="changeInExchangeRate")
+    @Json(name = "changeInExchangeRate")
     @NoneableLong
     private Long changeInExchangeRate;
 
-    @Json(name="netIncome")
+    @Json(name = "netIncome")
     @NoneableLong
     private Long netIncome;
 
     public String getFiscalDateEnding() {
-        return fiscalDateEnding;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getReportedCurrency() {
-        return reportedCurrency;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getOperatingCashflow() {
-        return operatingCashflow;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getPaymentsForOperatingActivities() {
-        return paymentsForOperatingActivities;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getProceedsFromOperatingActivities() {
-        return proceedsFromOperatingActivities;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getChangeInOperatingLiabilities() {
-        return changeInOperatingLiabilities;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getChangeInOperatingAssets() {
-        return changeInOperatingAssets;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getDepreciationDepletionAndAmortization() {
-        return depreciationDepletionAndAmortization;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getCapitalExpenditures() {
-        return capitalExpenditures;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getChangeInReceivables() {
-        return changeInReceivables;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getChangeInInventory() {
-        return changeInInventory;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getProfitLoss() {
-        return profitLoss;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getCashflowFromInvestment() {
-        return cashflowFromInvestment;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getCashflowFromFinancing() {
-        return cashflowFromFinancing;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getProceedsFromRepaymentsOfShortTermDebt() {
-        return proceedsFromRepaymentsOfShortTermDebt;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getPaymentsForRepurchaseOfCommonStock() {
-        return paymentsForRepurchaseOfCommonStock;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getPaymentsForRepurchaseOfEquity() {
-        return paymentsForRepurchaseOfEquity;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getPaymentsForRepurchaseOfPreferredStock() {
-        return paymentsForRepurchaseOfPreferredStock;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getDividendPayout() {
-        return dividendPayout;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getDividendPayoutCommonStock() {
-        return dividendPayoutCommonStock;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getDividendPayoutPreferredStock() {
-        return dividendPayoutPreferredStock;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getProceedsFromIssuanceOfCommonStock() {
-        return proceedsFromIssuanceOfCommonStock;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getProceedsFromIssuanceOfLongTermDebtAndCapitalSecuritiesNet() {
-        return proceedsFromIssuanceOfLongTermDebtAndCapitalSecuritiesNet;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getProceedsFromIssuanceOfPreferredStock() {
-        return proceedsFromIssuanceOfPreferredStock;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getProceedsFromRepurchaseOfEquity() {
-        return proceedsFromRepurchaseOfEquity;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getProceedsFromSaleOfTreasuryStock() {
-        return proceedsFromSaleOfTreasuryStock;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getChangeInCashAndCashEquivalents() {
-        return changeInCashAndCashEquivalents;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getChangeInExchangeRate() {
-        return changeInExchangeRate;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getNetIncome() {
-        return netIncome;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String toString() {
-        return "CashFlow{" +
-                "fiscalDateEnding='" + fiscalDateEnding + '\'' +
-                ", reportedCurrency='" + reportedCurrency + '\'' +
-                ", operatingCashflow='" + operatingCashflow + '\'' +
-                ", paymentsForOperatingActivities='" + paymentsForOperatingActivities + '\'' +
-                ", proceedsFromOperatingActivities='" + proceedsFromOperatingActivities + '\'' +
-                ", changeInOperatingLiabilities='" + changeInOperatingLiabilities + '\'' +
-                ", changeInOperatingAssets='" + changeInOperatingAssets + '\'' +
-                ", depreciationDepletionAndAmortization='" + depreciationDepletionAndAmortization + '\'' +
-                ", capitalExpenditures='" + capitalExpenditures + '\'' +
-                ", changeInReceivables='" + changeInReceivables + '\'' +
-                ", changeInInventory='" + changeInInventory + '\'' +
-                ", profitLoss='" + profitLoss + '\'' +
-                ", cashflowFromInvestment='" + cashflowFromInvestment + '\'' +
-                ", cashflowFromFinancing='" + cashflowFromFinancing + '\'' +
-                ", proceedsFromRepaymentsOfShortTermDebt='" + proceedsFromRepaymentsOfShortTermDebt + '\'' +
-                ", paymentsForRepurchaseOfCommonStock='" + paymentsForRepurchaseOfCommonStock + '\'' +
-                ", paymentsForRepurchaseOfEquity='" + paymentsForRepurchaseOfEquity + '\'' +
-                ", paymentsForRepurchaseOfPreferredStock='" + paymentsForRepurchaseOfPreferredStock + '\'' +
-                ", dividendPayout='" + dividendPayout + '\'' +
-                ", dividendPayoutCommonStock='" + dividendPayoutCommonStock + '\'' +
-                ", dividendPayoutPreferredStock='" + dividendPayoutPreferredStock + '\'' +
-                ", proceedsFromIssuanceOfCommonStock='" + proceedsFromIssuanceOfCommonStock + '\'' +
-                ", proceedsFromIssuanceOfLongTermDebtAndCapitalSecuritiesNet='" + proceedsFromIssuanceOfLongTermDebtAndCapitalSecuritiesNet + '\'' +
-                ", proceedsFromIssuanceOfPreferredStock='" + proceedsFromIssuanceOfPreferredStock + '\'' +
-                ", proceedsFromRepurchaseOfEquity='" + proceedsFromRepurchaseOfEquity + '\'' +
-                ", proceedsFromSaleOfTreasuryStock='" + proceedsFromSaleOfTreasuryStock + '\'' +
-                ", changeInCashAndCashEquivalents='" + changeInCashAndCashEquivalents + '\'' +
-                ", changeInExchangeRate='" + changeInExchangeRate + '\'' +
-                ", netIncome='" + netIncome + '\'' +
-                '}';
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

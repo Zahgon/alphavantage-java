@@ -7,9 +7,13 @@ import com.crazzyghost.alphavantage.parameters.SeriesType;
 public class BBANDSRequest extends TechnicalIndicatorRequest {
 
     private SeriesType series_type;
+
     private int time_period;
+
     private int nbdevup;
+
     private int nbdevdn;
+
     private MAType maType;
 
     private BBANDSRequest(Builder builder) {
@@ -24,9 +28,13 @@ public class BBANDSRequest extends TechnicalIndicatorRequest {
     public static class Builder extends TechnicalIndicatorRequest.Builder<Builder> {
 
         private SeriesType seriesType;
+
         private int timePeriod;
+
         private int nbdevup = 2;
+
         private int nbdevdn = 2;
+
         private MAType maType = MAType.SMA;
 
         public Builder() {
@@ -34,34 +42,28 @@ public class BBANDSRequest extends TechnicalIndicatorRequest {
         }
 
         public Builder timePeriod(int timePeriod) {
-            this.timePeriod = timePeriod;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder seriesType(SeriesType seriesType) {
-            this.seriesType = seriesType;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder nbdevup(int nbdevup) {
-            this.nbdevup = nbdevup;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder nbdevdn(int nbdevdn) {
-            this.nbdevdn = nbdevdn;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder maType(MAType maType) {
-            this.maType = maType;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public TechnicalIndicatorRequest build() {
-            return new BBANDSRequest(this);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
-
     }
 }

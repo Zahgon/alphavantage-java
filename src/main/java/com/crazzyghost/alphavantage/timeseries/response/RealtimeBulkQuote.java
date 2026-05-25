@@ -24,103 +24,101 @@ package com.crazzyghost.alphavantage.timeseries.response;
 
 import com.squareup.moshi.Json;
 
-
 public class RealtimeBulkQuote {
+
     @Json(name = "symbol")
     private String symbol;
+
     @Json(name = "timestamp")
     private String timestamp;
+
     @Json(name = "open")
     private Double open;
+
     @Json(name = "high")
     private Double high;
+
     @Json(name = "low")
     private Double low;
+
     @Json(name = "close")
     private Double close;
+
     @Json(name = "volume")
     private Long volume;
+
     @Json(name = "previous_close")
     private Double previousClose;
+
     @Json(name = "change")
     private Double change;
+
     @Json(name = "change_percent")
     private Double changePercent;
+
     @Json(name = "extended_hours_quote")
     private Double extendedHoursQuote;
+
     @Json(name = "extended_hours_change")
     private Double extendedHoursChange;
+
     @Json(name = "extended_hours_change_percent")
     private Double extendedHoursChangePercent;
 
     public String getSymbol() {
-        return symbol;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getTimestamp() {
-        return timestamp;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getOpen() {
-        return open;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getHigh() {
-        return high;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getLow() {
-        return low;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getClose() {
-        return close;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getVolume() {
-        return volume;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getPreviousClose() {
-        return previousClose;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getChange() {
-        return change;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getChangePercent() {
-        return changePercent;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getExtendedHoursQuote() {
-        return extendedHoursQuote;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getExtendedHoursChange() {
-        return extendedHoursChange;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getExtendedHoursChangePercent() {
-        return extendedHoursChangePercent;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String toString() {
-        return "RealtimeBulkQuote{" +
-                "symbol='" + symbol + '\'' +
-                ", timestamp='" + timestamp + '\'' +
-                ", open=" + open +
-                ", high=" + high +
-                ", low=" + low +
-                ", close=" + close +
-                ", volume=" + volume +
-                ", previousClose=" + previousClose +
-                ", change=" + change +
-                ", changePercent=" + changePercent +
-                ", extendedHoursQuote=" + extendedHoursQuote +
-                ", extendedHoursChange=" + extendedHoursChange +
-                ", extendedHoursChangePercent=" + extendedHoursChangePercent +
-                '}';
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -25,10 +25,10 @@ package com.crazzyghost.alphavantage.economicindicator.request;
 import com.crazzyghost.alphavantage.AlphaVantageException;
 import com.crazzyghost.alphavantage.parameters.Function;
 import com.crazzyghost.alphavantage.parameters.Interval;
-
 import java.util.Arrays;
 
 public class CpiRequest extends EconomicIndicatorRequest {
+
     private Interval interval;
 
     private CpiRequest(Builder builder) {
@@ -37,6 +37,7 @@ public class CpiRequest extends EconomicIndicatorRequest {
     }
 
     public static class Builder extends EconomicIndicatorRequest.Builder<Builder> {
+
         Interval interval;
 
         public Builder() {
@@ -45,16 +46,12 @@ public class CpiRequest extends EconomicIndicatorRequest {
         }
 
         public Builder interval(Interval interval) {
-            if (!Arrays.asList(Interval.MONTHLY, Interval.SEMI_ANNUAL).contains(interval)) {
-                throw new AlphaVantageException("accepted interval values for CPI are Interval.MONTHLY, Interval.SEMI_ANNUAL");
-            }
-            this.interval = interval;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public CpiRequest build() {
-            return new CpiRequest(this);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 }

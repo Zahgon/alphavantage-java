@@ -7,9 +7,13 @@ import com.crazzyghost.alphavantage.parameters.SeriesType;
 public class STOCHRSIRequest extends TechnicalIndicatorRequest {
 
     private int time_period;
+
     private SeriesType series_type;
+
     private int fastKPeriod;
+
     private int fastDPeriod;
+
     private MAType fastDMaType;
 
     protected STOCHRSIRequest(Builder builder) {
@@ -24,9 +28,13 @@ public class STOCHRSIRequest extends TechnicalIndicatorRequest {
     public static class Builder extends TechnicalIndicatorRequest.Builder<Builder> {
 
         private int fastKPeriod = 5;
+
         private int fastDPeriod = 3;
+
         private MAType fastDMaType = MAType.SMA;
+
         private int timePeriod;
+
         private SeriesType seriesType;
 
         public Builder() {
@@ -34,34 +42,28 @@ public class STOCHRSIRequest extends TechnicalIndicatorRequest {
         }
 
         public Builder fastKPeriod(int fastKPeriod) {
-            this.fastKPeriod = fastKPeriod;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder fastDPeriod(int fastDPeriod) {
-            this.fastDPeriod = fastDPeriod;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder fastDMaType(MAType type) {
-            this.fastDMaType = type;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder timePeriod(int timePeriod) {
-            this.timePeriod = timePeriod;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder seriesType(SeriesType seriesType) {
-            this.seriesType = seriesType;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public TechnicalIndicatorRequest build() {
-            return new STOCHRSIRequest(this);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
-
     }
 }

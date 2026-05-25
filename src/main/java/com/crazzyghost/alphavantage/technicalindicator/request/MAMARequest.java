@@ -6,7 +6,9 @@ import com.crazzyghost.alphavantage.parameters.SeriesType;
 public class MAMARequest extends TechnicalIndicatorRequest {
 
     private SeriesType series_type;
+
     private double fastLimit;
+
     private double slowLimit;
 
     private MAMARequest(Builder builder) {
@@ -19,7 +21,9 @@ public class MAMARequest extends TechnicalIndicatorRequest {
     public static class Builder extends TechnicalIndicatorRequest.Builder<Builder> {
 
         private double fastLimit = 0.1;
+
         private double slowLimit = 0.1;
+
         private SeriesType seriesType;
 
         public Builder() {
@@ -27,25 +31,20 @@ public class MAMARequest extends TechnicalIndicatorRequest {
         }
 
         public Builder fastLimit(double fastLimit) {
-            this.fastLimit = fastLimit;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder slowLimit(double slowLimit) {
-            this.slowLimit = slowLimit;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder seriesType(SeriesType seriesType) {
-            this.seriesType = seriesType;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public TechnicalIndicatorRequest build() {
-            return new MAMARequest(this);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
-
     }
-
 }

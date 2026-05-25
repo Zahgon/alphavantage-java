@@ -7,11 +7,17 @@ import com.crazzyghost.alphavantage.parameters.SeriesType;
 public class MACDEXTRequest extends TechnicalIndicatorRequest {
 
     private SeriesType series_type;
+
     private int fastPeriod;
+
     private int slowPeriod;
+
     private int signalPeriod;
+
     private MAType fastMaType;
+
     private MAType slowMaType;
+
     private MAType signalMaType;
 
     private MACDEXTRequest(Builder builder) {
@@ -28,11 +34,17 @@ public class MACDEXTRequest extends TechnicalIndicatorRequest {
     public static class Builder extends TechnicalIndicatorRequest.Builder<Builder> {
 
         private int fastPeriod = 12;
+
         private int slowPeriod = 26;
+
         private int signalPeriod = 9;
+
         private MAType fastMaType = MAType.SMA;
+
         private MAType slowMaType = MAType.SMA;
+
         private MAType signalMaType = MAType.SMA;
+
         private SeriesType seriesType;
 
         public Builder() {
@@ -40,44 +52,36 @@ public class MACDEXTRequest extends TechnicalIndicatorRequest {
         }
 
         public Builder fastPeriod(int fastPeriod) {
-            this.fastPeriod = fastPeriod;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder slowPeriod(int slowPeriod) {
-            this.slowPeriod = slowPeriod;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder signalPeriod(int signalPeriod) {
-            this.signalPeriod = signalPeriod;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder fastMaType(MAType type) {
-            this.fastMaType = type;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder slowMaType(MAType type) {
-            this.slowMaType = type;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder signalMaType(MAType type) {
-            this.signalMaType = type;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder seriesType(SeriesType seriesType) {
-            this.seriesType = seriesType;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public TechnicalIndicatorRequest build() {
-            return new MACDEXTRequest(this);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
-
     }
 }

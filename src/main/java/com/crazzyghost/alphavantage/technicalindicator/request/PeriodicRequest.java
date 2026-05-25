@@ -14,15 +14,12 @@ public class PeriodicRequest extends TechnicalIndicatorRequest {
         private int timePeriod = 60;
 
         public Builder timePeriod(int timePeriod) {
-            this.timePeriod = timePeriod;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public TechnicalIndicatorRequest build() {
-            return new PeriodicRequest(this);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
-
     }
-
 }

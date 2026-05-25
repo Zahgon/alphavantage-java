@@ -5,7 +5,9 @@ import com.crazzyghost.alphavantage.parameters.Function;
 public class ULTOSCRequest extends TechnicalIndicatorRequest {
 
     private int timePeriod1;
+
     private int timePeriod2;
+
     private int timePeriod3;
 
     protected ULTOSCRequest(Builder builder) {
@@ -18,7 +20,9 @@ public class ULTOSCRequest extends TechnicalIndicatorRequest {
     public static class Builder extends TechnicalIndicatorRequest.Builder<Builder> {
 
         public int timePeriod1 = 7;
+
         public int timePeriod2 = 14;
+
         public int timePeriod3 = 28;
 
         public Builder() {
@@ -26,24 +30,20 @@ public class ULTOSCRequest extends TechnicalIndicatorRequest {
         }
 
         public Builder timePeriod1(int period) {
-            this.timePeriod1 = period;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder timePeriod2(int period) {
-            this.timePeriod2 = period;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder timePeriod3(int period) {
-            this.timePeriod3 = period;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public TechnicalIndicatorRequest build() {
-            return new ULTOSCRequest(this);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
-
 }

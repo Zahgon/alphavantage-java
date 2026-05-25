@@ -26,11 +26,12 @@ import com.crazzyghost.alphavantage.AlphaVantageException;
 import com.crazzyghost.alphavantage.parameters.Function;
 import com.crazzyghost.alphavantage.parameters.Interval;
 import com.crazzyghost.alphavantage.parameters.Maturity;
-
 import java.util.Arrays;
 
 public class TreasuryYieldRequest extends EconomicIndicatorRequest {
+
     private Interval interval;
+
     private Maturity maturity;
 
     private TreasuryYieldRequest(Builder builder) {
@@ -40,7 +41,9 @@ public class TreasuryYieldRequest extends EconomicIndicatorRequest {
     }
 
     public static class Builder extends EconomicIndicatorRequest.Builder<Builder> {
+
         Interval interval;
+
         Maturity maturity;
 
         public Builder() {
@@ -49,21 +52,16 @@ public class TreasuryYieldRequest extends EconomicIndicatorRequest {
         }
 
         public Builder interval(Interval interval) {
-            if (!Arrays.asList(Interval.DAILY, Interval.WEEKLY, Interval.MONTHLY).contains(interval)) {
-                throw new AlphaVantageException("accepted interval values for TREASURY_YIELD are Interval.DAILY, Interval.WEEKLY, Interval.MONTHLY");
-            }
-            this.interval = interval;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder maturity(Maturity maturity) {
-            this.maturity = maturity;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public TreasuryYieldRequest build() {
-            return new TreasuryYieldRequest(this);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 }

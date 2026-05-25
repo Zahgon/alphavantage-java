@@ -8,17 +8,15 @@ public class QuoteRequest extends TimeSeriesRequest {
         super(builder);
     }
 
-    public static class Builder extends TimeSeriesRequest.Builder<Builder>{
-        public Builder(){
+    public static class Builder extends TimeSeriesRequest.Builder<Builder> {
+
+        public Builder() {
             this.function(Function.GLOBAL_QUOTE);
         }
 
         @Override
-        public QuoteRequest build(){
-            return new QuoteRequest(this);
+        public QuoteRequest build() {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
-
-
-    
 }

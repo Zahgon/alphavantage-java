@@ -45,6 +45,7 @@ import com.crazzyghost.alphavantage.timeseries.TimeSeries;
 public class AlphaVantage {
 
     private static AlphaVantage INSTANCE;
+
     private Config config;
 
     private AlphaVantage() {
@@ -54,7 +55,7 @@ public class AlphaVantage {
      * Initialize the client with a {@link Config} instance
      */
     public void init(Config config) {
-        this.config = config;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -63,10 +64,7 @@ public class AlphaVantage {
      * @return Singleton instance of {@link AlphaVantage}
      */
     public static AlphaVantage api() {
-        if (INSTANCE == null) {
-            INSTANCE = new AlphaVantage();
-        }
-        return INSTANCE;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -75,7 +73,7 @@ public class AlphaVantage {
      * @return A {@link TimeSeries} instance for access to Time Series Data
      */
     public TimeSeries timeSeries() {
-        return new TimeSeries(config);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -84,9 +82,8 @@ public class AlphaVantage {
      * @return A {@link Forex} instance for access to FX data
      */
     public Forex forex() {
-        return new Forex(config);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 
     /**
      * Access to Digital/Physical Exchange Rates.
@@ -94,9 +91,8 @@ public class AlphaVantage {
      * @return An {@link ExchangeRate} instance for access to Exchange Rate Data
      */
     public ExchangeRate exchangeRate() {
-        return new ExchangeRate(config);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 
     /**
      * Access to Digital Currencies.
@@ -104,7 +100,7 @@ public class AlphaVantage {
      * @return A {@link Crypto} instance for access to Digital Currency Data
      */
     public Crypto crypto() {
-        return new Crypto(config);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -125,7 +121,7 @@ public class AlphaVantage {
      * Indicator Data
      */
     public TechnicalIndicator technicalIndicator() {
-        return new TechnicalIndicator(config);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -134,7 +130,7 @@ public class AlphaVantage {
      * @return A {@link Sector} instance for access to Sector Performance Data
      */
     public Sector sector() {
-        return new Sector(config);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -143,7 +139,7 @@ public class AlphaVantage {
      * @return A {@link FundamentalData} instance for access to Fundamental Data
      */
     public FundamentalData fundamentalData() {
-        return new FundamentalData(config);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -152,7 +148,7 @@ public class AlphaVantage {
      * @return A {@link EconomicIndicator} instance for access to Economic Indicators
      */
     public EconomicIndicator economicIndicator() {
-        return new EconomicIndicator(config);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -161,7 +157,7 @@ public class AlphaVantage {
      * @return A {@link MarketStatus} instance for access to Global Market Status
      */
     public MarketStatus marketStatus() {
-        return new MarketStatus(config);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -170,8 +166,6 @@ public class AlphaVantage {
      * @return A {@link Search} instance for access to symbol searching
      */
     public Search search() {
-        return new Search(config);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
-
 }

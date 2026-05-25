@@ -33,7 +33,6 @@ import okhttp3.Call;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 import org.jetbrains.annotations.NotNull;
-
 import java.io.IOException;
 
 /**
@@ -45,8 +44,11 @@ import java.io.IOException;
 public final class Search implements Fetcher {
 
     private final Config config;
+
     private final SearchRequest.Builder builder;
+
     private SuccessCallback<SearchResponse> successCallback;
+
     private FailureCallback failureCallback;
 
     public Search(Config config) {
@@ -54,9 +56,8 @@ public final class Search implements Fetcher {
         this.builder = new SearchRequest.Builder();
     }
 
-    public Search keywords(String keywords){
-        this.builder.keywords(keywords);
-        return this;
+    public Search keywords(String keywords) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -66,8 +67,7 @@ public final class Search implements Fetcher {
      * @return current instance of {@link SearchResponse}
      */
     public Search onSuccess(SuccessCallback<SearchResponse> callback) {
-        this.successCallback = callback;
-        return this;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -77,10 +77,8 @@ public final class Search implements Fetcher {
      * @return current instance of {@link SearchResponse}
      */
     public Search onFailure(FailureCallback callback) {
-        this.failureCallback = callback;
-        return this;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 
     /**
      * Make a blocking synchronous http request to fetch the data.
@@ -91,47 +89,11 @@ public final class Search implements Fetcher {
      * @since 1.8.0
      */
     public SearchResponse fetchSync() throws AlphaVantageException {
-        Config.checkNotNullOrKeyEmpty(config);
-
-        this.successCallback = null;
-        this.failureCallback = null;
-        okhttp3.OkHttpClient client = config.getOkHttpClient();
-
-        try (Response response = client.newCall(UrlExtractor.extract(builder.build(), config.getKey())).execute()) {
-            return SearchResponse.of(Parser.parseJSON(response.body().string()));
-        } catch (IOException exception) {
-            throw new AlphaVantageException(exception.getMessage());
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void fetch() {
-        Config.checkNotNullOrKeyEmpty(config);
-
-        config.getOkHttpClient().newCall(UrlExtractor.extract(builder.build(), config.getKey())).enqueue(new okhttp3.Callback() {
-            @Override
-            public void onFailure(@NotNull Call call, @NotNull IOException exception) {
-                if (failureCallback != null) failureCallback.onFailure(new AlphaVantageException(exception.getMessage()));
-            }
-
-            @Override
-            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
-                if (response.isSuccessful()) {
-                    try (ResponseBody body = response.body()) {
-                        SearchResponse searchResponse = SearchResponse.of(Parser.parseJSON(body.string()));
-                        if (searchResponse.getErrorMessage() != null && failureCallback != null) {
-                            failureCallback.onFailure(new AlphaVantageException(searchResponse.getErrorMessage()));
-                        }
-                        if (successCallback != null) {
-                            successCallback.onSuccess(searchResponse);
-                        }
-                    }
-                } else {
-                    if (failureCallback != null) {
-                        failureCallback.onFailure(new AlphaVantageException());
-                    }
-                }
-            }
-        });
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

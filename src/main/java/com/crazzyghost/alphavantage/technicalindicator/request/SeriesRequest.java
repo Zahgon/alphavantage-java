@@ -16,14 +16,12 @@ public class SeriesRequest extends TechnicalIndicatorRequest {
         private SeriesType seriesType;
 
         public Builder seriesType(SeriesType seriesType) {
-            this.seriesType = seriesType;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public TechnicalIndicatorRequest build() {
-            return new SeriesRequest(this);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
-
     }
 }

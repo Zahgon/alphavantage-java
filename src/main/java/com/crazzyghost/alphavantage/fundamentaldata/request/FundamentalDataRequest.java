@@ -33,6 +33,7 @@ import com.crazzyghost.alphavantage.parameters.Function;
 public abstract class FundamentalDataRequest {
 
     protected Function function;
+
     protected String symbol;
 
     protected FundamentalDataRequest(Builder<?> builder) {
@@ -40,23 +41,20 @@ public abstract class FundamentalDataRequest {
         this.symbol = builder.symbol;
     }
 
-
-    public abstract static class Builder <T extends Builder<?>> {
+    public abstract static class Builder<T extends Builder<?>> {
 
         private String symbol;
+
         public Function function;
 
-        public T symbol(String symbol){
-            this.symbol = symbol;
-            return (T) this;
+        public T symbol(String symbol) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public T function(Function function){
-            this.function = function;
-            return (T) this;
+        public T function(Function function) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public abstract FundamentalDataRequest build();
-
     }
 }

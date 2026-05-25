@@ -34,7 +34,6 @@ import com.crazzyghost.alphavantage.parser.Parser;
 import okhttp3.Call;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-
 import java.io.IOException;
 
 /**
@@ -46,8 +45,11 @@ import java.io.IOException;
 public class EconomicIndicator implements Fetcher {
 
     private final Config config;
+
     private EconomicIndicatorRequest.Builder<?> builder;
+
     private Fetcher.SuccessCallback<EconomicIndicatorResponse> successCallback;
+
     private Fetcher.FailureCallback failureCallback;
 
     public EconomicIndicator(Config config) {
@@ -56,33 +58,7 @@ public class EconomicIndicator implements Fetcher {
 
     @Override
     public void fetch() {
-        Config.checkNotNullOrKeyEmpty(config);
-
-        config.getOkHttpClient().newCall(UrlExtractor.extract(builder.build(), config.getKey())).enqueue(new okhttp3.Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                if(failureCallback != null) failureCallback.onFailure(new AlphaVantageException());
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                if(response.isSuccessful()){
-                    try(ResponseBody body = response.body()){
-                        EconomicIndicatorResponse economicIndicatorResponse = EconomicIndicatorResponse.of(Parser.parseJSON(body.string()));
-                        if (economicIndicatorResponse.getErrorMessage() != null && failureCallback != null) {
-                            failureCallback.onFailure(new AlphaVantageException(economicIndicatorResponse.getErrorMessage()));
-                        }
-                        if (successCallback != null) {
-                            successCallback.onSuccess(economicIndicatorResponse);
-                        }
-                    }
-                } else {
-                    if(failureCallback != null) {
-                        failureCallback.onFailure(new AlphaVantageException());
-                    }
-                }
-            }
-        });
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -95,85 +71,82 @@ public class EconomicIndicator implements Fetcher {
      * @throws AlphaVantageException exception thrown
      */
     private EconomicIndicatorResponse fetchSync() throws AlphaVantageException {
-
         Config.checkNotNullOrKeyEmpty(config);
-
         this.successCallback = null;
         this.failureCallback = null;
         okhttp3.OkHttpClient client = config.getOkHttpClient();
         try (Response response = client.newCall(UrlExtractor.extract(builder.build(), config.getKey())).execute()) {
             return EconomicIndicatorResponse.of(Parser.parseJSON(response.body().string()));
-        } catch(IOException e) {
+        } catch (IOException e) {
             throw new AlphaVantageException(e.getMessage());
         }
     }
 
     public RealGdpRequestProxy realGdp() {
-        return new RealGdpRequestProxy();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public RealGdpPerCapitaRequestProxy realGdpPerCapita() {
-        return new RealGdpPerCapitaRequestProxy();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public TreasuryYieldRequestProxy treasuryYield() {
-        return new TreasuryYieldRequestProxy();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public FederalFundsRateRequestProxy federalFundsRate() {
-        return new FederalFundsRateRequestProxy();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public CpiRequestProxy cpi() {
-        return new CpiRequestProxy();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public InflationRequestProxy inflation() {
-        return new InflationRequestProxy();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public InflationExpectationRequestProxy inflationExpectation() {
-        return new InflationExpectationRequestProxy();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public ConsumerSentimentRequestProxy consumerSentiment() {
-        return new ConsumerSentimentRequestProxy();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public RetailSalesRequestProxy retailSales() {
-        return new RetailSalesRequestProxy();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public DurableGoodsOrdersRequestProxy durables() {
-        return new DurableGoodsOrdersRequestProxy();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public UnemploymentRateRequestProxy unemployment() {
-        return new UnemploymentRateRequestProxy();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public NonFarmPayrollRequestProxy nonFarmPayroll() {
-        return new NonFarmPayrollRequestProxy();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public abstract class RequestProxy<Proxy extends  RequestProxy<?>> {
+    public abstract class RequestProxy<Proxy extends RequestProxy<?>> {
+
         protected EconomicIndicatorRequest.Builder<?> builder;
 
-        private RequestProxy() {}
+        private RequestProxy() {
+        }
 
         public Proxy onSuccess(SuccessCallback<EconomicIndicatorResponse> callback) {
-            EconomicIndicator.this.successCallback = callback;
-            return (Proxy)this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Proxy onFailure(FailureCallback callback) {
-            EconomicIndicator.this.failureCallback = callback;
-            return (Proxy)this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public void fetch() {
-            EconomicIndicator.this.builder = this.builder;
-            EconomicIndicator.this.fetch();
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         /**
@@ -184,107 +157,111 @@ public class EconomicIndicator implements Fetcher {
          * @throws AlphaVantageException exception during call
          */
         public EconomicIndicatorResponse fetchSync() throws AlphaVantageException {
-            EconomicIndicator.this.builder = this.builder;
-            return EconomicIndicator.this.fetchSync();
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
-
     }
 
     public class RealGdpRequestProxy extends RequestProxy<RealGdpRequestProxy> {
+
         public RealGdpRequestProxy() {
             builder = new RealGdpRequest.Builder();
         }
 
-        public RealGdpRequestProxy interval(Interval interval){
-            builder = ((RealGdpRequest.Builder)builder).interval(interval);
-            return this;
+        public RealGdpRequestProxy interval(Interval interval) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
     public class RealGdpPerCapitaRequestProxy extends RequestProxy<RealGdpPerCapitaRequestProxy> {
+
         public RealGdpPerCapitaRequestProxy() {
             builder = new RealGdpPerCapitaRequest.Builder();
         }
     }
 
     public class TreasuryYieldRequestProxy extends RequestProxy<TreasuryYieldRequestProxy> {
+
         public TreasuryYieldRequestProxy() {
             builder = new TreasuryYieldRequest.Builder();
         }
 
-        public TreasuryYieldRequestProxy interval(Interval interval){
-            builder = ((TreasuryYieldRequest.Builder)builder).interval(interval);
-            return this;
+        public TreasuryYieldRequestProxy interval(Interval interval) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public TreasuryYieldRequestProxy maturity(Maturity maturity){
-            builder = ((TreasuryYieldRequest.Builder)builder).maturity(maturity);
-            return this;
+        public TreasuryYieldRequestProxy maturity(Maturity maturity) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
     public class FederalFundsRateRequestProxy extends RequestProxy<FederalFundsRateRequestProxy> {
+
         public FederalFundsRateRequestProxy() {
             builder = new FederalFundsRateRequest.Builder();
         }
 
-        public FederalFundsRateRequestProxy interval(Interval interval){
-            builder = ((FederalFundsRateRequest.Builder)builder).interval(interval);
-            return this;
+        public FederalFundsRateRequestProxy interval(Interval interval) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
     public class CpiRequestProxy extends RequestProxy<CpiRequestProxy> {
+
         public CpiRequestProxy() {
             builder = new CpiRequest.Builder();
         }
 
-        public CpiRequestProxy interval(Interval interval){
-            builder = ((CpiRequest.Builder)builder).interval(interval);
-            return this;
+        public CpiRequestProxy interval(Interval interval) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
     public class InflationRequestProxy extends RequestProxy<InflationRequestProxy> {
+
         public InflationRequestProxy() {
             builder = new InflationRequest.Builder();
         }
     }
 
     public class InflationExpectationRequestProxy extends RequestProxy<InflationExpectationRequestProxy> {
+
         public InflationExpectationRequestProxy() {
             builder = new InflationExpectationRequest.Builder();
         }
     }
 
     public class ConsumerSentimentRequestProxy extends RequestProxy<ConsumerSentimentRequestProxy> {
+
         public ConsumerSentimentRequestProxy() {
             builder = new ConsumerSentimentRequest.Builder();
         }
     }
 
     public class RetailSalesRequestProxy extends RequestProxy<RetailSalesRequestProxy> {
+
         public RetailSalesRequestProxy() {
             builder = new RetailSalesRequest.Builder();
         }
     }
 
     public class DurableGoodsOrdersRequestProxy extends RequestProxy<DurableGoodsOrdersRequestProxy> {
+
         public DurableGoodsOrdersRequestProxy() {
             builder = new DurableGoodsOrdersRequest.Builder();
         }
     }
 
     public class UnemploymentRateRequestProxy extends RequestProxy<UnemploymentRateRequestProxy> {
+
         public UnemploymentRateRequestProxy() {
             builder = new UnemploymentRateRequest.Builder();
         }
     }
 
     public class NonFarmPayrollRequestProxy extends RequestProxy<NonFarmPayrollRequestProxy> {
+
         public NonFarmPayrollRequestProxy() {
             builder = new NonFarmPayrollRequest.Builder();
         }
     }
-
 }

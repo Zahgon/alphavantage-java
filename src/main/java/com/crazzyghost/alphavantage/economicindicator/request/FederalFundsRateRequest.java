@@ -25,17 +25,19 @@ package com.crazzyghost.alphavantage.economicindicator.request;
 import com.crazzyghost.alphavantage.AlphaVantageException;
 import com.crazzyghost.alphavantage.parameters.Function;
 import com.crazzyghost.alphavantage.parameters.Interval;
-
 import java.util.Arrays;
 
 public class FederalFundsRateRequest extends EconomicIndicatorRequest {
+
     private Interval interval;
+
     private FederalFundsRateRequest(Builder builder) {
         super(builder);
         this.interval = builder.interval;
     }
 
     public static class Builder extends EconomicIndicatorRequest.Builder<Builder> {
+
         Interval interval;
 
         public Builder() {
@@ -44,16 +46,12 @@ public class FederalFundsRateRequest extends EconomicIndicatorRequest {
         }
 
         public Builder interval(Interval interval) {
-            if (!Arrays.asList(Interval.DAILY, Interval.WEEKLY, Interval.MONTHLY).contains(interval)) {
-                throw new AlphaVantageException("accepted interval values for FEDERAL_FUNDS_RATE are Interval.DAILY, Interval.WEEKLY, Interval.MONTHLY");
-            }
-            this.interval = interval;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public FederalFundsRateRequest build() {
-            return new FederalFundsRateRequest(this);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 }

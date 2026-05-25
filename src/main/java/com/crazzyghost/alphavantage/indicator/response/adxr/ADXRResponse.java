@@ -3,7 +3,6 @@ package com.crazzyghost.alphavantage.indicator.response.adxr;
 import com.crazzyghost.alphavantage.indicator.response.PeriodicResponse;
 import com.crazzyghost.alphavantage.indicator.response.SimpleIndicatorUnit;
 import com.crazzyghost.alphavantage.parser.Parser;
-
 import java.util.List;
 import java.util.Map;
 
@@ -17,26 +16,25 @@ public class ADXRResponse extends PeriodicResponse {
         super(errorMessage);
     }
 
-    public static ADXRResponse of(Map<String, Object> stringObjectMap){
-        Parser<ADXRResponse> parser = new ADXRParser();
-        return parser.parse(stringObjectMap);
+    public static ADXRResponse of(Map<String, Object> stringObjectMap) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static class ADXRParser extends PeriodicParser<ADXRResponse> {
 
         @Override
         public ADXRResponse get(List<SimpleIndicatorUnit> indicatorUnits, MetaData metaData) {
-            return new ADXRResponse(indicatorUnits, metaData);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public ADXRResponse get(String errorMessage) {
-            return new ADXRResponse(errorMessage);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public String getIndicatorKey() {
-            return "ADXR";
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 }

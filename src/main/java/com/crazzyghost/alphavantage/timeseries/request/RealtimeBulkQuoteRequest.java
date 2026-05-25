@@ -25,11 +25,13 @@ package com.crazzyghost.alphavantage.timeseries.request;
 import com.crazzyghost.alphavantage.parameters.Function;
 
 public class RealtimeBulkQuoteRequest extends TimeSeriesRequest {
+
     private RealtimeBulkQuoteRequest(Builder builder) {
         super(builder);
     }
 
     public static class Builder extends TimeSeriesRequest.Builder<RealtimeBulkQuoteRequest.Builder> {
+
         private final StringBuilder symbolBuilder = new StringBuilder();
 
         public Builder() {
@@ -37,16 +39,12 @@ public class RealtimeBulkQuoteRequest extends TimeSeriesRequest {
         }
 
         public Builder forSymbol(String symbol) {
-            symbolBuilder.append(symbol).append(",");
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public RealtimeBulkQuoteRequest build() {
-            symbolBuilder.deleteCharAt(symbolBuilder.length() - 1);
-            this.symbol = symbolBuilder.toString();
-
-            return new RealtimeBulkQuoteRequest(this);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 }

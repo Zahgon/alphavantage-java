@@ -3,7 +3,9 @@ package com.crazzyghost.alphavantage.search.request;
 import com.crazzyghost.alphavantage.parameters.Function;
 
 public class SearchRequest {
+
     private final Function function;
+
     private final String keywords;
 
     private SearchRequest(Builder builder) {
@@ -12,7 +14,9 @@ public class SearchRequest {
     }
 
     public static class Builder {
+
         private final Function function;
+
         private String keywords;
 
         public Builder() {
@@ -20,12 +24,11 @@ public class SearchRequest {
         }
 
         public Builder keywords(String keywords) {
-            this.keywords = keywords;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public SearchRequest build() {
-            return new SearchRequest(this);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 }

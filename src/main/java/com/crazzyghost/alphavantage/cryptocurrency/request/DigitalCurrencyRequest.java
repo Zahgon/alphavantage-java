@@ -34,7 +34,6 @@ public class DigitalCurrencyRequest extends CryptoRequest {
         super(builder);
     }
 
-
     public static class Builder extends CryptoRequest.Builder<Builder> {
 
         public Builder() {
@@ -42,8 +41,7 @@ public class DigitalCurrencyRequest extends CryptoRequest {
 
         @Override
         public CryptoRequest build() {
-            return new DigitalCurrencyRequest(this);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
-
 }

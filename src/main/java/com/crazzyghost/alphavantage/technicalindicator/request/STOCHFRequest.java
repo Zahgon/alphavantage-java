@@ -6,7 +6,9 @@ import com.crazzyghost.alphavantage.parameters.MAType;
 public class STOCHFRequest extends TechnicalIndicatorRequest {
 
     private int fastKPeriod;
+
     private int fastDPeriod;
+
     private MAType fastDMaType;
 
     protected STOCHFRequest(Builder builder) {
@@ -19,7 +21,9 @@ public class STOCHFRequest extends TechnicalIndicatorRequest {
     public static class Builder extends TechnicalIndicatorRequest.Builder<Builder> {
 
         private int fastKPeriod = 5;
+
         private int fastDPeriod = 3;
+
         private MAType fastDMaType = MAType.SMA;
 
         public Builder() {
@@ -27,24 +31,20 @@ public class STOCHFRequest extends TechnicalIndicatorRequest {
         }
 
         public Builder fastKPeriod(int fastKPeriod) {
-            this.fastKPeriod = fastKPeriod;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder fastDPeriod(int fastDPeriod) {
-            this.fastDPeriod = fastDPeriod;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder fastDMaType(MAType type) {
-            this.fastDMaType = type;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public TechnicalIndicatorRequest build() {
-            return new STOCHFRequest(this);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
-
     }
 }

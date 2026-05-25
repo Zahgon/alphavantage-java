@@ -6,9 +6,13 @@ import com.crazzyghost.alphavantage.parameters.MAType;
 public class STOCHRequest extends TechnicalIndicatorRequest {
 
     private int fastKPeriod;
+
     private int slowKPeriod;
+
     private int slowDPeriod;
+
     private MAType slowKMaType;
+
     private MAType slowDMaType;
 
     protected STOCHRequest(Builder builder) {
@@ -23,9 +27,13 @@ public class STOCHRequest extends TechnicalIndicatorRequest {
     public static class Builder extends TechnicalIndicatorRequest.Builder<Builder> {
 
         private int fastKPeriod = 5;
+
         private int slowKPeriod = 3;
+
         private int slowDPeriod = 3;
+
         private MAType slowKMaType = MAType.SMA;
+
         private MAType slowDMaType = MAType.SMA;
 
         public Builder() {
@@ -33,34 +41,28 @@ public class STOCHRequest extends TechnicalIndicatorRequest {
         }
 
         public Builder fastKPeriod(int fastKPeriod) {
-            this.fastKPeriod = fastKPeriod;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder slowKPeriod(int slowKPeriod) {
-            this.slowKPeriod = slowKPeriod;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder slowDPeriod(int slowDPeriod) {
-            this.slowDPeriod = slowDPeriod;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder slowKMaType(MAType type) {
-            this.slowKMaType = type;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder slowDMaType(MAType type) {
-            this.slowDMaType = type;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public TechnicalIndicatorRequest build() {
-            return new STOCHRequest(this);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
-
     }
 }

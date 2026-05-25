@@ -34,6 +34,7 @@ public class EconomicIndicatorUnit {
 
     @Json(name = "date")
     private String date;
+
     @Json(name = "value")
     private Double value;
 
@@ -43,11 +44,10 @@ public class EconomicIndicatorUnit {
     }
 
     public String getDate() {
-        return date;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getValue() {
-        return value;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 }

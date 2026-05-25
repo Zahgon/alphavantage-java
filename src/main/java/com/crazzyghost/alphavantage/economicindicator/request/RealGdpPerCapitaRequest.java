@@ -39,7 +39,7 @@ public class RealGdpPerCapitaRequest extends EconomicIndicatorRequest {
 
         @Override
         public RealGdpPerCapitaRequest build() {
-            return new RealGdpPerCapitaRequest(this);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 }

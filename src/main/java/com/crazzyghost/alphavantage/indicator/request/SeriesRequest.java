@@ -6,24 +6,22 @@ public class SeriesRequest extends IndicatorRequest {
 
     private SeriesType series_type;
 
-    private SeriesRequest(Builder builder){
+    private SeriesRequest(Builder builder) {
         super(builder);
         this.series_type = builder.seriesType;
     }
 
-    public static class Builder extends IndicatorRequest.Builder<Builder>{
+    public static class Builder extends IndicatorRequest.Builder<Builder> {
 
         private SeriesType seriesType;
-     
-        public Builder seriesType(SeriesType seriesType){
-            this.seriesType = seriesType;
-            return this;
+
+        public Builder seriesType(SeriesType seriesType) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public IndicatorRequest build() {
-            return new SeriesRequest(this);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
-
     }
 }

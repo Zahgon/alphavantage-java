@@ -3,14 +3,15 @@ package com.crazzyghost.alphavantage.technicalindicator.response.macd;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
 import com.crazzyghost.alphavantage.parser.DefaultParser;
 import com.crazzyghost.alphavantage.parser.Parser;
 
 public class MACDEXTResponse {
 
     private MetaData metaData;
+
     private List<MACDIndicatorUnit> indicatorUnits;
+
     private String errorMessage;
 
     private MACDEXTResponse(List<MACDIndicatorUnit> indicatorUnits, MetaData metaData) {
@@ -26,97 +27,66 @@ public class MACDEXTResponse {
     }
 
     public String getErrorMessage() {
-        return errorMessage;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public List<MACDIndicatorUnit> getIndicatorUnits() {
-        return indicatorUnits;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public MetaData getMetaData() {
-        return metaData;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static MACDEXTResponse of(Map<String, Object> stringObjectMap) {
-        Parser<MACDEXTResponse> parser = new MACDEXTParser();
-        return parser.parse(stringObjectMap);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static class MACDEXTParser extends DefaultParser<MACDEXTResponse> {
 
         @Override
         public MACDEXTResponse parse(Map<String, String> metaDataMap, Map<String, Map<String, String>> indicatorData) {
-            MetaData metaData = new MetaData(
-                    String.valueOf(metaDataMap.get("1: Symbol")),
-                    String.valueOf(metaDataMap.get("2: Indicator")),
-                    String.valueOf(metaDataMap.get("3: Last Refreshed")),
-                    String.valueOf(metaDataMap.get("4: Interval")),
-                    Double.valueOf(String.valueOf(metaDataMap.get("5.1: Fast Period"))),
-                    Double.valueOf(String.valueOf(metaDataMap.get("5.2: Slow Period"))),
-                    Double.valueOf(String.valueOf(metaDataMap.get("5.3: Signal Period"))),
-                    Double.valueOf(String.valueOf(metaDataMap.get("5.4: Fast MA Type"))),
-                    Double.valueOf(String.valueOf(metaDataMap.get("5.5: Slow MA Type"))),
-                    Double.valueOf(String.valueOf(metaDataMap.get("5.6: Signal MA Type"))),
-                    String.valueOf(metaDataMap.get("6: Series Type")),
-                    String.valueOf(metaDataMap.get("7: Time Zone")));
-
-            List<MACDIndicatorUnit> indicatorUnits = new ArrayList<>();
-
-            for (Map.Entry<String, Map<String, String>> e : indicatorData.entrySet()) {
-                Map<String, String> m = e.getValue();
-                MACDIndicatorUnit indicatorUnit = new MACDIndicatorUnit(
-                        e.getKey(),
-                        Double.parseDouble(m.get("MACD_Hist")),
-                        Double.parseDouble(m.get("MACD_Signal")),
-                        Double.parseDouble(m.get("MACD")));
-                indicatorUnits.add(indicatorUnit);
-            }
-            return new MACDEXTResponse(indicatorUnits, metaData);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public MACDEXTResponse onParseError(String error) {
-            return new MACDEXTResponse(error);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
     @Override
     public String toString() {
-        return "MACDResponse{" +
-                "metaData=" + metaData +
-                ",indicatorUnits=" + indicatorUnits.size() +
-                ", errorMessage='" + errorMessage + '\'' +
-                '}';
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static class MetaData {
 
         private String symbol;
+
         private String indicator;
+
         private String lastRefreshed;
+
         private String interval;
+
         private double fastPeriod;
+
         private double slowPeriod;
+
         private double signalPeriod;
+
         private double fastMaType;
+
         private double slowMaType;
+
         private double signalMaType;
+
         private String timeZone;
+
         private String seriesType;
 
-        public MetaData(
-                String symbol,
-                String indicator,
-                String lastRefreshed,
-                String interval,
-                double fastPeriod,
-                double slowPeriod,
-                double signalPeriod,
-                double fastMaType,
-                double slowMaType,
-                double signalMaType,
-                String seriesType,
-                String timeZone) {
+        public MetaData(String symbol, String indicator, String lastRefreshed, String interval, double fastPeriod, double slowPeriod, double signalPeriod, double fastMaType, double slowMaType, double signalMaType, String seriesType, String timeZone) {
             this.symbol = symbol;
             this.indicator = indicator;
             this.lastRefreshed = lastRefreshed;
@@ -136,60 +106,56 @@ public class MACDEXTResponse {
         }
 
         public String getSymbol() {
-            return symbol;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public String getIndicator() {
-            return indicator;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public String getLastRefreshed() {
-            return lastRefreshed;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public String getInterval() {
-            return interval;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public String getTimeZone() {
-            return timeZone;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public String getSeriesType() {
-            return seriesType;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public double getFastPeriod() {
-            return fastPeriod;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public double getSlowPeriod() {
-            return slowPeriod;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public double getSignalPeriod() {
-            return signalPeriod;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public double getFastMaType() {
-            return fastMaType;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public double getSlowMaType() {
-            return slowMaType;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public double getSignalMaType() {
-            return signalMaType;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public String toString() {
-            return "MetaData {fastMaType=" + fastMaType + ", fastPeriod=" + fastPeriod + ", indicator=" + indicator
-                    + ", interval=" + interval + ", lastRefreshed=" + lastRefreshed + ", seriesType=" + seriesType
-                    + ", signalMaType=" + signalMaType + ", signalPeriod=" + signalPeriod + ", slowMaType=" + slowMaType
-                    + ", slowPeriod=" + slowPeriod + ", symbol=" + symbol + ", timeZone=" + timeZone + "}";
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
-
     }
 }

@@ -3,7 +3,6 @@ package com.crazzyghost.alphavantage.indicator.response.midpoint;
 import com.crazzyghost.alphavantage.indicator.response.PeriodicSeriesResponse;
 import com.crazzyghost.alphavantage.indicator.response.SimpleIndicatorUnit;
 import com.crazzyghost.alphavantage.parser.Parser;
-
 import java.util.List;
 import java.util.Map;
 
@@ -17,26 +16,25 @@ public class MIDPOINTResponse extends PeriodicSeriesResponse {
         super(errorMessage);
     }
 
-    public static MIDPOINTResponse of(Map<String, Object> stringObjectMap){
-        Parser<MIDPOINTResponse> parser = new MIDPOINTResponseParser();
-        return parser.parse(stringObjectMap);
+    public static MIDPOINTResponse of(Map<String, Object> stringObjectMap) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static class MIDPOINTResponseParser extends PeriodicSeriesParser<MIDPOINTResponse> {
 
         @Override
         public MIDPOINTResponse get(List<SimpleIndicatorUnit> indicatorUnits, MetaData metaData) {
-            return new MIDPOINTResponse(indicatorUnits, metaData);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public MIDPOINTResponse get(String errorMessage) {
-            return new MIDPOINTResponse(errorMessage);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         protected String getIndicatorKey() {
-            return "MIDPOINT";
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 }

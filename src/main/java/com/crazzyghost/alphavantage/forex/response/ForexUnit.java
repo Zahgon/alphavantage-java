@@ -3,9 +3,13 @@ package com.crazzyghost.alphavantage.forex.response;
 public class ForexUnit {
 
     private double open;
+
     private double high;
+
     private double low;
+
     private double close;
+
     private String date;
 
     private ForexUnit(Builder builder) {
@@ -16,75 +20,65 @@ public class ForexUnit {
         this.date = builder.date;
     }
 
-    public static class Builder{
+    public static class Builder {
 
         double open;
+
         double high;
+
         double low;
+
         double close;
+
         String date;
 
-        public Builder open(double open){
-            this.open = open;
-            return this;
+        public Builder open(double open) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public Builder high(double high){
-            this.high = high;
-            return this;
-        }
-        public Builder low(double low){
-            this.low = low;
-            return this;
+        public Builder high(double high) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public Builder close(double close){
-            this.close = close;
-            return this;
+        public Builder low(double low) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public Builder date(String date){
-            this.date = date;
-            return this;
+        public Builder close(double close) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public ForexUnit build(){
-            return new ForexUnit(this);
+        public Builder date(String date) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
+        public ForexUnit build() {
+            throw new UnsupportedOperationException("STUB: not implemented");
+        }
     }
-
-    
 
     @Override
     public String toString() {
-        return "\n" + "ForexUnit{" +
-                "open=" + open +
-                ", high=" + high +
-                ", low=" + low +
-                ", close=" + close +
-                ", date=" + date +
-                '}';
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public double getOpen() {
-        return open;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public double getHigh() {
-        return high;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public double getLow() {
-        return low;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public double getClose() {
-        return close;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getDate() {
-        return date;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-    
 }

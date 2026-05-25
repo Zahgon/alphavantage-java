@@ -39,7 +39,7 @@ public class NonFarmPayrollRequest extends EconomicIndicatorRequest {
 
         @Override
         public NonFarmPayrollRequest build() {
-            return new NonFarmPayrollRequest(this);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 }

@@ -3,7 +3,6 @@ package com.crazzyghost.alphavantage.technicalindicator.response.adosc;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
 import com.crazzyghost.alphavantage.technicalindicator.response.SimpleTechnicalIndicatorUnit;
 import com.crazzyghost.alphavantage.parser.DefaultParser;
 import com.crazzyghost.alphavantage.parser.Parser;
@@ -11,7 +10,9 @@ import com.crazzyghost.alphavantage.parser.Parser;
 public class ADOSCResponse {
 
     private MetaData metaData;
+
     private List<SimpleTechnicalIndicatorUnit> indicatorUnits;
+
     private String errorMessage;
 
     private ADOSCResponse(List<SimpleTechnicalIndicatorUnit> indicatorUnits, MetaData metaData) {
@@ -27,86 +28,60 @@ public class ADOSCResponse {
     }
 
     public String getErrorMessage() {
-        return errorMessage;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public List<SimpleTechnicalIndicatorUnit> getIndicatorUnits() {
-        return indicatorUnits;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public MetaData getMetaData() {
-        return metaData;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static ADOSCResponse of(Map<String, Object> stringObjectMap) {
-        Parser<ADOSCResponse> parser = new ADOSCParser();
-        return parser.parse(stringObjectMap);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static class ADOSCParser extends DefaultParser<ADOSCResponse> {
 
         @Override
         public ADOSCResponse parse(Map<String, String> metaDataMap, Map<String, Map<String, String>> indicatorData) {
-
-            MetaData metaData = new MetaData(
-                    metaDataMap.get("1: Symbol").toString(),
-                    metaDataMap.get("2: Indicator").toString(),
-                    metaDataMap.get("3: Last Refreshed").toString(),
-                    metaDataMap.get("4: Interval").toString(),
-                    Double.valueOf(String.valueOf(metaDataMap.get("5.1: FastK Period"))).intValue(),
-                    Double.valueOf(String.valueOf(metaDataMap.get("5.2: SlowK Period"))).intValue(),
-                    metaDataMap.get("6: Time Zone").toString());
-
-            List<SimpleTechnicalIndicatorUnit> indicatorUnits = new ArrayList<>();
-
-            for (Map.Entry<String, Map<String, String>> e : indicatorData.entrySet()) {
-                Map<String, String> m = e.getValue();
-                SimpleTechnicalIndicatorUnit indicatorUnit = new SimpleTechnicalIndicatorUnit(
-                        e.getKey(),
-                        Double.parseDouble(m.get("ADOSC")),
-                        "ADOSC");
-                indicatorUnits.add(indicatorUnit);
-            }
-            return new ADOSCResponse(indicatorUnits, metaData);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public ADOSCResponse onParseError(String error) {
-            return new ADOSCResponse(error);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
     @Override
     public String toString() {
-        return "ADOSCResponse{" +
-                "metaData=" + metaData +
-                ",indicatorUnits=" + indicatorUnits.size() +
-                ", errorMessage='" + errorMessage + '\'' +
-                '}';
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static class MetaData {
 
         private String symbol;
+
         private String indicator;
+
         private String lastRefreshed;
+
         private String interval;
+
         private int fastKPeriod;
+
         private int slowKPeriod;
+
         private String timeZone;
 
         public MetaData() {
             this("", "", "", "", 0, 0, "");
         }
 
-        public MetaData(
-                String symbol,
-                String indicator,
-                String lastRefreshed,
-                String interval,
-                int fastPeriod,
-                int slowPeriod,
-                String timeZone) {
+        public MetaData(String symbol, String indicator, String lastRefreshed, String interval, int fastPeriod, int slowPeriod, String timeZone) {
             this.symbol = symbol;
             this.indicator = indicator;
             this.lastRefreshed = lastRefreshed;
@@ -117,40 +92,36 @@ public class ADOSCResponse {
         }
 
         public String getSymbol() {
-            return symbol;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public String getIndicator() {
-            return indicator;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public String getLastRefreshed() {
-            return lastRefreshed;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public String getInterval() {
-            return interval;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public int getFastKPeriod() {
-            return fastKPeriod;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public int getSlowKPeriod() {
-            return slowKPeriod;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public String getTimeZone() {
-            return timeZone;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public String toString() {
-            return "MetaData {fastKPeriod=" + fastKPeriod + ", indicator=" + indicator + ", interval=" + interval
-                    + ", lastRefreshed=" + lastRefreshed
-                    + ", slowKPeriod=" + slowKPeriod + ", symbol=" + symbol + ", timeZone=" + timeZone + "}";
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
-
     }
-
 }

@@ -38,12 +38,13 @@ public class BalanceSheetRequest extends FundamentalDataRequest {
 
     public static class Builder extends FundamentalDataRequest.Builder<Builder> {
 
-        public Builder() { this.function(Function.BALANCE_SHEET); }
+        public Builder() {
+            this.function(Function.BALANCE_SHEET);
+        }
 
         @Override
         public BalanceSheetRequest build() {
-            return new BalanceSheetRequest(this);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
-
 }

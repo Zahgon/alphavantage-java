@@ -3,7 +3,6 @@ package com.crazzyghost.alphavantage.technicalindicator.response.httrendmode;
 import com.crazzyghost.alphavantage.technicalindicator.response.SeriesResponse;
 import com.crazzyghost.alphavantage.technicalindicator.response.SimpleTechnicalIndicatorUnit;
 import com.crazzyghost.alphavantage.parser.Parser;
-
 import java.util.List;
 import java.util.Map;
 
@@ -18,25 +17,24 @@ public class HTTRENDMODEResponse extends SeriesResponse {
     }
 
     public static HTTRENDMODEResponse of(Map<String, Object> data) {
-        Parser<HTTRENDMODEResponse> parser = new HTTRENDMODEParser();
-        return parser.parse(data);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static class HTTRENDMODEParser extends SeriesParser<HTTRENDMODEResponse> {
 
         @Override
         public HTTRENDMODEResponse get(List<SimpleTechnicalIndicatorUnit> indicatorUnits, MetaData metaData) {
-            return new HTTRENDMODEResponse(indicatorUnits, metaData);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public HTTRENDMODEResponse get(String error) {
-            return new HTTRENDMODEResponse(error);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public String getTechnicalIndicatorKey() {
-            return "TRENDMODE";
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 }

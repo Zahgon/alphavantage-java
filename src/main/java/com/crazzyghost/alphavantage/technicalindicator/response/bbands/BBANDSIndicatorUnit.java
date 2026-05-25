@@ -1,13 +1,16 @@
 package com.crazzyghost.alphavantage.technicalindicator.response.bbands;
 
 public class BBANDSIndicatorUnit {
+
     private String date;
+
     private double realUpperBandValue;
+
     private double realLowerBandValue;
+
     private double realMiddleBandValue;
 
-    public BBANDSIndicatorUnit(String date, double realUpperBandValue, double realLowerBandValue,
-            double realMiddleBandValue) {
+    public BBANDSIndicatorUnit(String date, double realUpperBandValue, double realLowerBandValue, double realMiddleBandValue) {
         this.date = date;
         this.realUpperBandValue = realUpperBandValue;
         this.realLowerBandValue = realLowerBandValue;
@@ -15,25 +18,23 @@ public class BBANDSIndicatorUnit {
     }
 
     public String getDate() {
-        return date;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public double getRealUpperBandValue() {
-        return realUpperBandValue;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public double getRealLowerBandValue() {
-        return realLowerBandValue;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public double getRealMiddleBandValue() {
-        return realMiddleBandValue;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String toString() {
-        return "BBANDSIndicatorUnit {date=" + date + ", realLowerBandValue=" + realLowerBandValue
-                + ", realMiddleBandValue=" + realMiddleBandValue + ", realUpperBandValue=" + realUpperBandValue + "}";
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 }

@@ -3,7 +3,9 @@ package com.crazzyghost.alphavantage.indicator.response.aroon;
 public class AROONIndicatorUnit {
 
     private String date;
+
     private double aroonUp;
+
     private double aroonDown;
 
     public AROONIndicatorUnit(String date, double aroonUp, double aroonDown) {
@@ -13,20 +15,19 @@ public class AROONIndicatorUnit {
     }
 
     public String getDate() {
-        return date;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public double getAroonUpValue() {
-        return aroonUp;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public double getAroonDownValue() {
-        return aroonDown;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String toString() {
-        return "AROONIndicatorUnit {date=" + date + ", aroonUp=" + aroonUp + ", aroonDown=" + aroonDown + "}";
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-    
 }

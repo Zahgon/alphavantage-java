@@ -4,56 +4,55 @@ import com.crazzyghost.alphavantage.parser.NoneableDouble;
 import com.squareup.moshi.Json;
 
 public class QuarterlyEarning {
-    @Json(name="fiscalDateEnding")
+
+    @Json(name = "fiscalDateEnding")
     private String fiscalDateEnding;
-    @Json(name="reportedDate")
+
+    @Json(name = "reportedDate")
     private String reportedDate;
-    @Json(name="reportedEPS")
+
+    @Json(name = "reportedEPS")
     @NoneableDouble
     private Double reportedEPS;
-    @Json(name="estimatedEPS")
+
+    @Json(name = "estimatedEPS")
     @NoneableDouble
     private Double estimatedEPS;
-    @Json(name="surprise")
+
+    @Json(name = "surprise")
     @NoneableDouble
     private Double surprise;
-    @Json(name="surprisePercentage")
+
+    @Json(name = "surprisePercentage")
     @NoneableDouble
     private Double surprisePercentage;
 
     public String getFiscalDateEnding() {
-        return fiscalDateEnding;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getReportedDate() {
-        return reportedDate;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getReportedEPS() {
-        return reportedEPS;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getEstimatedEPS() {
-        return estimatedEPS;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getSurprise() {
-        return surprise;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getSurprisePercentage() {
-        return surprisePercentage;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String toString() {
-        return "QuarterlyEarning{" +
-                "fiscalDateEnding='" + fiscalDateEnding + '\'' +
-                ", reportedDate='" + reportedDate + '\'' +
-                ", reportedEPS='" + reportedEPS + '\'' +
-                ", estimatedEPS='" + estimatedEPS + '\'' +
-                ", surprise='" + surprise + '\'' +
-                ", surprisePercentage='" + surprisePercentage + '\'' +
-                '}';
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

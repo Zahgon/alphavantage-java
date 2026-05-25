@@ -25,7 +25,6 @@ package com.crazzyghost.alphavantage.cryptocurrency.response;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
 import com.crazzyghost.alphavantage.parser.Parser;
 
 /**
@@ -37,28 +36,26 @@ import com.crazzyghost.alphavantage.parser.Parser;
 public class RatingResponse {
 
     private String symbol;
+
     private String name;
+
     private String fcasRating;
+
     private String fcasScore;
+
     private String developerScore;
+
     private String marketMaturityScore;
+
     private String utilityScore;
+
     private String lastRefreshed;
+
     private String timeZone;
 
     private String errorMessage;
 
-    public RatingResponse(
-        String symbol,
-        String name,
-        String fcasRating,
-        String fcasScore,
-        String developerScore,
-        String marketMaturityScore,
-        String utilityScore,
-        String lastRefreshed,
-        String timeZone
-    ) {
+    public RatingResponse(String symbol, String name, String fcasRating, String fcasScore, String developerScore, String marketMaturityScore, String utilityScore, String lastRefreshed, String timeZone) {
         this.symbol = symbol;
         this.name = name;
         this.fcasRating = fcasRating;
@@ -70,100 +67,70 @@ public class RatingResponse {
         this.timeZone = timeZone;
     }
 
-    private RatingResponse(String errorMessage){
+    private RatingResponse(String errorMessage) {
         this.errorMessage = errorMessage;
     }
 
-    public static RatingResponse of(Map<String, Object> stringObjectMap){
-        Parser<RatingResponse> parser = new RatingParser();
-        return parser.parse(stringObjectMap);
+    public static RatingResponse of(Map<String, Object> stringObjectMap) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     private static class RatingParser extends Parser<RatingResponse> {
 
         @SuppressWarnings("unchecked")
         @Override
-        public RatingResponse parse(Map<String, Object> stringObjectMap){
-            List<String> keys = new ArrayList<>(stringObjectMap.keySet());
-            if (keys.isEmpty()) {
-                return onParseError("Empty JSON returned by the API, the symbol might not be supported.");
-            } else {
-                try{
-                    Map<String, String> md = (Map<String, String>) stringObjectMap.get(keys.get(0));
-                    String symbol = md.get("1. symbol");
-                    String name = md.get("2. name");
-                    String fcasRating = md.get("3. fcas rating");
-                    String fcasScore = md.get("4. fcas score");
-                    String developerScore = md.get("5. developer score");
-                    String marketMaturityScore = md.get("6. market maturity score");
-                    String utilityScore = md.get("7. utility score");
-                    String lastRefreshed = md.get("8. last refreshed");
-                    String timeZone = md.get("9. timezone");
-                    return new RatingResponse(symbol, name, fcasRating, fcasScore, developerScore, marketMaturityScore, utilityScore, lastRefreshed, timeZone);
-
-                }catch (ClassCastException e){
-                    return onParseError(stringObjectMap.get(keys.get(0)).toString());
-                }
-            }
+        public RatingResponse parse(Map<String, Object> stringObjectMap) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
-
 
         @Override
         public RatingResponse onParseError(String error) {
-            return new RatingResponse(error);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
-
     }
 
     public String getErrorMessage() {
-        return errorMessage;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getSymbol() {
-        return symbol;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getName() {
-        return name;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getFcasRating() {
-        return fcasRating;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getFcasScore() {
-        return fcasScore;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getDeveloperScore() {
-        return developerScore;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getMarketMaturityScore() {
-        return marketMaturityScore;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getUtilityScore() {
-        return utilityScore;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getLastRefreshed() {
-        return lastRefreshed;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getTimeZone() {
-        return timeZone;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String toString() {
-        return "RatingResponse {developerScore=" + developerScore + ", fcasRating=" + fcasRating + ", fcasScore="
-                + fcasScore + ", lastRefreshed=" + lastRefreshed + ", marketMaturityScore=" + marketMaturityScore
-                + ", name=" + name + ", symbol=" + symbol + ", timeZone=" + timeZone + ", utilityScore=" + utilityScore
-                + ", errorMessage" + errorMessage
-                + "}";
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
-
-
 }

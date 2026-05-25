@@ -3,7 +3,6 @@ package com.crazzyghost.alphavantage.technicalindicator.response.roc;
 import com.crazzyghost.alphavantage.technicalindicator.response.PeriodicSeriesResponse;
 import com.crazzyghost.alphavantage.technicalindicator.response.SimpleTechnicalIndicatorUnit;
 import com.crazzyghost.alphavantage.parser.Parser;
-
 import java.util.List;
 import java.util.Map;
 
@@ -18,25 +17,24 @@ public class ROCResponse extends PeriodicSeriesResponse {
     }
 
     public static ROCResponse of(Map<String, Object> stringObjectMap) {
-        Parser<ROCResponse> parser = new ROCResponseParser();
-        return parser.parse(stringObjectMap);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static class ROCResponseParser extends PeriodicSeriesParser<ROCResponse> {
 
         @Override
         public ROCResponse get(List<SimpleTechnicalIndicatorUnit> indicatorUnits, MetaData metaData) {
-            return new ROCResponse(indicatorUnits, metaData);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public ROCResponse get(String errorMessage) {
-            return new ROCResponse(errorMessage);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         protected String getTechnicalIndicatorKey() {
-            return "ROC";
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 }

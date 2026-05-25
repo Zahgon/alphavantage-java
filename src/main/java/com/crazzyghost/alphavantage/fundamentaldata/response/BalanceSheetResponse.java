@@ -25,14 +25,16 @@ package com.crazzyghost.alphavantage.fundamentaldata.response;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
 import com.crazzyghost.alphavantage.parser.Parser;
 
 public class BalanceSheetResponse {
 
     private final String symbol;
+
     private final List<BalanceSheet> annualReports;
+
     private final List<BalanceSheet> quarterlyReports;
+
     private final String errorMessage;
 
     private BalanceSheetResponse(String error) {
@@ -50,58 +52,41 @@ public class BalanceSheetResponse {
     }
 
     public static BalanceSheetResponse of(Map<String, Object> objectMap) {
-        Parser<BalanceSheetResponse> parser = new BalanceSheetParser();
-        return parser.parse(objectMap);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getErrorMessage() {
-        return errorMessage;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getSymbol() {
-        return symbol;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public List<BalanceSheet> getAnnualReports() {
-        return annualReports;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public List<BalanceSheet> getQuarterlyReports() {
-        return quarterlyReports;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static class BalanceSheetParser extends Parser<BalanceSheetResponse> {
 
         @Override
         public BalanceSheetResponse onParseError(String error) {
-            return new BalanceSheetResponse(error);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         @SuppressWarnings("unchecked")
         public BalanceSheetResponse parse(Map<String, Object> object) {
-            List<String> keys = new ArrayList<>(object.keySet());
-            if (keys.isEmpty()) {
-                return onParseError("Empty JSON returned by the API, the symbol might not be supported.");
-            }
-            try {
-                String symbol = (String)object.get(keys.get(0));
-                List<BalanceSheet> annualReports = Parser.parseJSONList(object.get(keys.get(1)), BalanceSheet.class);
-                List<BalanceSheet> quarterlyReports = Parser.parseJSONList(object.get(keys.get(2)), BalanceSheet.class);
-                return new BalanceSheetResponse(symbol, annualReports, quarterlyReports);
-            } catch (ClassCastException | IndexOutOfBoundsException e) {
-                return onParseError(object.get(keys.get(0)).toString());
-            }
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
     @Override
     public String toString() {
-        return "BalanceSheetResponse{" +
-                "symbol='" + symbol + '\'' +
-                ", annualReports=" + annualReports +
-                ", quarterlyReports=" + quarterlyReports +
-                ", errorMessage='" + errorMessage + '\'' +
-                '}';
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

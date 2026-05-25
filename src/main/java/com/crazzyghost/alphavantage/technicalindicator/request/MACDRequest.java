@@ -6,8 +6,11 @@ import com.crazzyghost.alphavantage.parameters.SeriesType;
 public class MACDRequest extends TechnicalIndicatorRequest {
 
     private SeriesType series_type;
+
     private int fastPeriod;
+
     private int slowPeriod;
+
     private int signalPeriod;
 
     private MACDRequest(Builder builder) {
@@ -21,8 +24,11 @@ public class MACDRequest extends TechnicalIndicatorRequest {
     public static class Builder extends TechnicalIndicatorRequest.Builder<Builder> {
 
         private int fastPeriod = 12;
+
         private int slowPeriod = 26;
+
         private int signalPeriod = 9;
+
         private SeriesType seriesType;
 
         public Builder() {
@@ -30,29 +36,24 @@ public class MACDRequest extends TechnicalIndicatorRequest {
         }
 
         public Builder fastPeriod(int fastPeriod) {
-            this.fastPeriod = fastPeriod;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder slowPeriod(int slowPeriod) {
-            this.slowPeriod = slowPeriod;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder signalPeriod(int signalPeriod) {
-            this.signalPeriod = signalPeriod;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public Builder seriesType(SeriesType seriesType) {
-            this.seriesType = seriesType;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public TechnicalIndicatorRequest build() {
-            return new MACDRequest(this);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
-
     }
 }

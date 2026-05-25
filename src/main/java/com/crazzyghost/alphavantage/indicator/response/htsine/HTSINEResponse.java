@@ -3,109 +3,82 @@ package com.crazzyghost.alphavantage.indicator.response.htsine;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
 import com.crazzyghost.alphavantage.parser.DefaultParser;
 import com.crazzyghost.alphavantage.parser.Parser;
 
 public class HTSINEResponse {
 
     private MetaData metaData;
+
     private List<HTSINEIndicatorUnit> indicatorUnits;
+
     private String errorMessage;
 
-    private HTSINEResponse(List<HTSINEIndicatorUnit> indicatorUnits, MetaData metaData){
+    private HTSINEResponse(List<HTSINEIndicatorUnit> indicatorUnits, MetaData metaData) {
         this.metaData = metaData;
         this.indicatorUnits = indicatorUnits;
         this.errorMessage = null;
     }
 
-    private HTSINEResponse(String errorMessage){
+    private HTSINEResponse(String errorMessage) {
         this.metaData = new MetaData();
         this.indicatorUnits = new ArrayList<>();
         this.errorMessage = errorMessage;
     }
 
     public String getErrorMessage() {
-        return errorMessage;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public List<HTSINEIndicatorUnit> getIndicatorUnits() {
-        return indicatorUnits;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-    
+
     public MetaData getMetaData() {
-        return metaData;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-    
-    public static HTSINEResponse of(Map<String, Object> stringObjectMap){
-        Parser<HTSINEResponse> parser = new HTSINEParser();
-        return parser.parse(stringObjectMap);
+
+    public static HTSINEResponse of(Map<String, Object> stringObjectMap) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static class HTSINEParser extends DefaultParser<HTSINEResponse> {
-        
+
         @Override
         public HTSINEResponse parse(Map<String, String> metaDataMap, Map<String, Map<String, String>> indicatorData) {
-            
-            MetaData metaData = new MetaData(
-                String.valueOf(metaDataMap.get("1: Symbol")),
-                String.valueOf(metaDataMap.get("2: Indicator")),
-                String.valueOf(metaDataMap.get("3: Last Refreshed")),
-                String.valueOf(metaDataMap.get("4: Interval")),
-                String.valueOf(metaDataMap.get("5: Series Type")),
-                String.valueOf(metaDataMap.get("6: Time Zone"))
-            );
-
-            List<HTSINEIndicatorUnit> indicatorUnits =  new ArrayList<>();
-
-            for (Map.Entry<String,Map<String,String>> e: indicatorData.entrySet()) {
-                Map<String, String> m = e.getValue();     
-                HTSINEIndicatorUnit indicatorUnit = new HTSINEIndicatorUnit(
-                    e.getKey(),
-                    Double.parseDouble(m.get("LEAD SINE")),
-                    Double.parseDouble(m.get("SINE"))
-                );
-                indicatorUnits.add(indicatorUnit);
-            }
-            return new HTSINEResponse(indicatorUnits, metaData);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public HTSINEResponse onParseError(String error) {
-            return new HTSINEResponse(error);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
     @Override
     public String toString() {
-        return "HTSINEResponse{" +
-                "metaData=" + metaData +
-                ",indicatorUnits=" + indicatorUnits.size() +
-                ", errorMessage='" + errorMessage + '\'' +
-                '}';
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static class MetaData {
 
         private String symbol;
+
         private String indicator;
+
         private String lastRefreshed;
+
         private String interval;
+
         private String seriesType;
+
         private String timeZone;
-     
-        public MetaData(){
+
+        public MetaData() {
             this("", "", "", "", "", "");
         }
 
-        public MetaData(
-            String symbol, 
-            String indicator, 
-            String lastRefreshed, 
-            String interval, 
-            String seriesType, 
-            String timeZone
-        ) {
+        public MetaData(String symbol, String indicator, String lastRefreshed, String interval, String seriesType, String timeZone) {
             this.symbol = symbol;
             this.indicator = indicator;
             this.lastRefreshed = lastRefreshed;
@@ -115,36 +88,32 @@ public class HTSINEResponse {
         }
 
         public String getSymbol() {
-            return symbol;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public String getIndicator() {
-            return indicator;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public String getLastRefreshed() {
-            return lastRefreshed;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public String getInterval() {
-            return interval;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public String getTimeZone() {
-            return timeZone;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public String getSeriesType() {
-            return seriesType;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public String toString() {
-            return "MetaData {indicator=" + indicator + ", interval=" + interval + ", lastRefreshed=" + lastRefreshed
-                    + ", seriesType=" + seriesType + ", symbol=" + symbol + ", timeZone=" + timeZone + "}";
-        }        
+            throw new UnsupportedOperationException("STUB: not implemented");
+        }
     }
 }
-
-
-

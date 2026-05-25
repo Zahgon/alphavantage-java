@@ -39,7 +39,7 @@ public class RetailSalesRequest extends EconomicIndicatorRequest {
 
         @Override
         public RetailSalesRequest build() {
-            return new RetailSalesRequest(this);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 }

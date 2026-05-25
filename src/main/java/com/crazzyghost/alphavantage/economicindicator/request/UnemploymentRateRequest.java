@@ -39,7 +39,7 @@ public class UnemploymentRateRequest extends EconomicIndicatorRequest {
 
         @Override
         public UnemploymentRateRequest build() {
-            return new UnemploymentRateRequest(this);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 }

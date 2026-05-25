@@ -6,365 +6,362 @@ import com.squareup.moshi.Json;
 
 public class CompanyOverview {
 
-    @Json(name="Symbol")
+    @Json(name = "Symbol")
     private String symbol;
-    @Json(name="AssetType")
+
+    @Json(name = "AssetType")
     private String assetType;
-    @Json(name="Name")
+
+    @Json(name = "Name")
     private String name;
-    @Json(name="Description")
+
+    @Json(name = "Description")
     private String description;
-    @Json(name="CIK")
+
+    @Json(name = "CIK")
     @NoneableLong
     private Long cik;
-    @Json(name="Exchange")
+
+    @Json(name = "Exchange")
     private String exchange;
-    @Json(name="Currency")
+
+    @Json(name = "Currency")
     private String currency;
-    @Json(name="Country")
+
+    @Json(name = "Country")
     private String country;
-    @Json(name="Sector")
+
+    @Json(name = "Sector")
     private String sector;
-    @Json(name="Industry")
+
+    @Json(name = "Industry")
     private String industry;
-    @Json(name="Address")
+
+    @Json(name = "Address")
     private String address;
-    @Json(name="FiscalYearEnd")
+
+    @Json(name = "FiscalYearEnd")
     private String fiscalYearEnd;
-    @Json(name="LatestQuarter")
+
+    @Json(name = "LatestQuarter")
     private String latestQuarter;
-    @Json(name="MarketCapitalization")
+
+    @Json(name = "MarketCapitalization")
     @NoneableLong
     private Long marketCapitalization;
-    @Json(name="EBITDA")
+
+    @Json(name = "EBITDA")
     @NoneableLong
     private Long ebitda;
-    @Json(name="PERatio")
+
+    @Json(name = "PERatio")
     @NoneableDouble
     private Double peRatio;
-    @Json(name="PEGRatio")
+
+    @Json(name = "PEGRatio")
     @NoneableDouble
     private Double pegRatio;
-    @Json(name="BookValue")
+
+    @Json(name = "BookValue")
     @NoneableDouble
     private Double bookValue;
-    @Json(name="DividendPerShare")
+
+    @Json(name = "DividendPerShare")
     @NoneableDouble
     private Double dividendPerShare;
-    @Json(name="DividendYield")
+
+    @Json(name = "DividendYield")
     @NoneableDouble
     private Double dividendYield;
-    @Json(name="EPS")
+
+    @Json(name = "EPS")
     @NoneableDouble
     private Double eps;
-    @Json(name="RevenuePerShareTTM")
+
+    @Json(name = "RevenuePerShareTTM")
     @NoneableDouble
     private Double revenuePerShareTTM;
-    @Json(name="ProfitMargin")
+
+    @Json(name = "ProfitMargin")
     @NoneableDouble
     private Double profitMargin;
-    @Json(name="OperatingMarginTTM")
+
+    @Json(name = "OperatingMarginTTM")
     @NoneableDouble
     private Double operatingMarginTTM;
-    @Json(name="ReturnOnAssetsTTM")
+
+    @Json(name = "ReturnOnAssetsTTM")
     @NoneableDouble
     private Double returnOnAssetsTTM;
-    @Json(name="ReturnOnEquityTTM")
+
+    @Json(name = "ReturnOnEquityTTM")
     @NoneableDouble
     private Double returnOnEquityTTM;
-    @Json(name="RevenueTTM")
+
+    @Json(name = "RevenueTTM")
     @NoneableLong
     private Long revenueTTM;
-    @Json(name="GrossProfitTTM")
+
+    @Json(name = "GrossProfitTTM")
     @NoneableLong
     private Long grossProfitTTM;
-    @Json(name="DilutedEPSTTM")
+
+    @Json(name = "DilutedEPSTTM")
     @NoneableDouble
     private Double dilutedEpsTTM;
-    @Json(name="QuarterlyEarningsGrowthYOY")
+
+    @Json(name = "QuarterlyEarningsGrowthYOY")
     @NoneableDouble
     private Double quarterlyEarningsGrowthYOY;
-    @Json(name="QuarterlyRevenueGrowthYOY")
+
+    @Json(name = "QuarterlyRevenueGrowthYOY")
     @NoneableDouble
     private Double quarterlyRevenueGrowthYOY;
-    @Json(name="AnalystTargetPrice")
+
+    @Json(name = "AnalystTargetPrice")
     @NoneableDouble
     private Double analystTargetPrice;
-    @Json(name="TrailingPE")
+
+    @Json(name = "TrailingPE")
     @NoneableDouble
     private Double trailingPE;
-    @Json(name="ForwardPE")
+
+    @Json(name = "ForwardPE")
     @NoneableDouble
     private Double forwardPE;
-    @Json(name="PriceToSalesRatioTTM")
+
+    @Json(name = "PriceToSalesRatioTTM")
     @NoneableDouble
     private Double priceToSaleRatioTTM;
-    @Json(name="PriceToBookRatio")
+
+    @Json(name = "PriceToBookRatio")
     @NoneableDouble
     private Double priceToBookRatio;
-    @Json(name="EVToRevenue")
+
+    @Json(name = "EVToRevenue")
     @NoneableDouble
     private Double evToRevenue;
-    @Json(name="EVToEBITDA")
+
+    @Json(name = "EVToEBITDA")
     @NoneableDouble
     private Double evToEBITDA;
-    @Json(name="Beta")
+
+    @Json(name = "Beta")
     @NoneableDouble
     private Double beta;
-    @Json(name="52WeekHigh")
+
+    @Json(name = "52WeekHigh")
     @NoneableDouble
     private Double fiftyTwoWeekHigh;
-    @Json(name="52WeekLow")
+
+    @Json(name = "52WeekLow")
     @NoneableDouble
     private Double fiftyTwoWeekLow;
-    @Json(name="50DayMovingAverage")
+
+    @Json(name = "50DayMovingAverage")
     @NoneableDouble
     private Double fiftyDayMovingAverage;
-    @Json(name="200DayMovingAverage")
+
+    @Json(name = "200DayMovingAverage")
     @NoneableDouble
     private Double twoHundredDayMovingAverage;
-    @Json(name="SharesOutstanding")
+
+    @Json(name = "SharesOutstanding")
     @NoneableLong
     private Long sharesOutstanding;
-    @Json(name="DividendDate")
+
+    @Json(name = "DividendDate")
     private String dividendDate;
-    @Json(name="ExDividendDate")
+
+    @Json(name = "ExDividendDate")
     private String exDividendDate;
 
     public String getSymbol() {
-        return symbol;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getAssetType() {
-        return assetType;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getName() {
-        return name;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getDescription() {
-        return description;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getCIK() {
-        return cik;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getExchange() {
-        return exchange;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getCurrency() {
-        return currency;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getCountry() {
-        return country;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getSector() {
-        return sector;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getIndustry() {
-        return industry;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getAddress() {
-        return address;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getFiscalYearEnd() {
-        return fiscalYearEnd;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getLatestQuarter() {
-        return latestQuarter;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getMarketCapitalization() {
-        return marketCapitalization;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getEBITDA() {
-        return ebitda;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getPERatio() {
-        return peRatio;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getPEGRatio() {
-        return pegRatio;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getBookValue() {
-        return bookValue;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getDividendPerShare() {
-        return dividendPerShare;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getDividendYield() {
-        return dividendYield;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getEPS() {
-        return eps;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getRevenuePerShareTTM() {
-        return revenuePerShareTTM;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getProfitMargin() {
-        return profitMargin;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getOperatingMarginTTM() {
-        return operatingMarginTTM;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getReturnOnAssetsTTM() {
-        return returnOnAssetsTTM;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getReturnOnEquityTTM() {
-        return returnOnEquityTTM;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getRevenueTTM() {
-        return revenueTTM;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getGrossProfitTTM() {
-        return grossProfitTTM;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getDilutedEpsTTM() {
-        return dilutedEpsTTM;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getQuarterlyEarningsGrowthYOY() {
-        return quarterlyEarningsGrowthYOY;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getQuarterlyRevenueGrowthYOY() {
-        return quarterlyRevenueGrowthYOY;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getAnalystTargetPrice() {
-        return analystTargetPrice;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getTrailingPE() {
-        return trailingPE;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getForwardPE() {
-        return forwardPE;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getPriceToSaleRatioTTM() {
-        return priceToSaleRatioTTM;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getPriceToBookRatio() {
-        return priceToBookRatio;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getEvToRevenue() {
-        return evToRevenue;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getEvToEBITDA() {
-        return evToEBITDA;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getBeta() {
-        return beta;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getFiftyTwoWeekHigh() {
-        return fiftyTwoWeekHigh;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getFiftyTwoWeekLow() {
-        return fiftyTwoWeekLow;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getFiftyDayMovingAverage() {
-        return fiftyDayMovingAverage;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getTwoHundredDayMovingAverage() {
-        return twoHundredDayMovingAverage;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getSharesOutstanding() {
-        return sharesOutstanding;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getDividendDate() {
-        return dividendDate;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getExDividendDate() {
-        return exDividendDate;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 
     @Override
     public String toString() {
-        return "CompanyOverview{" +
-                "symbol='" + symbol + '\'' +
-                ", assetType='" + assetType + '\'' +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", cik='" + cik + '\'' +
-                ", exchange='" + exchange + '\'' +
-                ", currency='" + currency + '\'' +
-                ", country='" + country + '\'' +
-                ", sector='" + sector + '\'' +
-                ", industry='" + industry + '\'' +
-                ", address='" + address + '\'' +
-                ", fiscalYearEnd='" + fiscalYearEnd + '\'' +
-                ", latestQuarter='" + latestQuarter + '\'' +
-                ", marketCapitalization=" + marketCapitalization +
-                ", ebitda=" + ebitda +
-                ", peRatio=" + peRatio +
-                ", pegRatio=" + pegRatio +
-                ", bookValue=" + bookValue +
-                ", dividendPerShare=" + dividendPerShare +
-                ", dividendYield=" + dividendYield +
-                ", eps=" + eps +
-                ", revenuePerShareTTM=" + revenuePerShareTTM +
-                ", profitMargin=" + profitMargin +
-                ", operatingMarginTTM=" + operatingMarginTTM +
-                ", returnOnAssetsTTM=" + returnOnAssetsTTM +
-                ", returnOnEquityTTM=" + returnOnEquityTTM +
-                ", revenueTTM=" + revenueTTM +
-                ", grossProfitTTM=" + grossProfitTTM +
-                ", dilutedEpsTTM=" + dilutedEpsTTM +
-                ", quarterlyEarningsGrowthYOY=" + quarterlyEarningsGrowthYOY +
-                ", quarterlyRevenueGrowthYOY=" + quarterlyRevenueGrowthYOY +
-                ", analystTargetPrice=" + analystTargetPrice +
-                ", trailingPE=" + trailingPE +
-                ", forwardPE=" + forwardPE +
-                ", priceToSaleRatioTTM=" + priceToSaleRatioTTM +
-                ", priceToBookRatio=" + priceToBookRatio +
-                ", evToRevenue=" + evToRevenue +
-                ", evToEBITDA=" + evToEBITDA +
-                ", beta=" + beta +
-                ", fiftyTwoWeekHigh=" + fiftyTwoWeekHigh +
-                ", fiftyTwoWeekLow=" + fiftyTwoWeekLow +
-                ", fiftyDayMovingAverage=" + fiftyDayMovingAverage +
-                ", twoHundredDayMovingAverage=" + twoHundredDayMovingAverage +
-                ", sharesOutstanding=" + sharesOutstanding +
-                ", dividendDate='" + dividendDate + '\'' +
-                ", exDividendDate='" + exDividendDate + '\'' +
-                '}';
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

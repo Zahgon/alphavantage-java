@@ -4,7 +4,6 @@ import com.crazzyghost.alphavantage.technicalindicator.response.PriceOscillatorR
 import com.crazzyghost.alphavantage.technicalindicator.response.SimpleTechnicalIndicatorUnit;
 import com.crazzyghost.alphavantage.technicalindicator.response.roc.ROCResponse;
 import com.crazzyghost.alphavantage.parser.Parser;
-
 import java.util.List;
 import java.util.Map;
 
@@ -15,8 +14,7 @@ public class PPOResponse extends PriceOscillatorResponse {
     }
 
     public static PPOResponse of(Map<String, Object> stringObjectMap) {
-        Parser<PPOResponse> parser = new PPOParser();
-        return parser.parse(stringObjectMap);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     private PPOResponse(String errorMessage) {
@@ -24,19 +22,20 @@ public class PPOResponse extends PriceOscillatorResponse {
     }
 
     public static class PPOParser extends PriceOscillatorParser<PPOResponse> {
+
         @Override
         public PPOResponse get(List<SimpleTechnicalIndicatorUnit> indicatorUnits, MetaData metaData) {
-            return new PPOResponse(indicatorUnits, metaData);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public PPOResponse get(String error) {
-            return new PPOResponse(error);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public String getTechnicalIndicatorKey() {
-            return "PPO";
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 }

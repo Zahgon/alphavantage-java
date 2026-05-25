@@ -38,11 +38,13 @@ public class CompanyOverviewRequest extends FundamentalDataRequest {
 
     public static class Builder extends FundamentalDataRequest.Builder<Builder> {
 
-        public Builder() { this.function(Function.OVERVIEW); }
+        public Builder() {
+            this.function(Function.OVERVIEW);
+        }
 
         @Override
         public CompanyOverviewRequest build() {
-            return new CompanyOverviewRequest(this);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 }

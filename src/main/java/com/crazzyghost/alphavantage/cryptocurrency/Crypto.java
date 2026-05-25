@@ -38,7 +38,6 @@ import okhttp3.Call;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 import org.jetbrains.annotations.NotNull;
-
 import java.io.IOException;
 import java.util.Map;
 
@@ -51,11 +50,14 @@ import java.util.Map;
 public final class Crypto implements Fetcher {
 
     private final Config config;
+
     private CryptoRequest.Builder<?> builder;
+
     private Fetcher.SuccessCallback<?> successCallback;
+
     private Fetcher.FailureCallback failureCallback;
 
-    public Crypto(Config config){
+    public Crypto(Config config) {
         this.config = config;
     }
 
@@ -64,8 +66,8 @@ public final class Crypto implements Fetcher {
      *
      * @return {@link DailyRequestProxy} instance
      */
-    public DailyRequestProxy daily(){
-        return new DailyRequestProxy();
+    public DailyRequestProxy daily() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -73,8 +75,8 @@ public final class Crypto implements Fetcher {
      *
      * @return {@link WeeklyRequestProxy} instance
      */
-    public WeeklyRequestProxy weekly(){
-        return new WeeklyRequestProxy();
+    public WeeklyRequestProxy weekly() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -82,8 +84,8 @@ public final class Crypto implements Fetcher {
      *
      * @return {@link MonthlyRequestProxy} instance
      */
-    public MonthlyRequestProxy monthly(){
-        return new MonthlyRequestProxy();
+    public MonthlyRequestProxy monthly() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -91,8 +93,8 @@ public final class Crypto implements Fetcher {
      *
      * @return {@link RatingRequestProxy} instance
      */
-    public RatingRequestProxy rating(){
-        return new RatingRequestProxy();
+    public RatingRequestProxy rating() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -100,40 +102,21 @@ public final class Crypto implements Fetcher {
      *
      * @return {@link MonthlyRequestProxy} instance
      */
-    public IntradayRequestProxy intraday(){
-        return new IntradayRequestProxy();
+    public IntradayRequestProxy intraday() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    /** Fetches Crypto Currency data */
+    /**
+     * Fetches Crypto Currency data
+     */
     @Override
     public void fetch() {
-
-        Config.checkNotNullOrKeyEmpty(config);
-        
-        config.getOkHttpClient().newCall(UrlExtractor.extract(builder.build(), config.getKey())).enqueue(new okhttp3.Callback() {
-            @Override
-            public void onFailure(@NotNull Call call, @NotNull IOException e) {
-                if(failureCallback != null) failureCallback.onFailure(new AlphaVantageException());
-            }
-
-            @Override
-            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
-                if (response.isSuccessful()) {
-                    try (ResponseBody body = response.body()) {
-                        parseCryptoResponse(Parser.parseJSON(body.string()));
-                    }
-                } else {
-                    if (failureCallback != null) {
-                        failureCallback.onFailure(new AlphaVantageException());
-                    }
-                }
-            }
-        });
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
      * Make a blocking synchronous http request to fetch the data.
-     * This will be called by the {@link RequestProxy#fetchSync()}. 
+     * This will be called by the {@link RequestProxy#fetchSync()}.
      *
      * Using this method will overwrite any async callback
      *
@@ -142,19 +125,16 @@ public final class Crypto implements Fetcher {
      * @throws AlphaVantageException exception thrown
      */
     private void fetchSync(SuccessCallback<?> successCallback) throws AlphaVantageException {
-
         Config.checkNotNullOrKeyEmpty(config);
-        
         this.successCallback = successCallback;
         this.failureCallback = null;
         okhttp3.OkHttpClient client = config.getOkHttpClient();
         try (Response response = client.newCall(UrlExtractor.extract(builder.build(), config.getKey())).execute()) {
             parseCryptoResponse(Parser.parseJSON(response.body().string()));
-        } catch(IOException e) {
+        } catch (IOException e) {
             throw new AlphaVantageException(e.getMessage());
-        }        
+        }
     }
-
 
     /**
      * Parses a JSON response to a {@link CryptoResponse} or {@link RatingResponse} object
@@ -162,7 +142,7 @@ public final class Crypto implements Fetcher {
      * @param data parsed JSON response
      */
     private void parseCryptoResponse(Map<String, Object> data) {
-        switch (builder.function) {
+        switch(builder.function) {
             case CRYPTO_RATING:
                 parseRatingResponse(data);
                 break;
@@ -177,20 +157,19 @@ public final class Crypto implements Fetcher {
         }
     }
 
-
     /**
      * Parses Digital Currency Data
      *
      * @param data parsed JSON data
      */
     @SuppressWarnings("unchecked")
-    private void parseDigitalCurrencyResponse(Map<String, Object> data){
+    private void parseDigitalCurrencyResponse(Map<String, Object> data) {
         CryptoResponse response = CryptoResponse.of(data);
-        if(response.getErrorMessage() != null && failureCallback != null) {
+        if (response.getErrorMessage() != null && failureCallback != null) {
             failureCallback.onFailure(new AlphaVantageException(response.getErrorMessage()));
         }
-        if(successCallback != null) {
-            ((Fetcher.SuccessCallback<CryptoResponse>)successCallback).onSuccess(response);
+        if (successCallback != null) {
+            ((Fetcher.SuccessCallback<CryptoResponse>) successCallback).onSuccess(response);
         }
     }
 
@@ -200,18 +179,15 @@ public final class Crypto implements Fetcher {
      * @param data parsed JSON data
      */
     @SuppressWarnings("unchecked")
-    private void parseRatingResponse(Map<String, Object> data){
+    private void parseRatingResponse(Map<String, Object> data) {
         RatingResponse response = RatingResponse.of(data);
-        if(response.getErrorMessage() != null && failureCallback != null) {
+        if (response.getErrorMessage() != null && failureCallback != null) {
             failureCallback.onFailure(new AlphaVantageException(response.getErrorMessage()));
         }
-        if(successCallback != null) {
-            ((Fetcher.SuccessCallback<RatingResponse>)successCallback).onSuccess(response);
+        if (successCallback != null) {
+            ((Fetcher.SuccessCallback<RatingResponse>) successCallback).onSuccess(response);
         }
     }
-    
-
-
 
     /**
      * An abstract proxy for building requests.
@@ -224,39 +200,36 @@ public final class Crypto implements Fetcher {
     public abstract class RequestProxy<T extends RequestProxy<?, U>, U> {
 
         protected CryptoRequest.Builder<?> builder;
-        protected U syncResponse; // a synchronous response
 
-        private RequestProxy() { }
+        // a synchronous response
+        protected U syncResponse;
+
+        private RequestProxy() {
+        }
 
         public T forSymbol(String symbol) {
-            this.builder.symbol(symbol);
-            return (T)this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public T market(String symbol) {
-            this.builder.market(symbol);
-            return (T)this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public T onSuccess(SuccessCallback<?> callback) {
-            Crypto.this.successCallback = callback;
-            return (T)this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public T onFailure(FailureCallback callback) {
-            Crypto.this.failureCallback = callback;
-            return (T)this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public void fetch() {
-            Crypto.this.builder = this.builder;
-            Crypto.this.fetch();
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public void setSyncResponse(U response) {
-            this.syncResponse = response;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
-
 
         /**
          * Set the right builder and make a synchronous request using {@link Crypto#fetch()}
@@ -266,46 +239,57 @@ public final class Crypto implements Fetcher {
          * @throws AlphaVantageException exception during call
          */
         public U fetchSync() throws AlphaVantageException {
-            SuccessCallback<U> callback = this::setSyncResponse;
-            Crypto.this.builder = this.builder;
-            Crypto.this.fetchSync(callback);
-            return this.syncResponse;            
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
-
     }
 
-    /** Proxy for building a DailyRequest */
+    /**
+     * Proxy for building a DailyRequest
+     */
     public class DailyRequestProxy extends RequestProxy<DailyRequestProxy, CryptoResponse> {
+
         public DailyRequestProxy() {
             super();
             builder = new DigitalCurrencyRequest.Builder().function(Function.DIGITAL_CURRENCY_DAILY);
         }
     }
 
-    /** Proxy for building a WeeklyRequest */
+    /**
+     * Proxy for building a WeeklyRequest
+     */
     public class WeeklyRequestProxy extends RequestProxy<WeeklyRequestProxy, CryptoResponse> {
+
         public WeeklyRequestProxy() {
             builder = new DigitalCurrencyRequest.Builder().function(Function.DIGITAL_CURRENCY_WEEKLY);
         }
     }
 
-    /** Proxy for building a MonthlyRequest */
+    /**
+     * Proxy for building a MonthlyRequest
+     */
     public class MonthlyRequestProxy extends RequestProxy<MonthlyRequestProxy, CryptoResponse> {
+
         public MonthlyRequestProxy() {
             builder = new DigitalCurrencyRequest.Builder().function(Function.DIGITAL_CURRENCY_MONTHLY);
         }
     }
 
-    /** Proxy for building a MonthlyRequest */
+    /**
+     * Proxy for building a MonthlyRequest
+     */
     public class IntradayRequestProxy extends RequestProxy<IntradayRequestProxy, CryptoResponse> {
+
         public IntradayRequestProxy() {
             builder = new IntradayRequest.Builder();
         }
     }
 
-    /** Proxy for building a {@link RatingRequest} */
+    /**
+     * Proxy for building a {@link RatingRequest}
+     */
     public class RatingRequestProxy extends RequestProxy<RatingRequestProxy, RatingResponse> {
-        public  RatingRequestProxy(){
+
+        public RatingRequestProxy() {
             builder = new RatingRequest.Builder();
         }
     }

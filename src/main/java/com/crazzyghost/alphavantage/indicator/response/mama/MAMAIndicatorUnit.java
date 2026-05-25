@@ -3,7 +3,9 @@ package com.crazzyghost.alphavantage.indicator.response.mama;
 public class MAMAIndicatorUnit {
 
     private String date;
+
     private double famaValue;
+
     private double mamaValue;
 
     public MAMAIndicatorUnit(String date, double fama, double mama) {
@@ -13,23 +15,19 @@ public class MAMAIndicatorUnit {
     }
 
     public String getDate() {
-        return date;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public double getFamaValue() {
-        return famaValue;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public double getMamaValue() {
-        return mamaValue;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String toString() {
-        return "MAMAIndicatorUnit {date=" + date + ", famaValue=" + famaValue + ", mamaValue=" + mamaValue + "}";
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
-
-    
-    
 }

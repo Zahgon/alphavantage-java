@@ -3,14 +3,15 @@ package com.crazzyghost.alphavantage.technicalindicator.response.stochrsi;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
 import com.crazzyghost.alphavantage.parser.DefaultParser;
 import com.crazzyghost.alphavantage.parser.Parser;
 
 public class STOCHRSIResponse {
 
     private MetaData metaData;
+
     private List<STOCHRSIIndicatorUnit> indicatorUnits;
+
     private String errorMessage;
 
     private STOCHRSIResponse(List<STOCHRSIIndicatorUnit> indicatorUnits, MetaData metaData) {
@@ -26,92 +27,62 @@ public class STOCHRSIResponse {
     }
 
     public String getErrorMessage() {
-        return errorMessage;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public List<STOCHRSIIndicatorUnit> getIndicatorUnits() {
-        return indicatorUnits;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public MetaData getMetaData() {
-        return metaData;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static STOCHRSIResponse of(Map<String, Object> stringObjectMap) {
-        Parser<STOCHRSIResponse> parser = new STOCHRSIParser();
-        return parser.parse(stringObjectMap);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static class STOCHRSIParser extends DefaultParser<STOCHRSIResponse> {
 
         @Override
         public STOCHRSIResponse parse(Map<String, String> metaDataMap, Map<String, Map<String, String>> indicatorData) {
-            MetaData metaData = new MetaData(
-                    String.valueOf(metaDataMap.get("1: Symbol")),
-                    String.valueOf(metaDataMap.get("2: Indicator")),
-                    String.valueOf(metaDataMap.get("3: Last Refreshed")),
-                    String.valueOf(metaDataMap.get("4: Interval")),
-                    Double.valueOf(String.valueOf(metaDataMap.get("5: Time Period"))),
-                    Double.valueOf(String.valueOf(metaDataMap.get("6.1: FastK Period"))),
-                    Double.valueOf(String.valueOf(metaDataMap.get("6.2: FastD Period"))),
-                    Double.valueOf(String.valueOf(metaDataMap.get("6.3: FastD MA Type"))),
-                    String.valueOf(metaDataMap.get("7: Series Type")),
-                    String.valueOf(metaDataMap.get("8: Time Zone")));
-
-            List<STOCHRSIIndicatorUnit> indicatorUnits = new ArrayList<>();
-
-            for (Map.Entry<String, Map<String, String>> e : indicatorData.entrySet()) {
-                Map<String, String> m = e.getValue();
-                STOCHRSIIndicatorUnit indicatorUnit = new STOCHRSIIndicatorUnit(
-                        e.getKey(),
-                        Double.parseDouble(m.get("FastK")),
-                        Double.parseDouble(m.get("FastD")));
-                indicatorUnits.add(indicatorUnit);
-            }
-            return new STOCHRSIResponse(indicatorUnits, metaData);
-
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public STOCHRSIResponse onParseError(String error) {
-            return new STOCHRSIResponse(error);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
-
     }
 
     @Override
     public String toString() {
-        return "STOCHRSIResponse{" +
-                "metaData=" + metaData +
-                ",indicatorUnits=" + indicatorUnits.size() +
-                ", errorMessage='" + errorMessage + '\'' +
-                '}';
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static class MetaData {
 
         private String symbol;
+
         private String indicator;
+
         private String lastRefreshed;
+
         private String interval;
+
         private double timePeriod;
+
         private double fastKPeriod;
+
         private double fastDPeriod;
+
         private double fastDMaType;
+
         private String seriesType;
+
         private String timeZone;
 
-        public MetaData(
-                String symbol,
-                String indicator,
-                String lastRefreshed,
-                String interval,
-                double timePeriod,
-                double fastKPeriod,
-                double fastDPeriod,
-                double fastDMaType,
-                String seriesType,
-                String timeZone) {
+        public MetaData(String symbol, String indicator, String lastRefreshed, String interval, double timePeriod, double fastKPeriod, double fastDPeriod, double fastDMaType, String seriesType, String timeZone) {
             this.symbol = symbol;
             this.indicator = indicator;
             this.lastRefreshed = lastRefreshed;
@@ -129,52 +100,48 @@ public class STOCHRSIResponse {
         }
 
         public double getFastDMaType() {
-            return fastDMaType;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public double getFastDPeriod() {
-            return fastDPeriod;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public double getFastKPeriod() {
-            return fastKPeriod;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public String getIndicator() {
-            return indicator;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public String getInterval() {
-            return interval;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public String getLastRefreshed() {
-            return lastRefreshed;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public String getSymbol() {
-            return symbol;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public String getTimeZone() {
-            return timeZone;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public String getSeriesType() {
-            return seriesType;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public double getTimePeriod() {
-            return timePeriod;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public String toString() {
-            return "MetaData {fastDMaType=" + fastDMaType + ", fastDPeriod=" + fastDPeriod + ", fastKPeriod="
-                    + fastKPeriod + ", indicator=" + indicator + ", interval=" + interval + ", lastRefreshed="
-                    + lastRefreshed + ", seriesType=" + seriesType + ", symbol=" + symbol + ", timePeriod=" + timePeriod
-                    + ", timeZone=" + timeZone + "}";
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
-
     }
 }

@@ -7,8 +7,11 @@ import com.crazzyghost.alphavantage.parameters.Interval;
 public abstract class TechnicalIndicatorRequest {
 
     protected Function function;
+
     protected String symbol;
+
     protected Interval interval;
+
     protected DataType dataType;
 
     protected TechnicalIndicatorRequest(Builder<?> builder) {
@@ -21,31 +24,29 @@ public abstract class TechnicalIndicatorRequest {
     public abstract static class Builder<T extends Builder<?>> {
 
         public Function function;
+
         protected String symbol;
+
         protected Interval interval = Interval.SIXTY_MIN;
+
         protected DataType dataType = DataType.JSON;
 
         public T function(Function function) {
-            this.function = function;
-            return (T) this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public T forSymbol(String symbol) {
-            this.symbol = symbol;
-            return (T) this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public T interval(Interval interval) {
-            this.interval = interval;
-            return (T) this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public T dataType(DataType dataType) {
-            this.dataType = dataType;
-            return (T) this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public abstract TechnicalIndicatorRequest build();
     }
-
 }

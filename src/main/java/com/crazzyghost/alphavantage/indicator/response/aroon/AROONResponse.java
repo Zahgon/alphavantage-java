@@ -3,111 +3,82 @@ package com.crazzyghost.alphavantage.indicator.response.aroon;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
 import com.crazzyghost.alphavantage.parser.DefaultParser;
 import com.crazzyghost.alphavantage.parser.Parser;
 
 public class AROONResponse {
 
     private MetaData metaData;
+
     private List<AROONIndicatorUnit> indicatorUnits;
+
     private String errorMessage;
 
-    private AROONResponse(List<AROONIndicatorUnit> indicatorUnits, MetaData metaData){
+    private AROONResponse(List<AROONIndicatorUnit> indicatorUnits, MetaData metaData) {
         this.metaData = metaData;
         this.indicatorUnits = indicatorUnits;
         this.errorMessage = null;
     }
 
-    private AROONResponse(String errorMessage){
+    private AROONResponse(String errorMessage) {
         this.metaData = new MetaData();
         this.indicatorUnits = new ArrayList<>();
         this.errorMessage = errorMessage;
     }
 
     public String getErrorMessage() {
-        return errorMessage;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public List<AROONIndicatorUnit> getIndicatorUnits() {
-        return indicatorUnits;
-    }
-    
-    public MetaData getMetaData() {
-        return metaData;
-    }
-    
-    public static AROONResponse of(Map<String, Object> stringObjectMap){
-        Parser<AROONResponse> parser = new AROONParser();
-        return parser.parse(stringObjectMap);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public static class AROONParser extends DefaultParser<AROONResponse>{
+    public MetaData getMetaData() {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
+
+    public static AROONResponse of(Map<String, Object> stringObjectMap) {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
+
+    public static class AROONParser extends DefaultParser<AROONResponse> {
 
         @Override
         public AROONResponse parse(Map<String, String> metaDataMap, Map<String, Map<String, String>> indicatorData) {
-
-            MetaData metaData = new MetaData(
-                String.valueOf(metaDataMap.get("1: Symbol")),
-                String.valueOf(metaDataMap.get("2: Indicator")),
-                String.valueOf(metaDataMap.get("3: Last Refreshed")),
-                String.valueOf(metaDataMap.get("4: Interval")),
-                Double.valueOf(String.valueOf(metaDataMap.get("5: Time Period"))).intValue(),
-                String.valueOf(metaDataMap.get("6: Time Zone"))
-            );
-
-            List<AROONIndicatorUnit> indicatorUnits =  new ArrayList<>();
-
-            for (Map.Entry<String,Map<String,String>> e: indicatorData.entrySet()) {
-                Map<String, String> m = e.getValue();     
-                AROONIndicatorUnit indicatorUnit = new AROONIndicatorUnit(
-                    e.getKey(),
-                    Double.parseDouble(m.get("Aroon Up")),
-                    Double.parseDouble(m.get("Aroon Down"))
-                );
-                indicatorUnits.add(indicatorUnit);
-            }
-            return new AROONResponse(indicatorUnits, metaData);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public AROONResponse onParseError(String error) {
-            return new AROONResponse(error);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
-
     }
-
 
     @Override
     public String toString() {
-        return metaData.indicator.replaceAll("\\s+","") +"Response{" +
-            "metaData=" + metaData +
-            ",indicatorUnits=" + indicatorUnits.size() +
-            ", errorMessage='" + errorMessage + '\'' +
-        '}';
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static class MetaData {
 
         private String symbol;
+
         private String indicator;
+
         private String lastRefreshed;
+
         private String interval;
+
         private int timePeriod;
+
         private String timeZone;
-        
-        public MetaData(){
+
+        public MetaData() {
             this("", "", "", "", 0, "");
         }
 
-        public MetaData(
-            String symbol, 
-            String indicator, 
-            String lastRefreshed, 
-            String interval, 
-            int timePeriod,
-            String timeZone
-        ) {
+        public MetaData(String symbol, String indicator, String lastRefreshed, String interval, int timePeriod, String timeZone) {
             this.symbol = symbol;
             this.indicator = indicator;
             this.lastRefreshed = lastRefreshed;
@@ -117,43 +88,32 @@ public class AROONResponse {
         }
 
         public String getSymbol() {
-            return symbol;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public String getIndicator() {
-            return indicator;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public String getLastRefreshed() {
-            return lastRefreshed;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public String getInterval() {
-            return interval;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public String getTimeZone() {
-            return timeZone;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public int getTimePeriod() {
-            return timePeriod;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public String toString() {
-            return "MetaData {indicator=" + indicator +     
-                ", interval=" + interval + 
-                ", lastRefreshed=" + lastRefreshed + 
-                ", symbol=" + symbol + 
-                ", timePeriod=" + timePeriod + 
-                ", timeZone=" + timeZone +
-            "}";
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
-        
     }
-
 }
-
-
-

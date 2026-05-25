@@ -23,55 +23,28 @@
 package com.crazzyghost.alphavantage;
 
 import java.lang.reflect.Field;
-
 import okhttp3.Request;
 
-
 /**
- * Extracts a valid url from a request object. The request object should contain valid 
+ * Extracts a valid url from a request object. The request object should contain valid
  * api endpoint parameters
  *
  * @since 1.0.0
  * @author Sylvester Sefa-Yeboah
  */
-public class UrlExtractor{
+public class UrlExtractor {
 
-    private UrlExtractor(){}
-    
+    private UrlExtractor() {
+    }
+
     /**
      * Get an API url from a request object
      *
      * @param object a request object with the valid API parameters
      * @return valid API url
      */
-    public static String extract(Object object){
-
-        //url
-        StringBuilder stringBuilder = new StringBuilder();
-
-        Class<?> cls = object.getClass();
-        while(cls != null){
-            //access all fields in object
-            Field[] fields = cls.getDeclaredFields();
-            for(Field field : fields){
-                field.setAccessible(true);
-                try {
-                    //extract non-null and non-synthetic fields
-                    if (!field.isSynthetic() && field.get(object) != null){
-                        stringBuilder.append(field.getName().toLowerCase())
-                                .append("=");
-                        String value = (field.get(object)).toString();
-                        stringBuilder.append(value).append("&");
-                    }
-                } catch (IllegalAccessException e) {
-                    throw new AlphaVantageException(e.getLocalizedMessage());
-                }
-            }
-            cls = cls.getSuperclass();
-        }
-
-        return stringBuilder.append("apikey=").toString();
-
+    public static String extract(Object object) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -81,7 +54,7 @@ public class UrlExtractor{
      * @param apiKey Alphavantage API key
      * @return
      */
-    public static Request extract(Object request, String apiKey){
-        return new Request.Builder().url(Config.BASE_URL + UrlExtractor.extract(request) + apiKey).build();
+    public static Request extract(Object request, String apiKey) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

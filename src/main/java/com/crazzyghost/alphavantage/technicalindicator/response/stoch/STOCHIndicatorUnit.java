@@ -3,7 +3,9 @@ package com.crazzyghost.alphavantage.technicalindicator.response.stoch;
 public class STOCHIndicatorUnit {
 
     private String date;
+
     private double slowKValue;
+
     private double slowDValue;
 
     public STOCHIndicatorUnit(String date, double slowK, double slowD) {
@@ -13,20 +15,19 @@ public class STOCHIndicatorUnit {
     }
 
     public String getDate() {
-        return date;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public double getSlowKValue() {
-        return slowKValue;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public double getSlowDValue() {
-        return slowDValue;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String toString() {
-        return "STOCHIndicatorUnit {date=" + date + ", slowKValue=" + slowKValue + ", slowDValue=" + slowDValue + "}";
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 }

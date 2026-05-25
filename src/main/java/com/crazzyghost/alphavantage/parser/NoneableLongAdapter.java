@@ -7,13 +7,12 @@ public class NoneableLongAdapter {
 
     @ToJson
     public Long toJson(@NoneableLong Long l) {
-        throw new UnsupportedOperationException();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @FromJson
     @NoneableLong
     public Long fromJson(String s) {
-        return Parser.getNumberFromString(s, Long::parseLong);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 }

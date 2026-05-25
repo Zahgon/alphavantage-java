@@ -33,7 +33,6 @@ import okhttp3.Call;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 import org.jetbrains.annotations.NotNull;
-
 import java.io.IOException;
 
 /**
@@ -45,8 +44,11 @@ import java.io.IOException;
 public final class MarketStatus implements Fetcher {
 
     private final Config config;
+
     private final MarketStatusRequest.Builder builder;
+
     private SuccessCallback<MarketStatusResponse> successCallback;
+
     private FailureCallback failureCallback;
 
     public MarketStatus(Config config) {
@@ -61,8 +63,7 @@ public final class MarketStatus implements Fetcher {
      * @return current instance of {@link MarketStatusResponse}
      */
     public MarketStatus onSuccess(SuccessCallback<MarketStatusResponse> callback) {
-        this.successCallback = callback;
-        return this;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -72,10 +73,8 @@ public final class MarketStatus implements Fetcher {
      * @return current instance of {@link MarketStatusResponse}
      */
     public MarketStatus onFailure(FailureCallback callback) {
-        this.failureCallback = callback;
-        return this;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 
     /**
      * Make a blocking synchronous http request to fetch the data.
@@ -86,50 +85,11 @@ public final class MarketStatus implements Fetcher {
      * @since 1.8.0
      */
     public MarketStatusResponse fetchSync() throws AlphaVantageException {
-
-        Config.checkNotNullOrKeyEmpty(config);
-
-        this.successCallback = null;
-        this.failureCallback = null;
-        okhttp3.OkHttpClient client = config.getOkHttpClient();
-
-        try (Response response = client.newCall(UrlExtractor.extract(builder.build(), config.getKey())).execute()) {
-            return MarketStatusResponse.of(Parser.parseJSON(response.body().string()));
-        } catch (IOException e) {
-            throw new AlphaVantageException(e.getMessage());
-        }
-
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void fetch() {
-
-        Config.checkNotNullOrKeyEmpty(config);
-
-        config.getOkHttpClient().newCall(UrlExtractor.extract(builder.build(), config.getKey())).enqueue(new okhttp3.Callback() {
-            @Override
-            public void onFailure(@NotNull Call call, @NotNull IOException e) {
-                if (failureCallback != null) failureCallback.onFailure(new AlphaVantageException(e.getMessage()));
-            }
-
-            @Override
-            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
-                if (response.isSuccessful()) {
-                    try (ResponseBody body = response.body()) {
-                        MarketStatusResponse marketStatusResponse = MarketStatusResponse.of(Parser.parseJSON(body.string()));
-                        if (marketStatusResponse.getErrorMessage() != null && failureCallback != null) {
-                            failureCallback.onFailure(new AlphaVantageException(marketStatusResponse.getErrorMessage()));
-                        }
-                        if (successCallback != null) {
-                            successCallback.onSuccess(marketStatusResponse);
-                        }
-                    }
-                } else {
-                    if (failureCallback != null) {
-                        failureCallback.onFailure(new AlphaVantageException());
-                    }
-                }
-            }
-        });
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

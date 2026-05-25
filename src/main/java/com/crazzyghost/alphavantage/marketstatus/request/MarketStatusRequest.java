@@ -3,6 +3,7 @@ package com.crazzyghost.alphavantage.marketstatus.request;
 import com.crazzyghost.alphavantage.parameters.Function;
 
 public class MarketStatusRequest {
+
     private final Function function;
 
     private MarketStatusRequest(Builder builder) {
@@ -10,6 +11,7 @@ public class MarketStatusRequest {
     }
 
     public static class Builder {
+
         private final Function function;
 
         public Builder() {
@@ -17,7 +19,7 @@ public class MarketStatusRequest {
         }
 
         public MarketStatusRequest build() {
-            return new MarketStatusRequest(this);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 }

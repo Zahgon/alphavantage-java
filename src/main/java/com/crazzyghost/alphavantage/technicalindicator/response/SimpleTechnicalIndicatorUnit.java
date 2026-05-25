@@ -3,7 +3,9 @@ package com.crazzyghost.alphavantage.technicalindicator.response;
 public class SimpleTechnicalIndicatorUnit {
 
     String date;
+
     Double value;
+
     String indicatorKey;
 
     public SimpleTechnicalIndicatorUnit(String date, Double value) {
@@ -17,17 +19,15 @@ public class SimpleTechnicalIndicatorUnit {
     }
 
     public String getDate() {
-        return date;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getValue() {
-        return value;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String toString() {
-        String key = indicatorKey == null ? "SimpleTechnicalIndicator" : indicatorKey;
-        return key + "Unit {date=" + date + ", value=" + value + "}";
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 }

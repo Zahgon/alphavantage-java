@@ -3,7 +3,6 @@ package com.crazzyghost.alphavantage.indicator.response.dema;
 import com.crazzyghost.alphavantage.indicator.response.PeriodicSeriesResponse;
 import com.crazzyghost.alphavantage.indicator.response.SimpleIndicatorUnit;
 import com.crazzyghost.alphavantage.parser.Parser;
-
 import java.util.List;
 import java.util.Map;
 
@@ -17,26 +16,25 @@ public class DEMAResponse extends PeriodicSeriesResponse {
         super(errorMessage);
     }
 
-    public static DEMAResponse of(Map<String, Object> stringObjectMap){
-        Parser<DEMAResponse> parser = new DMAResponseParser();
-        return parser.parse(stringObjectMap);
+    public static DEMAResponse of(Map<String, Object> stringObjectMap) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static class DMAResponseParser extends PeriodicSeriesParser<DEMAResponse> {
 
         @Override
         public DEMAResponse get(List<SimpleIndicatorUnit> indicatorUnits, MetaData metaData) {
-            return new DEMAResponse(indicatorUnits, metaData);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public DEMAResponse get(String errorMessage) {
-            return new DEMAResponse(errorMessage);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         protected String getIndicatorKey() {
-            return "DEMA";
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 }

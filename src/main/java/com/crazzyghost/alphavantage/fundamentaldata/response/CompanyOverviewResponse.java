@@ -23,7 +23,6 @@
 package com.crazzyghost.alphavantage.fundamentaldata.response;
 
 import com.crazzyghost.alphavantage.parser.Parser;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +31,7 @@ import java.util.Map;
 public class CompanyOverviewResponse {
 
     private final CompanyOverview overview;
+
     private final String errorMessage;
 
     private CompanyOverviewResponse(String error) {
@@ -45,49 +45,33 @@ public class CompanyOverviewResponse {
     }
 
     public static CompanyOverviewResponse of(Map<String, Object> objectMap) {
-        Parser<CompanyOverviewResponse> parser = new CompanyOverviewParser();
-        return parser.parse(objectMap);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getErrorMessage() {
-        return errorMessage;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public CompanyOverview getOverview() {
-        return overview;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static class CompanyOverviewParser extends Parser<CompanyOverviewResponse> {
 
         @Override
         public CompanyOverviewResponse onParseError(String error) {
-            return new CompanyOverviewResponse(error);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         @SuppressWarnings("unchecked")
         public CompanyOverviewResponse parse(Map<String, Object> data) {
-            List<String> keys = new ArrayList<>(data.keySet());
-            if (keys.isEmpty()) {
-                return onParseError("Empty JSON returned by the API, the symbol might not be supported.");
-            }
-            try {
-                //data doesn't have a Symbol key meaning an error was returned
-                Object symbol = data.getOrDefault("Symbol", null);
-                if (symbol == null) throw new ClassCastException();
-                CompanyOverview overview = Parser.parseJSON(Parser.toJSON(data), CompanyOverview.class);
-                return new CompanyOverviewResponse(overview);
-            } catch (ClassCastException | IOException e) {
-                return onParseError(data.get(keys.get(0)).toString());
-            }
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
     @Override
     public String toString() {
-        return "CompanyOverviewResponse{" +
-                "overview=" + overview +
-                ", errorMessage='" + errorMessage + '\'' +
-                '}';
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

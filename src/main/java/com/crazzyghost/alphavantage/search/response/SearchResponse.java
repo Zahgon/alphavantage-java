@@ -23,13 +23,14 @@
 package com.crazzyghost.alphavantage.search.response;
 
 import com.crazzyghost.alphavantage.parser.Parser;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 public class SearchResponse {
+
     private final List<Match> bestMatches;
+
     private final String errorMessage;
 
     private SearchResponse(List<Match> bestMatches) {
@@ -43,50 +44,32 @@ public class SearchResponse {
     }
 
     public List<Match> getBestMatches() {
-        return bestMatches;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getErrorMessage() {
-        return errorMessage;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static SearchResponse of(Map<String, Object> data) {
-        MarketStatusParser parser = new MarketStatusParser();
-        return parser.parse(data);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     private static class MarketStatusParser extends Parser<SearchResponse> {
+
         @Override
         public SearchResponse onParseError(String error) {
-            return new SearchResponse(error);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public SearchResponse parse(Map<String, Object> object) {
-            List<String> keys = new ArrayList<>(object.keySet());
-            if (keys.isEmpty()) {
-                return onParseError("Empty JSON returned by the API, the symbol might not be supported.");
-            }
-            try {
-                int dataIndex = 0;
-                String dataKey = keys.get(dataIndex);
-                Object dataOrErrorMessage = object.get(dataKey);
-                if (dataOrErrorMessage instanceof String) {
-                    return onParseError((String) dataOrErrorMessage);
-                }
-                List<Match> data = Parser.parseJSONList(object.get(dataKey), Match.class);
-                return new SearchResponse(data);
-            } catch (ClassCastException | IndexOutOfBoundsException e) {
-                return onParseError(object.get(keys.get(0)).toString());
-            }
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
     @Override
     public String toString() {
-        return "SearchResponse{" +
-                "bestMatches=" + bestMatches +
-                ", errorMessage='" + errorMessage + '\'' +
-                '}';
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

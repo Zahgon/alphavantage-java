@@ -3,7 +3,6 @@ package com.crazzyghost.alphavantage.indicator.response.minusdi;
 import com.crazzyghost.alphavantage.indicator.response.PeriodicResponse;
 import com.crazzyghost.alphavantage.indicator.response.SimpleIndicatorUnit;
 import com.crazzyghost.alphavantage.parser.Parser;
-
 import java.util.List;
 import java.util.Map;
 
@@ -17,26 +16,25 @@ public class MINUSDIResponse extends PeriodicResponse {
         super(errorMessage);
     }
 
-    public static MINUSDIResponse of(Map<String, Object> stringObjectMap){
-        Parser<MINUSDIResponse> parser = new MINUSDIParser();
-        return parser.parse(stringObjectMap);
+    public static MINUSDIResponse of(Map<String, Object> stringObjectMap) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static class MINUSDIParser extends PeriodicParser<MINUSDIResponse> {
 
         @Override
         public MINUSDIResponse get(List<SimpleIndicatorUnit> indicatorUnits, MetaData metaData) {
-            return new MINUSDIResponse(indicatorUnits, metaData);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public MINUSDIResponse get(String errorMessage) {
-            return new MINUSDIResponse(errorMessage);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public String getIndicatorKey() {
-            return "MINUS_DI";
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 }

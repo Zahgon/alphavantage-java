@@ -3,14 +3,15 @@ package com.crazzyghost.alphavantage.technicalindicator.response.stochf;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
 import com.crazzyghost.alphavantage.parser.DefaultParser;
 import com.crazzyghost.alphavantage.parser.Parser;
 
 public class STOCHFResponse {
 
     private MetaData metaData;
+
     private List<STOCHFIndicatorUnit> indicatorUnits;
+
     private String errorMessage;
 
     private STOCHFResponse(List<STOCHFIndicatorUnit> indicatorUnits, MetaData metaData) {
@@ -26,82 +27,58 @@ public class STOCHFResponse {
     }
 
     public String getErrorMessage() {
-        return errorMessage;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public List<STOCHFIndicatorUnit> getIndicatorUnits() {
-        return indicatorUnits;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public MetaData getMetaData() {
-        return metaData;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static STOCHFResponse of(Map<String, Object> stringObjectMap) {
-        Parser<STOCHFResponse> parser = new STOCHFParser();
-        return parser.parse(stringObjectMap);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static class STOCHFParser extends DefaultParser<STOCHFResponse> {
 
         @Override
         public STOCHFResponse parse(Map<String, String> metaDataMap, Map<String, Map<String, String>> indicatorData) {
-            MetaData metaData = new MetaData(
-                    String.valueOf(metaDataMap.get("1: Symbol")),
-                    String.valueOf(metaDataMap.get("2: Indicator")),
-                    String.valueOf(metaDataMap.get("3: Last Refreshed")),
-                    String.valueOf(metaDataMap.get("4: Interval")),
-                    Double.valueOf(String.valueOf(metaDataMap.get("5.1: FastK Period"))),
-                    Double.valueOf(String.valueOf(metaDataMap.get("5.2: FastD Period"))),
-                    Double.valueOf(String.valueOf(metaDataMap.get("5.3: FastD MA Type"))),
-                    String.valueOf(metaDataMap.get("6: Time Zone")));
-
-            List<STOCHFIndicatorUnit> indicatorUnits = new ArrayList<>();
-
-            for (Map.Entry<String, Map<String, String>> e : indicatorData.entrySet()) {
-                Map<String, String> m = e.getValue();
-                STOCHFIndicatorUnit indicatorUnit = new STOCHFIndicatorUnit(e.getKey(),
-                        Double.parseDouble(m.get("FastK")), Double.parseDouble(m.get("FastD")));
-                indicatorUnits.add(indicatorUnit);
-            }
-            return new STOCHFResponse(indicatorUnits, metaData);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public STOCHFResponse onParseError(String error) {
-            return new STOCHFResponse(error);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
     @Override
     public String toString() {
-        return "STOCHFResponse{" +
-                "metaData=" + metaData +
-                ",indicatorUnits=" + indicatorUnits.size() +
-                ", errorMessage='" + errorMessage + '\'' +
-                '}';
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static class MetaData {
 
         private String symbol;
+
         private String indicator;
+
         private String lastRefreshed;
+
         private String interval;
+
         private double fastKPeriod;
+
         private double fastDPeriod;
+
         private double fastDMaType;
+
         private String timeZone;
 
-        public MetaData(
-                String symbol,
-                String indicator,
-                String lastRefreshed,
-                String interval,
-                double fastKPeriod,
-                double fastDPeriod,
-                double fastDMaType,
-                String timeZone) {
+        public MetaData(String symbol, String indicator, String lastRefreshed, String interval, double fastKPeriod, double fastDPeriod, double fastDMaType, String timeZone) {
             this.symbol = symbol;
             this.indicator = indicator;
             this.lastRefreshed = lastRefreshed;
@@ -117,42 +94,40 @@ public class STOCHFResponse {
         }
 
         public double getFastDMaType() {
-            return fastDMaType;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public double getFastDPeriod() {
-            return fastDPeriod;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public double getFastKPeriod() {
-            return fastKPeriod;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public String getIndicator() {
-            return indicator;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public String getInterval() {
-            return interval;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public String getLastRefreshed() {
-            return lastRefreshed;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public String getSymbol() {
-            return symbol;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public String getTimeZone() {
-            return timeZone;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public String toString() {
-            return "MetaData {fastDMaType=" + fastDMaType + ", fastDPeriod=" + fastDPeriod + ", fastKPeriod="
-                    + fastKPeriod + ", indicator=" + indicator + ", interval=" + interval + ", lastRefreshed="
-                    + lastRefreshed + ", symbol=" + symbol + ", timeZone=" + timeZone + "}";
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 }

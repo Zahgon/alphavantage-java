@@ -3,7 +3,6 @@ package com.crazzyghost.alphavantage.technicalindicator.response.mom;
 import com.crazzyghost.alphavantage.technicalindicator.response.PeriodicSeriesResponse;
 import com.crazzyghost.alphavantage.technicalindicator.response.SimpleTechnicalIndicatorUnit;
 import com.crazzyghost.alphavantage.parser.Parser;
-
 import java.util.List;
 import java.util.Map;
 
@@ -18,25 +17,24 @@ public class MOMResponse extends PeriodicSeriesResponse {
     }
 
     public static MOMResponse of(Map<String, Object> stringObjectMap) {
-        Parser<MOMResponse> parser = new MOMResponseParser();
-        return parser.parse(stringObjectMap);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static class MOMResponseParser extends PeriodicSeriesParser<MOMResponse> {
 
         @Override
         public MOMResponse get(List<SimpleTechnicalIndicatorUnit> indicatorUnits, MetaData metaData) {
-            return new MOMResponse(indicatorUnits, metaData);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public MOMResponse get(String errorMessage) {
-            return new MOMResponse(errorMessage);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         protected String getTechnicalIndicatorKey() {
-            return "MOM";
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 }

@@ -23,8 +23,8 @@
 package com.crazzyghost.alphavantage;
 
 import java.util.concurrent.TimeUnit;
-
 import okhttp3.OkHttpClient;
+
 /**
  * Allows you to set the library configuration parameters.
  *
@@ -36,26 +36,27 @@ public class Config {
     public static final String BASE_URL = "https://www.alphavantage.co/query?";
 
     private final String key;
+
     private final int timeOut;
+
     private final OkHttpClient httpClient;
 
     private Config(Builder builder) {
         this.key = builder.key;
         this.timeOut = builder.timeOut;
-        this.httpClient = builder.httpClient == null ? defaultClient(builder.timeOut): builder.httpClient;
+        this.httpClient = builder.httpClient == null ? defaultClient(builder.timeOut) : builder.httpClient;
     }
 
     public int getTimeOut() {
-        return timeOut;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 
     public String getKey() {
-        return key;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public OkHttpClient getOkHttpClient(){
-        return this.httpClient;
+    public OkHttpClient getOkHttpClient() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -63,8 +64,8 @@ public class Config {
      *
      * @return {@link Builder}
      */
-    public static Builder builder(){
-        return new Builder();
+    public static Builder builder() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -73,10 +74,8 @@ public class Config {
      * @param timeOut connect timeout
      * @return a default HTTP client for fetching data
      */
-    private OkHttpClient defaultClient(int timeOut){
-        return new OkHttpClient.Builder()
-            .connectTimeout(timeOut, TimeUnit.SECONDS)
-            .build();
+    private OkHttpClient defaultClient(int timeOut) {
+        return new OkHttpClient.Builder().connectTimeout(timeOut, TimeUnit.SECONDS).build();
     }
 
     /**
@@ -87,35 +86,31 @@ public class Config {
      * Check if a config instance is null or has an empty key
      */
     public static void checkNotNullOrKeyEmpty(Config config) {
-        if (config == null) throw new AlphaVantageException("Config not set");
-        if (config.getKey() == null) throw new AlphaVantageException("API Key not set");
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 
     public static class Builder {
 
         private String key;
+
         private int timeOut;
+
         private OkHttpClient httpClient;
 
-        public Builder key(String key){
-            this.key = key;
-            return this;
+        public Builder key(String key) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public Builder timeOut(int timeOut){
-            this.timeOut = timeOut;
-            return this;
+        public Builder timeOut(int timeOut) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public Builder httpClient(OkHttpClient httpClient){
-            this.httpClient = httpClient;
-            return this;
+        public Builder httpClient(OkHttpClient httpClient) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public Config build(){
-            return new Config(this);
+        public Config build() {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
-
 }

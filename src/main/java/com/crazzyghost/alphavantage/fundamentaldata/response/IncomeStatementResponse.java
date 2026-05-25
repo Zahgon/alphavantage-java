@@ -23,7 +23,6 @@
 package com.crazzyghost.alphavantage.fundamentaldata.response;
 
 import com.crazzyghost.alphavantage.parser.Parser;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -31,8 +30,11 @@ import java.util.Map;
 public class IncomeStatementResponse {
 
     private final String symbol;
+
     private final List<IncomeStatement> annualReports;
+
     private final List<IncomeStatement> quarterlyReports;
+
     private final String errorMessage;
 
     private IncomeStatementResponse(String error) {
@@ -50,58 +52,41 @@ public class IncomeStatementResponse {
     }
 
     public static IncomeStatementResponse of(Map<String, Object> objectMap) {
-        Parser<IncomeStatementResponse> parser = new IncomeStatementParser();
-        return parser.parse(objectMap);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getErrorMessage() {
-        return errorMessage;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getSymbol() {
-        return symbol;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public List<IncomeStatement> getAnnualReports() {
-        return annualReports;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public List<IncomeStatement> getQuarterlyReports() {
-        return quarterlyReports;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static class IncomeStatementParser extends Parser<IncomeStatementResponse> {
 
         @Override
         public IncomeStatementResponse onParseError(String error) {
-            return new IncomeStatementResponse(error);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         @SuppressWarnings("unchecked")
         public IncomeStatementResponse parse(Map<String, Object> object) {
-            List<String> keys = new ArrayList<>(object.keySet());
-            if (keys.isEmpty()) {
-                return onParseError("Empty JSON returned by the API, the symbol might not be supported.");
-            }
-            try {
-                String symbol = (String)object.get(keys.get(0));
-                List<IncomeStatement> annualReports = Parser.parseJSONList(object.get(keys.get(1)), IncomeStatement.class);
-                List<IncomeStatement> quarterlyReports = Parser.parseJSONList(object.get(keys.get(2)), IncomeStatement.class);
-                return new IncomeStatementResponse(symbol, annualReports, quarterlyReports);
-            } catch (ClassCastException | IndexOutOfBoundsException e) {
-                return onParseError(object.get(keys.get(0)).toString());
-            }
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
     @Override
     public String toString() {
-        return "IncomeStatementResponse{" +
-                "symbol='" + symbol + '\'' +
-                ", annualReports=" + annualReports +
-                ", quarterlyReports=" + quarterlyReports +
-                ", errorMessage='" + errorMessage + '\'' +
-                '}';
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

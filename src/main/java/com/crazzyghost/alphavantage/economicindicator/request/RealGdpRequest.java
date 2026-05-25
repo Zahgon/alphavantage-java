@@ -25,10 +25,10 @@ package com.crazzyghost.alphavantage.economicindicator.request;
 import com.crazzyghost.alphavantage.AlphaVantageException;
 import com.crazzyghost.alphavantage.parameters.Function;
 import com.crazzyghost.alphavantage.parameters.Interval;
-
 import java.util.Arrays;
 
 public class RealGdpRequest extends EconomicIndicatorRequest {
+
     private Interval interval;
 
     private RealGdpRequest(Builder builder) {
@@ -37,6 +37,7 @@ public class RealGdpRequest extends EconomicIndicatorRequest {
     }
 
     public static class Builder extends EconomicIndicatorRequest.Builder<Builder> {
+
         Interval interval;
 
         public Builder() {
@@ -45,16 +46,12 @@ public class RealGdpRequest extends EconomicIndicatorRequest {
         }
 
         public Builder interval(Interval interval) {
-            if (!Arrays.asList(Interval.QUARTERLY, Interval.ANNUAL).contains(interval)) {
-                throw new AlphaVantageException("accepted interval values for REAL_GDP are Interval.QUARTERLY, Interval.ANNUAL");
-            }
-            this.interval = interval;
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public RealGdpRequest build() {
-            return new RealGdpRequest(this);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 }

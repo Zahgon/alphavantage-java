@@ -25,7 +25,6 @@ package com.crazzyghost.alphavantage.indicator;
 import java.io.IOException;
 import java.util.Map;
 import java.util.Objects;
-
 import com.crazzyghost.alphavantage.AlphaVantageException;
 import com.crazzyghost.alphavantage.Config;
 import com.crazzyghost.alphavantage.Fetcher;
@@ -91,11 +90,9 @@ import com.crazzyghost.alphavantage.parameters.Interval;
 import com.crazzyghost.alphavantage.parameters.MAType;
 import com.crazzyghost.alphavantage.parameters.SeriesType;
 import com.crazzyghost.alphavantage.parser.Parser;
-
 import okhttp3.Call;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-
 
 /**
  * Access to Technical Indicator Data
@@ -105,8 +102,11 @@ import okhttp3.ResponseBody;
 public final class Indicator implements Fetcher {
 
     private IndicatorRequest.Builder<?> builder;
+
     private Fetcher.SuccessCallback<?> successCallback;
+
     private Fetcher.FailureCallback failureCallback;
+
     private final Config config;
 
     public Indicator(Config config) {
@@ -117,62 +117,39 @@ public final class Indicator implements Fetcher {
      * Fetch Technical Indicator Data
      */
     @Override
-    public void fetch(){
-
-        Config.checkNotNullOrKeyEmpty(config);
-
-        config.getOkHttpClient().newCall(UrlExtractor.extract(builder.build(), config.getKey())).enqueue(new okhttp3.Callback() {
-            @Override
-            public void onFailure(Call call,  IOException e) {
-                if(failureCallback != null) failureCallback.onFailure(new AlphaVantageException());
-            }
-
-            @Override
-            public void onResponse(Call call,  Response response) throws IOException {
-                if(!response.isSuccessful()){
-                    if(failureCallback != null) failureCallback.onFailure(new AlphaVantageException());
-                } else {
-                    try(ResponseBody body = response.body()){
-                        parseIndicatorResponse(Parser.parseJSON(body.string()));
-                    }
-                }
-            }
-        });
+    public void fetch() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
      * Make a blocking synchronous http request to fetch the data.
-     * This will be called by the {@link SimpleIndicatorRequestProxy#fetchSync()}. 
+     * This will be called by the {@link SimpleIndicatorRequestProxy#fetchSync()}.
      * <p>
      * On Android this will throw NetworkOnMainThreadException. In that case you should handle this on
      * another thread
      * </p>
-     * 
+     *
      * <p>Using this method will overwrite any async callback</p>
      * @since 1.4.1
      * @param successCallback internally used {@link SuccessCallback}
      * @throws AlphaVantageException exception thrown
      */
     private void fetchSync(SuccessCallback<?> successCallback) throws AlphaVantageException {
-
         Config.checkNotNullOrKeyEmpty(config);
-        
         this.successCallback = successCallback;
         this.failureCallback = null;
         okhttp3.OkHttpClient client = config.getOkHttpClient();
-        try(Response response = client.newCall(UrlExtractor.extract(builder.build(), config.getKey())).execute()){
+        try (Response response = client.newCall(UrlExtractor.extract(builder.build(), config.getKey())).execute()) {
             parseIndicatorResponse(Parser.parseJSON(response.body().string()));
-        }catch(IOException e){
+        } catch (IOException e) {
             throw new AlphaVantageException(e.getMessage());
-        }        
+        }
     }
 
-
-
     @SuppressWarnings("unchecked")
-    private void parsePeriodicSeriesResponse(Map<String, Object> data){
+    private void parsePeriodicSeriesResponse(Map<String, Object> data) {
         PeriodicSeriesResponse response = null;
-        switch(builder.function){
+        switch(builder.function) {
             case SMA:
                 response = SMAResponse.of(data);
                 break;
@@ -220,33 +197,31 @@ public final class Indicator implements Fetcher {
             default:
                 break;
         }
-
-        if(Objects.nonNull(response) && Objects.nonNull(response.getErrorMessage())) {
-            if(failureCallback != null)
+        if (Objects.nonNull(response) && Objects.nonNull(response.getErrorMessage())) {
+            if (failureCallback != null)
                 failureCallback.onFailure(new AlphaVantageException(response.getErrorMessage()));
         }
-        if(successCallback != null){
-            ((SuccessCallback<PeriodicSeriesResponse>)successCallback).onSuccess(response);
+        if (successCallback != null) {
+            ((SuccessCallback<PeriodicSeriesResponse>) successCallback).onSuccess(response);
         }
     }
 
     @SuppressWarnings("unchecked")
     private void parseMAMAResponse(Map<String, Object> data) {
         MAMAResponse response = MAMAResponse.of(data);
-        if(response.getErrorMessage() != null) {
-            if(failureCallback != null)
+        if (response.getErrorMessage() != null) {
+            if (failureCallback != null)
                 failureCallback.onFailure(new AlphaVantageException(response.getErrorMessage()));
         }
-        if(successCallback != null){
-            ((Fetcher.SuccessCallback<MAMAResponse>)successCallback).onSuccess(response);
+        if (successCallback != null) {
+            ((Fetcher.SuccessCallback<MAMAResponse>) successCallback).onSuccess(response);
         }
     }
 
     @SuppressWarnings("unchecked")
-    private void parseSimpleIndicatorResponse(Map<String, Object> data){
-
+    private void parseSimpleIndicatorResponse(Map<String, Object> data) {
         SimpleIndicatorResponse response = null;
-        switch (builder.function){
+        switch(builder.function) {
             case VWAP:
                 response = VWAPResponse.of(data);
                 break;
@@ -264,80 +239,79 @@ public final class Indicator implements Fetcher {
             default:
                 break;
         }
-
-        if(Objects.nonNull(response) && Objects.nonNull(response.getErrorMessage())) {
-            if(failureCallback != null)
+        if (Objects.nonNull(response) && Objects.nonNull(response.getErrorMessage())) {
+            if (failureCallback != null)
                 failureCallback.onFailure(new AlphaVantageException(response.getErrorMessage()));
         }
-        if(successCallback != null){
-            ((SuccessCallback<SimpleIndicatorResponse>)successCallback).onSuccess(response);
+        if (successCallback != null) {
+            ((SuccessCallback<SimpleIndicatorResponse>) successCallback).onSuccess(response);
         }
     }
 
     @SuppressWarnings("unchecked")
     private void parseMACDResponse(Map<String, Object> data) {
         MACDResponse response = MACDResponse.of(data);
-        if(response.getErrorMessage() != null) {
-            if(failureCallback != null)
+        if (response.getErrorMessage() != null) {
+            if (failureCallback != null)
                 failureCallback.onFailure(new AlphaVantageException(response.getErrorMessage()));
         }
-        if(successCallback != null){
-            ((Fetcher.SuccessCallback<MACDResponse>)successCallback).onSuccess(response);
+        if (successCallback != null) {
+            ((Fetcher.SuccessCallback<MACDResponse>) successCallback).onSuccess(response);
         }
     }
 
     @SuppressWarnings("unchecked")
     private void parseMACDEXTResponse(Map<String, Object> data) {
         MACDEXTResponse response = MACDEXTResponse.of(data);
-        if(response.getErrorMessage() != null) {
-            if(failureCallback != null)
+        if (response.getErrorMessage() != null) {
+            if (failureCallback != null)
                 failureCallback.onFailure(new AlphaVantageException(response.getErrorMessage()));
         }
-        if(successCallback != null){
-            ((Fetcher.SuccessCallback<MACDEXTResponse>)successCallback).onSuccess(response);
+        if (successCallback != null) {
+            ((Fetcher.SuccessCallback<MACDEXTResponse>) successCallback).onSuccess(response);
         }
     }
 
     @SuppressWarnings("unchecked")
     private void parseSTOCHResponse(Map<String, Object> data) {
         STOCHResponse response = STOCHResponse.of(data);
-        if(response.getErrorMessage() != null) {
-            if(failureCallback != null)
+        if (response.getErrorMessage() != null) {
+            if (failureCallback != null)
                 failureCallback.onFailure(new AlphaVantageException(response.getErrorMessage()));
         }
-        if(successCallback != null){
-            ((Fetcher.SuccessCallback<STOCHResponse>)successCallback).onSuccess(response);
+        if (successCallback != null) {
+            ((Fetcher.SuccessCallback<STOCHResponse>) successCallback).onSuccess(response);
         }
     }
 
     @SuppressWarnings("unchecked")
     private void parseSTOCHFResponse(Map<String, Object> data) {
         STOCHFResponse response = STOCHFResponse.of(data);
-        if(response.getErrorMessage() != null) {
-            if(failureCallback != null)
+        if (response.getErrorMessage() != null) {
+            if (failureCallback != null)
                 failureCallback.onFailure(new AlphaVantageException(response.getErrorMessage()));
         }
-        if(successCallback != null){
-            ((Fetcher.SuccessCallback<STOCHFResponse>)successCallback).onSuccess(response);
+        if (successCallback != null) {
+            ((Fetcher.SuccessCallback<STOCHFResponse>) successCallback).onSuccess(response);
         }
     }
 
     @SuppressWarnings("unchecked")
     private void parseSTOCHRSIResponse(Map<String, Object> data) {
         STOCHRSIResponse response = STOCHRSIResponse.of(data);
-        if(response.getErrorMessage() != null) {
-            if(failureCallback != null)
+        if (response.getErrorMessage() != null) {
+            if (failureCallback != null)
                 failureCallback.onFailure(new AlphaVantageException(response.getErrorMessage()));
         }
-        if(successCallback != null){
-            ((Fetcher.SuccessCallback<STOCHRSIResponse>)successCallback).onSuccess(response);
+        if (successCallback != null) {
+            ((Fetcher.SuccessCallback<STOCHRSIResponse>) successCallback).onSuccess(response);
         }
     }
 
     @SuppressWarnings("unchecked")
     private void parsePriceOscillatorResponse(Map<String, Object> data) {
         PriceOscillatorResponse response = null;
-        switch (builder.function){
+        switch(builder.function) {
             case APO:
                 response = APOResponse.of(data);
                 break;
@@ -346,19 +320,19 @@ public final class Indicator implements Fetcher {
             default:
                 break;
         }
-        if(Objects.nonNull(response) && Objects.nonNull(response.getErrorMessage())) {
-            if(failureCallback != null)
+        if (Objects.nonNull(response) && Objects.nonNull(response.getErrorMessage())) {
+            if (failureCallback != null)
                 failureCallback.onFailure(new AlphaVantageException(response.getErrorMessage()));
         }
-        if(successCallback != null){
-            ((Fetcher.SuccessCallback<PriceOscillatorResponse>)successCallback).onSuccess(response);
+        if (successCallback != null) {
+            ((Fetcher.SuccessCallback<PriceOscillatorResponse>) successCallback).onSuccess(response);
         }
     }
 
     @SuppressWarnings("unchecked")
-    private void parsePeriodicResponse(Map<String, Object> data){
+    private void parsePeriodicResponse(Map<String, Object> data) {
         PeriodicResponse response = null;
-        switch (builder.function){
+        switch(builder.function) {
             case WILLR:
                 response = WILLRResponse.of(data);
                 break;
@@ -403,80 +377,79 @@ public final class Indicator implements Fetcher {
             default:
                 break;
         }
-        if(Objects.nonNull(response) && Objects.nonNull(response.getErrorMessage())) {
-            if(failureCallback != null)
+        if (Objects.nonNull(response) && Objects.nonNull(response.getErrorMessage())) {
+            if (failureCallback != null)
                 failureCallback.onFailure(new AlphaVantageException(response.getErrorMessage()));
         }
-        if(successCallback != null){
-            ((Fetcher.SuccessCallback<PeriodicResponse>)successCallback).onSuccess(response);
+        if (successCallback != null) {
+            ((Fetcher.SuccessCallback<PeriodicResponse>) successCallback).onSuccess(response);
         }
     }
 
     @SuppressWarnings("unchecked")
-    private void parseAROONResponse(Map<String, Object> data){
+    private void parseAROONResponse(Map<String, Object> data) {
         AROONResponse response = AROONResponse.of(data);
-        if(response.getErrorMessage() != null) {
-            if(failureCallback != null)
+        if (response.getErrorMessage() != null) {
+            if (failureCallback != null)
                 failureCallback.onFailure(new AlphaVantageException(response.getErrorMessage()));
         }
-        if(successCallback != null){
-            ((Fetcher.SuccessCallback<AROONResponse>)successCallback).onSuccess(response);
+        if (successCallback != null) {
+            ((Fetcher.SuccessCallback<AROONResponse>) successCallback).onSuccess(response);
         }
     }
 
     @SuppressWarnings("unchecked")
-    private void parseULTOSCResponse(Map<String, Object> data){
+    private void parseULTOSCResponse(Map<String, Object> data) {
         ULTOSCResponse response = ULTOSCResponse.of(data);
-        if(response.getErrorMessage() != null) {
-            if(failureCallback != null)
+        if (response.getErrorMessage() != null) {
+            if (failureCallback != null)
                 failureCallback.onFailure(new AlphaVantageException(response.getErrorMessage()));
         }
-        if(successCallback != null){
-            ((Fetcher.SuccessCallback<ULTOSCResponse>)successCallback).onSuccess(response);
+        if (successCallback != null) {
+            ((Fetcher.SuccessCallback<ULTOSCResponse>) successCallback).onSuccess(response);
         }
     }
 
     @SuppressWarnings("unchecked")
-    private void parseBBANDSResponse(Map<String, Object> data){
+    private void parseBBANDSResponse(Map<String, Object> data) {
         BBANDSResponse response = BBANDSResponse.of(data);
-        if(response.getErrorMessage() != null) {
-            if(failureCallback != null)
+        if (response.getErrorMessage() != null) {
+            if (failureCallback != null)
                 failureCallback.onFailure(new AlphaVantageException(response.getErrorMessage()));
         }
-        if(successCallback != null){
-            ((Fetcher.SuccessCallback<BBANDSResponse>)successCallback).onSuccess(response);
+        if (successCallback != null) {
+            ((Fetcher.SuccessCallback<BBANDSResponse>) successCallback).onSuccess(response);
         }
     }
 
-
     @SuppressWarnings("unchecked")
-    private void parseSARResponse(Map<String, Object> data){
+    private void parseSARResponse(Map<String, Object> data) {
         SARResponse response = SARResponse.of(data);
-        if(response.getErrorMessage() != null) {
-            if(failureCallback != null)
+        if (response.getErrorMessage() != null) {
+            if (failureCallback != null)
                 failureCallback.onFailure(new AlphaVantageException(response.getErrorMessage()));
         }
-        if(successCallback != null){
-            ((Fetcher.SuccessCallback<SARResponse>)successCallback).onSuccess(response);
+        if (successCallback != null) {
+            ((Fetcher.SuccessCallback<SARResponse>) successCallback).onSuccess(response);
         }
     }
 
     @SuppressWarnings("unchecked")
-    private void parseADOSCResponse(Map<String, Object> data){
+    private void parseADOSCResponse(Map<String, Object> data) {
         ADOSCResponse response = ADOSCResponse.of(data);
-        if(response.getErrorMessage() != null) {
-            if(failureCallback != null)
+        if (response.getErrorMessage() != null) {
+            if (failureCallback != null)
                 failureCallback.onFailure(new AlphaVantageException(response.getErrorMessage()));
         }
-        if(successCallback != null){
-            ((Fetcher.SuccessCallback<ADOSCResponse>)successCallback).onSuccess(response);
+        if (successCallback != null) {
+            ((Fetcher.SuccessCallback<ADOSCResponse>) successCallback).onSuccess(response);
         }
     }
 
     @SuppressWarnings("unchecked")
-    private void parseSeriesResponse(Map<String, Object> data){
+    private void parseSeriesResponse(Map<String, Object> data) {
         SeriesResponse response = null;
-        switch (builder.function){
+        switch(builder.function) {
             case HT_TRENDLINE:
                 response = HTTRENDLINEResponse.of(data);
                 break;
@@ -491,43 +464,41 @@ public final class Indicator implements Fetcher {
             default:
                 break;
         }
-        if(Objects.nonNull(response) && Objects.nonNull(response.getErrorMessage())) {
-            if(failureCallback != null)
+        if (Objects.nonNull(response) && Objects.nonNull(response.getErrorMessage())) {
+            if (failureCallback != null)
                 failureCallback.onFailure(new AlphaVantageException(response.getErrorMessage()));
         }
-        if(successCallback != null){
-            ((SuccessCallback<SeriesResponse>)successCallback).onSuccess(response);
+        if (successCallback != null) {
+            ((SuccessCallback<SeriesResponse>) successCallback).onSuccess(response);
         }
     }
 
-
     @SuppressWarnings("unchecked")
-    private void parseHTSINEResponse(Map<String, Object> data){
+    private void parseHTSINEResponse(Map<String, Object> data) {
         HTSINEResponse response = HTSINEResponse.of(data);
-        if(response.getErrorMessage() != null) {
-            if(failureCallback != null)
+        if (response.getErrorMessage() != null) {
+            if (failureCallback != null)
                 failureCallback.onFailure(new AlphaVantageException(response.getErrorMessage()));
         }
-        if(successCallback != null){
-            ((Fetcher.SuccessCallback<HTSINEResponse>)successCallback).onSuccess(response);
+        if (successCallback != null) {
+            ((Fetcher.SuccessCallback<HTSINEResponse>) successCallback).onSuccess(response);
         }
     }
 
     @SuppressWarnings("unchecked")
-    private void parseHTPHASORResponse(Map<String, Object> data){
+    private void parseHTPHASORResponse(Map<String, Object> data) {
         HTPHASORResponse response = HTPHASORResponse.of(data);
-        if(response.getErrorMessage() != null) {
-            if(failureCallback != null)
+        if (response.getErrorMessage() != null) {
+            if (failureCallback != null)
                 failureCallback.onFailure(new AlphaVantageException(response.getErrorMessage()));
         }
-        if(successCallback != null){
-            ((Fetcher.SuccessCallback<HTPHASORResponse>)successCallback).onSuccess(response);
+        if (successCallback != null) {
+            ((Fetcher.SuccessCallback<HTPHASORResponse>) successCallback).onSuccess(response);
         }
     }
 
-    private void parseIndicatorResponse(Map<String, Object> data){
-        
-        switch(builder.function){
+    private void parseIndicatorResponse(Map<String, Object> data) {
+        switch(builder.function) {
             case SMA:
             case EMA:
             case WMA:
@@ -571,7 +542,7 @@ public final class Indicator implements Fetcher {
                 parseSTOCHRSIResponse(data);
                 break;
             case APO:
-            case PPO: 
+            case PPO:
                 parsePriceOscillatorResponse(data);
                 break;
             case WILLR:
@@ -602,7 +573,7 @@ public final class Indicator implements Fetcher {
             case SAR:
                 parseSARResponse(data);
                 break;
-            case ADOSC: 
+            case ADOSC:
                 parseADOSCResponse(data);
                 break;
             case HT_TRENDLINE:
@@ -618,273 +589,264 @@ public final class Indicator implements Fetcher {
                 parseHTPHASORResponse(data);
                 break;
             default:
-                break;        
+                break;
         }
-        
     }
 
-
-    public PeriodicSeriesRequestProxy<SMAResponse> sma(){
-        return new PeriodicSeriesRequestProxy<>(Function.SMA);
+    public PeriodicSeriesRequestProxy<SMAResponse> sma() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public PeriodicSeriesRequestProxy<EMAResponse> ema(){
-        return new PeriodicSeriesRequestProxy<>(Function.EMA);
+    public PeriodicSeriesRequestProxy<EMAResponse> ema() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public PeriodicSeriesRequestProxy<WMAResponse> wma(){
-        return new PeriodicSeriesRequestProxy<>(Function.WMA);
+    public PeriodicSeriesRequestProxy<WMAResponse> wma() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public PeriodicSeriesRequestProxy<DEMAResponse> dema(){
-        return new PeriodicSeriesRequestProxy<>(Function.DEMA);
+    public PeriodicSeriesRequestProxy<DEMAResponse> dema() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public PeriodicSeriesRequestProxy<TEMAResponse> tema(){
-        return new PeriodicSeriesRequestProxy<>(Function.TEMA);
+    public PeriodicSeriesRequestProxy<TEMAResponse> tema() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public PeriodicSeriesRequestProxy<TRIMAResponse> trima(){
-        return new PeriodicSeriesRequestProxy<>(Function.TRIMA);
+    public PeriodicSeriesRequestProxy<TRIMAResponse> trima() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public PeriodicSeriesRequestProxy<KAMAResponse> kama(){
-        return new PeriodicSeriesRequestProxy<>(Function.KAMA);
+    public PeriodicSeriesRequestProxy<KAMAResponse> kama() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public MAMARequestProxy mama(){
-        return new MAMARequestProxy();
+    public MAMARequestProxy mama() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public PeriodicSeriesRequestProxy<T3Response> t3(){
-        return new PeriodicSeriesRequestProxy<>(Function.T3);
+    public PeriodicSeriesRequestProxy<T3Response> t3() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public SimpleIndicatorRequestProxy<?, VWAPResponse> vwap(){
-        return new SimpleIndicatorRequestProxy<>(Function.VWAP);
+    public SimpleIndicatorRequestProxy<?, VWAPResponse> vwap() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public MACDRequestProxy macd(){
-        return new MACDRequestProxy();
+    public MACDRequestProxy macd() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public MACDEXTRequestProxy macdext(){
-        return new MACDEXTRequestProxy();
+    public MACDEXTRequestProxy macdext() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public STOCHRequestProxy stoch(){
-        return new STOCHRequestProxy();
+    public STOCHRequestProxy stoch() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public STOCHFRequestProxy stochf(){
-        return new STOCHFRequestProxy();
+    public STOCHFRequestProxy stochf() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public PeriodicSeriesRequestProxy<RSIResponse> rsi(){
-        return new PeriodicSeriesRequestProxy<>(Function.RSI);
+    public PeriodicSeriesRequestProxy<RSIResponse> rsi() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public STOCHRSIRequestProxy stochrsi(){
-        return new STOCHRSIRequestProxy();
+    public STOCHRSIRequestProxy stochrsi() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public PeriodicRequestProxy<WILLRResponse> willr(){
-        return new PeriodicRequestProxy<>(Function.WILLR);
+    public PeriodicRequestProxy<WILLRResponse> willr() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public PeriodicRequestProxy<ADXResponse> adx(){
-        return new PeriodicRequestProxy<>(Function.ADX);
+    public PeriodicRequestProxy<ADXResponse> adx() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public PeriodicRequestProxy<ADXRResponse> adxr(){
-        return new PeriodicRequestProxy<>(Function.ADXR);
+    public PeriodicRequestProxy<ADXRResponse> adxr() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public PriceOscillatorRequestProxy<APOResponse> apo(){
-        return new PriceOscillatorRequestProxy<>(Function.APO);
+    public PriceOscillatorRequestProxy<APOResponse> apo() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public PriceOscillatorRequestProxy<PPOResponse> ppo(){
-        return new PriceOscillatorRequestProxy<>(Function.PPO);
+    public PriceOscillatorRequestProxy<PPOResponse> ppo() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public PeriodicSeriesRequestProxy<MOMResponse> mom(){
-        return new PeriodicSeriesRequestProxy<>(Function.MOM);
+    public PeriodicSeriesRequestProxy<MOMResponse> mom() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public SimpleIndicatorRequestProxy<?, BOPResponse> bop(){
-        return new SimpleIndicatorRequestProxy<>(Function.BOP);
+    public SimpleIndicatorRequestProxy<?, BOPResponse> bop() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public PeriodicRequestProxy<CCIResponse> cci(){
-        return new PeriodicRequestProxy<>(Function.CCI);
+    public PeriodicRequestProxy<CCIResponse> cci() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public PeriodicSeriesRequestProxy<CMOResponse> cmo(){
-        return new PeriodicSeriesRequestProxy<>(Function.CMO);
+    public PeriodicSeriesRequestProxy<CMOResponse> cmo() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public PeriodicSeriesRequestProxy<ROCResponse> roc(){
-        return new PeriodicSeriesRequestProxy<>(Function.ROC);
+    public PeriodicSeriesRequestProxy<ROCResponse> roc() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public PeriodicSeriesRequestProxy<ROCRResponse> rocr(){
-        return new PeriodicSeriesRequestProxy<>(Function.ROCR);
+    public PeriodicSeriesRequestProxy<ROCRResponse> rocr() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public PeriodicRequestProxy<AROONResponse> aroon(){
-        return new PeriodicRequestProxy<>(Function.AROON);
+    public PeriodicRequestProxy<AROONResponse> aroon() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public PeriodicRequestProxy<AROONOSCResponse> aroonosc(){
-        return new PeriodicRequestProxy<>(Function.AROONOSC);
+    public PeriodicRequestProxy<AROONOSCResponse> aroonosc() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public PeriodicRequestProxy<MFIResponse> mfi(){
-        return new PeriodicRequestProxy<>(Function.MFI);
+    public PeriodicRequestProxy<MFIResponse> mfi() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public PeriodicSeriesRequestProxy<TRIXResponse> trix(){
-        return new PeriodicSeriesRequestProxy<>(Function.TRIX);
+    public PeriodicSeriesRequestProxy<TRIXResponse> trix() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public ULTOSCRequestProxy ultosc(){
-        return new ULTOSCRequestProxy();
+    public ULTOSCRequestProxy ultosc() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public PeriodicRequestProxy<DXResponse> dx(){
-        return new PeriodicRequestProxy<>(Function.DX);
+    public PeriodicRequestProxy<DXResponse> dx() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public PeriodicRequestProxy<MINUSDIResponse> minusdi(){
-        return new PeriodicRequestProxy<>(Function.MINUS_DI);
+    public PeriodicRequestProxy<MINUSDIResponse> minusdi() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public PeriodicRequestProxy<PLUSDIResponse> plusdi(){
-        return new PeriodicRequestProxy<>(Function.PLUS_DI);
+    public PeriodicRequestProxy<PLUSDIResponse> plusdi() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public PeriodicRequestProxy<MINUSDMResponse> minusdm(){
-        return new PeriodicRequestProxy<>(Function.MINUS_DM);
+    public PeriodicRequestProxy<MINUSDMResponse> minusdm() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public PeriodicRequestProxy<PLUSDMResponse> plusdm(){
-        return new PeriodicRequestProxy<>(Function.PLUS_DM);
+    public PeriodicRequestProxy<PLUSDMResponse> plusdm() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public BBANDSRequestProxy bbands(){
-        return new BBANDSRequestProxy();
+    public BBANDSRequestProxy bbands() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public PeriodicSeriesRequestProxy<MIDPOINTResponse> midpoint(){
-        return new PeriodicSeriesRequestProxy<>(Function.MIDPOINT);
+    public PeriodicSeriesRequestProxy<MIDPOINTResponse> midpoint() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public PeriodicRequestProxy<MIDPRICEResponse> midprice(){
-        return new PeriodicRequestProxy<>(Function.MIDPRICE);
+    public PeriodicRequestProxy<MIDPRICEResponse> midprice() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public SARRequestProxy sar(){
-        return new SARRequestProxy();
+    public SARRequestProxy sar() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public SimpleIndicatorRequestProxy<?, TRANGEResponse> trange(){
-        return new SimpleIndicatorRequestProxy<>(Function.TRANGE);
+    public SimpleIndicatorRequestProxy<?, TRANGEResponse> trange() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public PeriodicRequestProxy<ATRResponse> atr(){
-        return new PeriodicRequestProxy<>(Function.ATR);
+    public PeriodicRequestProxy<ATRResponse> atr() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public PeriodicRequestProxy<NATRResponse> natr(){
-        return new PeriodicRequestProxy<>(Function.NATR);
+    public PeriodicRequestProxy<NATRResponse> natr() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public SimpleIndicatorRequestProxy<?, ADResponse> ad(){
-        return new SimpleIndicatorRequestProxy<>(Function.AD);
+    public SimpleIndicatorRequestProxy<?, ADResponse> ad() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public ADOSCRequestProxy adosc(){
-        return new ADOSCRequestProxy();
+    public ADOSCRequestProxy adosc() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public SimpleIndicatorRequestProxy<?, OBVResponse> obv(){
-        return new SimpleIndicatorRequestProxy<>(Function.OBV);
+    public SimpleIndicatorRequestProxy<?, OBVResponse> obv() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public SeriesRequestProxy<HTTRENDLINEResponse> httrendline(){
-        return new SeriesRequestProxy<>(Function.HT_TRENDLINE);
+    public SeriesRequestProxy<HTTRENDLINEResponse> httrendline() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public SeriesRequestProxy<HTSINEResponse> htsine(){
-        return new SeriesRequestProxy<>(Function.HT_SINE);
-    }
-    
-    public SeriesRequestProxy<HTTRENDMODEResponse> httrendmode(){
-        return new SeriesRequestProxy<>(Function.HT_TRENDMODE);
+    public SeriesRequestProxy<HTSINEResponse> htsine() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public SeriesRequestProxy<HTDCPHASEResponse> htdcphase(){
-        return new SeriesRequestProxy<>(Function.HT_DCPHASE);
+    public SeriesRequestProxy<HTTRENDMODEResponse> httrendmode() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public SeriesRequestProxy<HTDCPERIODResponse> htdcperiod(){
-        return new SeriesRequestProxy<>(Function.HT_DCPERIOD);
+    public SeriesRequestProxy<HTDCPHASEResponse> htdcphase() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public SeriesRequestProxy<HTPHASORResponse> htphasor(){
-        return new SeriesRequestProxy<>(Function.HT_PHASOR);
+    public SeriesRequestProxy<HTDCPERIODResponse> htdcperiod() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
+    public SeriesRequestProxy<HTPHASORResponse> htphasor() {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 
     /**
-     * An base proxy for building requests. Adds the functionality of adding callbacks and a terminal method for 
+     * An base proxy for building requests. Adds the functionality of adding callbacks and a terminal method for
      * fetching data.
      * @param <T> A Concrete {@link SimpleIndicatorRequestProxy} Implementation
      */
     @SuppressWarnings("unchecked")
     public class SimpleIndicatorRequestProxy<T extends SimpleIndicatorRequestProxy<?, U>, U> {
-        
+
         protected IndicatorRequest.Builder<?> builder;
+
         protected U syncResponse;
 
-        public SimpleIndicatorRequestProxy(){
-        
-        }
-        
-        public SimpleIndicatorRequestProxy(Function function){
-            builder = new SimpleIndicatorRequest.Builder(); 
-            builder = builder.function(function);       
+        public SimpleIndicatorRequestProxy() {
         }
 
-        public T dataType(DataType dataType){
-            builder = builder.dataType(dataType);
-            return (T)this;
+        public SimpleIndicatorRequestProxy(Function function) {
+            builder = new SimpleIndicatorRequest.Builder();
+            builder = builder.function(function);
         }
 
-        public T forSymbol(String symbol){
-            builder = builder.forSymbol(symbol);
-            return (T)this;
+        public T dataType(DataType dataType) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public T interval(Interval interval){
-            builder = builder.interval(interval);
-            return (T)this;
+        public T forSymbol(String symbol) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public T onSuccess(Fetcher.SuccessCallback<?> callback){
-            Indicator.this.successCallback =  callback;
-            return (T)this;
+        public T interval(Interval interval) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public T onFailure(Fetcher.FailureCallback callback){
-            Indicator.this.failureCallback = callback;
-            return (T)this;
+        public T onSuccess(Fetcher.SuccessCallback<?> callback) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public void fetch(){
-            Indicator.this.builder = builder;
-            Indicator.this.fetch();
+        public T onFailure(Fetcher.FailureCallback callback) {
+            throw new UnsupportedOperationException("STUB: not implemented");
+        }
+
+        public void fetch() {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         /**
@@ -895,7 +857,6 @@ public final class Indicator implements Fetcher {
             this.syncResponse = response;
         }
 
-
         /**
          * Set the right builder and make a synchronous request using {@link Indicator#fetch()}
          * <p>When calling this method, any async callbacks will be overwritten</p>
@@ -903,354 +864,297 @@ public final class Indicator implements Fetcher {
          * @throws AlphaVantageException
          */
         public U fetchSync() throws AlphaVantageException {
-            SuccessCallback<U> callback = (e) -> setSyncResponse(e);
-            Indicator.this.builder = this.builder;
-            Indicator.this.fetchSync(callback);
-            return this.syncResponse;            
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
-
-
     }
 
-
     public class PeriodicSeriesRequestProxy<T> extends SimpleIndicatorRequestProxy<PeriodicSeriesRequestProxy<T>, T> {
- 
-        public PeriodicSeriesRequestProxy(Function function){
-            builder = new PeriodicSeriesRequest.Builder(); 
+
+        public PeriodicSeriesRequestProxy(Function function) {
+            builder = new PeriodicSeriesRequest.Builder();
             builder = builder.function(function);
         }
 
-        public PeriodicSeriesRequestProxy<T> timePeriod(int period){
-            builder = ((PeriodicSeriesRequest.Builder)builder).timePeriod(period);
-            return this;
+        public PeriodicSeriesRequestProxy<T> timePeriod(int period) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public PeriodicSeriesRequestProxy<T> seriesType(SeriesType series){
-            builder = ((PeriodicSeriesRequest.Builder)builder).seriesType(series);
-            return this;
+        public PeriodicSeriesRequestProxy<T> seriesType(SeriesType series) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
     public class PeriodicRequestProxy<T> extends SimpleIndicatorRequestProxy<PeriodicRequestProxy<T>, T> {
- 
-        public PeriodicRequestProxy(Function function){
-            builder = new PeriodicRequest.Builder(); 
+
+        public PeriodicRequestProxy(Function function) {
+            builder = new PeriodicRequest.Builder();
             builder = builder.function(function);
         }
 
-        public PeriodicRequestProxy<T> timePeriod(int period){
-            builder = ((PeriodicRequest.Builder)builder).timePeriod(period);
-            return this;
+        public PeriodicRequestProxy<T> timePeriod(int period) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
     public class SeriesRequestProxy<T> extends SimpleIndicatorRequestProxy<SeriesRequestProxy<T>, T> {
- 
-        public SeriesRequestProxy(Function function){
-            builder = new SeriesRequest.Builder(); 
-            builder = builder.function(function);   
+
+        public SeriesRequestProxy(Function function) {
+            builder = new SeriesRequest.Builder();
+            builder = builder.function(function);
         }
 
-        public SeriesRequestProxy<T> seriesType(SeriesType series){
-            builder = ((SeriesRequest.Builder)builder).seriesType(series);
-            return this;
+        public SeriesRequestProxy<T> seriesType(SeriesType series) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
     public class MAMARequestProxy extends SimpleIndicatorRequestProxy<MAMARequestProxy, MAMAResponse> {
- 
-        public MAMARequestProxy(){
-            builder = new MAMARequest.Builder(); 
+
+        public MAMARequestProxy() {
+            builder = new MAMARequest.Builder();
         }
 
-        public MAMARequestProxy fastLimit(double fastLimit){
-            builder = ((MAMARequest.Builder)builder).fastLimit(fastLimit);
-            return this;
+        public MAMARequestProxy fastLimit(double fastLimit) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public MAMARequestProxy seriesType(SeriesType series){
-            builder = ((MAMARequest.Builder)builder).seriesType(series);
-            return this;
+        public MAMARequestProxy seriesType(SeriesType series) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public MAMARequestProxy slowLimit(double slowLimit){
-            builder = ((MAMARequest.Builder)builder).slowLimit(slowLimit);
-            return this;
+        public MAMARequestProxy slowLimit(double slowLimit) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
     public class MACDRequestProxy extends SimpleIndicatorRequestProxy<MACDRequestProxy, MACDResponse> {
- 
-        public MACDRequestProxy(){
-            builder = new MACDRequest.Builder(); 
+
+        public MACDRequestProxy() {
+            builder = new MACDRequest.Builder();
         }
 
-        public MACDRequestProxy fastPeriod(int fastLimit){
-            builder = ((MACDRequest.Builder)builder).fastPeriod(fastLimit);
-            return this;
+        public MACDRequestProxy fastPeriod(int fastLimit) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public MACDRequestProxy slowPeriod(int slowPeriod){
-            builder = ((MACDRequest.Builder)builder).slowPeriod(slowPeriod);
-            return this;
+        public MACDRequestProxy slowPeriod(int slowPeriod) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public MACDRequestProxy signalPeriod(int signalPeriod){
-            builder = ((MACDRequest.Builder)builder).signalPeriod(signalPeriod);
-            return this;
+        public MACDRequestProxy signalPeriod(int signalPeriod) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public MACDRequestProxy seriesType(SeriesType series){
-            builder = ((MACDRequest.Builder)builder).seriesType(series);
-            return this;
+        public MACDRequestProxy seriesType(SeriesType series) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
     public class MACDEXTRequestProxy extends SimpleIndicatorRequestProxy<MACDEXTRequestProxy, MACDEXTResponse> {
- 
-        public MACDEXTRequestProxy(){
+
+        public MACDEXTRequestProxy() {
             builder = new MACDEXTRequest.Builder();
         }
 
-        public MACDEXTRequestProxy fastPeriod(int period){
-            builder = ((MACDEXTRequest.Builder)builder).fastPeriod(period);
-            return this;
+        public MACDEXTRequestProxy fastPeriod(int period) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public MACDEXTRequestProxy slowPeriod(int period){
-            builder = ((MACDEXTRequest.Builder)builder).slowPeriod(period);
-            return this;
+        public MACDEXTRequestProxy slowPeriod(int period) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public MACDEXTRequestProxy signalPeriod(int period){
-            builder = ((MACDEXTRequest.Builder)builder).signalPeriod(period);
-            return this;
+        public MACDEXTRequestProxy signalPeriod(int period) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public MACDEXTRequestProxy fastMaType(MAType type){
-            builder = ((MACDEXTRequest.Builder)builder).fastMaType(type);
-            return this;
+        public MACDEXTRequestProxy fastMaType(MAType type) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public MACDEXTRequestProxy slowMaType(MAType type){
-            builder = ((MACDEXTRequest.Builder)builder).slowMaType(type);
-            return this;
+        public MACDEXTRequestProxy slowMaType(MAType type) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public MACDEXTRequestProxy signalMaType(MAType type){
-            builder = ((MACDEXTRequest.Builder)builder).signalMaType(type);
-            return this;
+        public MACDEXTRequestProxy signalMaType(MAType type) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public MACDEXTRequestProxy seriesType(SeriesType series){
-            builder = ((MACDEXTRequest.Builder)builder).seriesType(series);
-            return this;
+        public MACDEXTRequestProxy seriesType(SeriesType series) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
     public class STOCHRequestProxy extends SimpleIndicatorRequestProxy<STOCHRequestProxy, STOCHResponse> {
- 
-        public STOCHRequestProxy(){
-            builder = new STOCHRequest.Builder();            
+
+        public STOCHRequestProxy() {
+            builder = new STOCHRequest.Builder();
         }
 
-        public STOCHRequestProxy fastKPeriod(int period){
-            builder = ((STOCHRequest.Builder)builder).fastKPeriod(period);
-            return this;
+        public STOCHRequestProxy fastKPeriod(int period) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public STOCHRequestProxy slowKPeriod(int period){
-            builder = ((STOCHRequest.Builder)builder).slowKPeriod(period);
-            return this;
-        }
- 
-        public STOCHRequestProxy slowDPeriod(int period){
-            builder = ((STOCHRequest.Builder)builder).slowDPeriod(period);
-            return this;
+        public STOCHRequestProxy slowKPeriod(int period) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public STOCHRequestProxy slowKMaType(MAType type){
-            builder = ((STOCHRequest.Builder)builder).slowKMaType(type);
-            return this;
+        public STOCHRequestProxy slowDPeriod(int period) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public STOCHRequestProxy slowDMaType(MAType type){
-            builder = ((STOCHRequest.Builder)builder).slowDMaType(type);
-            return this;
+        public STOCHRequestProxy slowKMaType(MAType type) {
+            throw new UnsupportedOperationException("STUB: not implemented");
+        }
+
+        public STOCHRequestProxy slowDMaType(MAType type) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
     public class STOCHFRequestProxy extends SimpleIndicatorRequestProxy<STOCHFRequestProxy, STOCHFResponse> {
- 
-        public STOCHFRequestProxy(){
+
+        public STOCHFRequestProxy() {
             builder = new STOCHFRequest.Builder();
         }
 
-        public STOCHFRequestProxy fastKPeriod(int period){
-            builder = ((STOCHFRequest.Builder)builder).fastKPeriod(period);
-            return this;
+        public STOCHFRequestProxy fastKPeriod(int period) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public STOCHFRequestProxy fastDPeriod(int period){
-            builder = ((STOCHFRequest.Builder)builder).fastDPeriod(period);
-            return this;
+        public STOCHFRequestProxy fastDPeriod(int period) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
- 
-        public STOCHFRequestProxy fastDMaType(MAType type){
-            builder = ((STOCHFRequest.Builder)builder).fastDMaType(type);
-            return this;
+
+        public STOCHFRequestProxy fastDMaType(MAType type) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
     public class STOCHRSIRequestProxy extends SimpleIndicatorRequestProxy<STOCHRSIRequestProxy, STOCHRSIResponse> {
- 
-        public STOCHRSIRequestProxy(){
+
+        public STOCHRSIRequestProxy() {
             builder = new STOCHRSIRequest.Builder();
         }
 
-        public STOCHRSIRequestProxy fastKPeriod(int period){
-            builder = ((STOCHRSIRequest.Builder)builder).fastKPeriod(period);
-            return this;
+        public STOCHRSIRequestProxy fastKPeriod(int period) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public STOCHRSIRequestProxy fastDPeriod(int period){
-            builder = ((STOCHRSIRequest.Builder)builder).fastDPeriod(period);
-            return this;
-        }
- 
-        public STOCHRSIRequestProxy fastDMaType(MAType type){
-            builder = ((STOCHRSIRequest.Builder)builder).fastDMaType(type);
-            return this;
+        public STOCHRSIRequestProxy fastDPeriod(int period) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public STOCHRSIRequestProxy timePeriod(int period){
-            builder = ((STOCHRSIRequest.Builder)builder).timePeriod(period);
-            return this;
+        public STOCHRSIRequestProxy fastDMaType(MAType type) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public STOCHRSIRequestProxy seriesType(SeriesType series){
-            builder = ((STOCHRSIRequest.Builder)builder).seriesType(series);
-            return this;
+        public STOCHRSIRequestProxy timePeriod(int period) {
+            throw new UnsupportedOperationException("STUB: not implemented");
+        }
+
+        public STOCHRSIRequestProxy seriesType(SeriesType series) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
     public class PriceOscillatorRequestProxy<T> extends SimpleIndicatorRequestProxy<PriceOscillatorRequestProxy<T>, T> {
- 
-        public PriceOscillatorRequestProxy(Function function){
-            builder = new PriceOscillatorRequest.Builder(); 
-            builder = builder.function(function); 
+
+        public PriceOscillatorRequestProxy(Function function) {
+            builder = new PriceOscillatorRequest.Builder();
+            builder = builder.function(function);
         }
 
-        public PriceOscillatorRequestProxy<T> fastPeriod(int period){
-            builder = ((PriceOscillatorRequest.Builder)builder).fastPeriod(period);
-            return this;
+        public PriceOscillatorRequestProxy<T> fastPeriod(int period) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public PriceOscillatorRequestProxy<T> slowPeriod(int period){
-            builder = ((PriceOscillatorRequest.Builder)builder).slowPeriod(period);
-            return this;
+        public PriceOscillatorRequestProxy<T> slowPeriod(int period) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public PriceOscillatorRequestProxy<T> seriesType(SeriesType series){
-            builder = ((PriceOscillatorRequest.Builder)builder).seriesType(series);
-            return this;
+        public PriceOscillatorRequestProxy<T> seriesType(SeriesType series) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public PriceOscillatorRequestProxy<T> maType(MAType type){
-            builder = ((PriceOscillatorRequest.Builder)builder).maType(type);
-            return this;
+        public PriceOscillatorRequestProxy<T> maType(MAType type) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
     public class ULTOSCRequestProxy extends SimpleIndicatorRequestProxy<ULTOSCRequestProxy, ULTOSCResponse> {
-        
-        public ULTOSCRequestProxy(){
+
+        public ULTOSCRequestProxy() {
             builder = new ULTOSCRequest.Builder();
         }
 
-        public ULTOSCRequestProxy timePeriod1(int period){
-            builder = ((ULTOSCRequest.Builder)builder).timePeriod1(period);
-            return this;
+        public ULTOSCRequestProxy timePeriod1(int period) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public ULTOSCRequestProxy timePeriod2(int period){
-            builder = ((ULTOSCRequest.Builder)builder).timePeriod2(period);
-            return this;
+        public ULTOSCRequestProxy timePeriod2(int period) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
-        
-        public ULTOSCRequestProxy timePeriod3(int period){
-            builder = ((ULTOSCRequest.Builder)builder).timePeriod3(period);
-            return this;
+
+        public ULTOSCRequestProxy timePeriod3(int period) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
     public class BBANDSRequestProxy extends SimpleIndicatorRequestProxy<BBANDSRequestProxy, BBANDSResponse> {
- 
-        public BBANDSRequestProxy(){
-            builder = new BBANDSRequest.Builder(); 
+
+        public BBANDSRequestProxy() {
+            builder = new BBANDSRequest.Builder();
         }
 
-        public BBANDSRequestProxy nbdevup(int dev){
-            builder = ((BBANDSRequest.Builder)builder).nbdevup(dev);
-            return this;            
+        public BBANDSRequestProxy nbdevup(int dev) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public BBANDSRequestProxy nbdevdn(int dev){
-            builder = ((BBANDSRequest.Builder)builder).nbdevdn(dev);
-            return this;            
+        public BBANDSRequestProxy nbdevdn(int dev) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public BBANDSRequestProxy maType(MAType type){
-            builder = ((BBANDSRequest.Builder)builder).maType(type);
-            return this;            
+        public BBANDSRequestProxy maType(MAType type) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public BBANDSRequestProxy timePeriod(int period){
-            builder = ((BBANDSRequest.Builder)builder).timePeriod(period);
-            return this;
+        public BBANDSRequestProxy timePeriod(int period) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public BBANDSRequestProxy seriesType(SeriesType series){
-            builder = ((BBANDSRequest.Builder)builder).seriesType(series);
-            return this;
+        public BBANDSRequestProxy seriesType(SeriesType series) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
-
     public class SARRequestProxy extends SimpleIndicatorRequestProxy<SARRequestProxy, SARResponse> {
- 
-        public SARRequestProxy(){
-            builder = new SARRequest.Builder(); 
+
+        public SARRequestProxy() {
+            builder = new SARRequest.Builder();
         }
 
-        public SARRequestProxy acceleration(double acceleration){
-            builder = ((SARRequest.Builder)builder).acceleration(acceleration);
-            return this;
+        public SARRequestProxy acceleration(double acceleration) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public SARRequestProxy maximum(double maximum){
-            builder = ((SARRequest.Builder)builder).maximum(maximum);
-            return this;
+        public SARRequestProxy maximum(double maximum) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
-        
     }
 
     public class ADOSCRequestProxy extends SimpleIndicatorRequestProxy<ADOSCRequestProxy, ADOSCResponse> {
- 
-        public ADOSCRequestProxy(){
-            builder = new ADOSCRequest.Builder(); 
+
+        public ADOSCRequestProxy() {
+            builder = new ADOSCRequest.Builder();
         }
 
-        public ADOSCRequestProxy fastPeriod(int period){
-            builder = ((ADOSCRequest.Builder)builder).fastPeriod(period);
-            return this;
+        public ADOSCRequestProxy fastPeriod(int period) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public  ADOSCRequestProxy slowPeriod(int period){
-            builder = ((ADOSCRequest.Builder)builder).slowPeriod(period);
-            return this;
+        public ADOSCRequestProxy slowPeriod(int period) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
-
     }
-
 }

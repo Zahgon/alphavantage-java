@@ -26,311 +26,311 @@ import com.crazzyghost.alphavantage.parser.NoneableLong;
 import com.squareup.moshi.Json;
 
 public class BalanceSheet {
+
     @Json(name = "fiscalDateEnding")
     private String fiscalDateEnding;
+
     @Json(name = "reportedCurrency")
     private String reportedCurrency;
+
     @Json(name = "totalAssets")
     @NoneableLong
     private Long totalAssets;
+
     @Json(name = "totalCurrentAssets")
     @NoneableLong
     private Long totalCurrentAssets;
+
     @Json(name = "cashAndCashEquivalentsAtCarryingValue")
     @NoneableLong
     private Long cashAndCashEquivalentsAtCarryingValue;
+
     @Json(name = "cashAndShortTermInvestments")
     @NoneableLong
     private Long cashAndShortTermInvestments;
+
     @Json(name = "inventory")
     @NoneableLong
     private Long inventory;
+
     @Json(name = "currentNetReceivables")
     @NoneableLong
     private Long currentNetReceivables;
+
     @Json(name = "totalNonCurrentAssets")
     @NoneableLong
     private Long totalNonCurrentAssets;
+
     @Json(name = "propertyPlantEquipment")
     @NoneableLong
     private Long propertyPlantEquipment;
+
     @Json(name = "accumulatedDepreciationAmortizationPPE")
     @NoneableLong
     private Long accumulatedDepreciationAmortizationPPE;
+
     @Json(name = "intangibleAssets")
     @NoneableLong
     private Long intangibleAssets;
+
     @Json(name = "intangibleAssetsExcludingGoodwill")
     @NoneableLong
     private Long intangibleAssetsExcludingGoodwill;
+
     @Json(name = "goodwill")
     @NoneableLong
     private Long goodWill;
+
     @Json(name = "investments")
     @NoneableLong
     private Long investments;
+
     @Json(name = "longTermInvestments")
     @NoneableLong
     private Long longTermInvestments;
+
     @Json(name = "shortTermInvestments")
     @NoneableLong
     private Long shortTermInvestments;
+
     @Json(name = "otherCurrentAssets")
     @NoneableLong
     private Long otherCurrentAssets;
+
     @Json(name = "otherNonCurrrentAssets")
     @NoneableLong
     private Long otherNonCurrentAssets;
+
     @Json(name = "totalLiabilities")
     @NoneableLong
     private Long totalLiabilities;
+
     @Json(name = "totalCurrentLiabilities")
     @NoneableLong
     private Long totalCurrentLiabilities;
+
     @Json(name = "currentAccountsPayable")
     @NoneableLong
     private Long currentAccountsPayable;
+
     @Json(name = "deferredRevenue")
     @NoneableLong
     private Long deferredRevenue;
+
     @Json(name = "currentDebt")
     @NoneableLong
     private Long currentDebt;
+
     @Json(name = "shortTermDebt")
     @NoneableLong
     private Long shortTermDebt;
+
     @Json(name = "totalNonCurrentLiabilities")
     @NoneableLong
     private Long totalNonCurrentLiabilities;
+
     @Json(name = "capitalLeaseObligations")
     @NoneableLong
     private Long capitalLeaseObligations;
+
     @Json(name = "longTermDebt")
     @NoneableLong
     private Long longTermDebt;
+
     @Json(name = "currentLongTermDebt")
     @NoneableLong
     private Long currentLongTermDebt;
+
     @Json(name = "longTermDebtNoncurrent")
     @NoneableLong
     private Long longTermDebtNonCurrent;
+
     @Json(name = "shortLongTermDebtTotal")
     @NoneableLong
     private Long shortLongTermDebtTotal;
+
     @Json(name = "otherCurrentLiabilities")
     @NoneableLong
     private Long otherCurrentLiabilities;
+
     @Json(name = "otherNonCurrentLiabilities")
     @NoneableLong
     private Long otherNonCurrentLiabilities;
+
     @Json(name = "totalShareholderEquity")
     @NoneableLong
     private Long totalShareholderEquity;
+
     @Json(name = "treasuryStock")
     @NoneableLong
     private Long treasuryStock;
+
     @Json(name = "retainedEarnings")
     @NoneableLong
     private Long retainedEarnings;
+
     @Json(name = "commonStock")
     @NoneableLong
     private Long commonStock;
+
     @Json(name = "commonStockSharesOutstanding")
     @NoneableLong
     private Long commonStockSharesOutstanding;
 
     public String getFiscalDateEnding() {
-        return fiscalDateEnding;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getReportedCurrency() {
-        return reportedCurrency;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getTotalAssets() {
-        return totalAssets;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getTotalCurrentAssets() {
-        return totalCurrentAssets;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getCashAndCashEquivalentsAtCarryingValue() {
-        return cashAndCashEquivalentsAtCarryingValue;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getCashAndShortTermInvestments() {
-        return cashAndShortTermInvestments;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getInventory() {
-        return inventory;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getCurrentNetReceivables() {
-        return currentNetReceivables;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getTotalNonCurrentAssets() {
-        return totalNonCurrentAssets;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getPropertyPlantEquipment() {
-        return propertyPlantEquipment;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getAccumulatedDepreciationAmortizationPPE() {
-        return accumulatedDepreciationAmortizationPPE;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getIntangibleAssets() {
-        return intangibleAssets;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getIntangibleAssetsExcludingGoodwill() {
-        return intangibleAssetsExcludingGoodwill;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getGoodWill() {
-        return goodWill;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getInvestments() {
-        return investments;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getLongTermInvestments() {
-        return longTermInvestments;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getShortTermInvestments() {
-        return shortTermInvestments;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getOtherCurrentAssets() {
-        return otherCurrentAssets;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getOtherNonCurrentAssets() {
-        return otherNonCurrentAssets;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getTotalLiabilities() {
-        return totalLiabilities;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getTotalCurrentLiabilities() {
-        return totalCurrentLiabilities;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getCurrentAccountsPayable() {
-        return currentAccountsPayable;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getDeferredRevenue() {
-        return deferredRevenue;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getCurrentDebt() {
-        return currentDebt;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getShortTermDebt() {
-        return shortTermDebt;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getTotalNonCurrentLiabilities() {
-        return totalNonCurrentLiabilities;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getCapitalLeaseObligations() {
-        return capitalLeaseObligations;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getLongTermDebt() {
-        return longTermDebt;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getCurrentLongTermDebt() {
-        return currentLongTermDebt;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getLongTermDebtNonCurrent() {
-        return longTermDebtNonCurrent;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getShortLongTermDebtTotal() {
-        return shortLongTermDebtTotal;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getOtherCurrentLiabilities() {
-        return otherCurrentLiabilities;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getOtherNonCurrentLiabilities() {
-        return otherNonCurrentLiabilities;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getTotalShareholderEquity() {
-        return totalShareholderEquity;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getTreasuryStock() {
-        return treasuryStock;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getRetainedEarnings() {
-        return retainedEarnings;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getCommonStock() {
-        return commonStock;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getCommonStockSharesOutstanding() {
-        return commonStockSharesOutstanding;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String toString() {
-        return "BalanceSheet{" +
-                "fiscalDateEnding='" + fiscalDateEnding + '\'' +
-                ", reportedCurrency='" + reportedCurrency + '\'' +
-                ", totalAssets='" + totalAssets + '\'' +
-                ", totalCurrentAssets='" + totalCurrentAssets + '\'' +
-                ", cashAndCashEquivalentsAtCarryingValue='" + cashAndCashEquivalentsAtCarryingValue + '\'' +
-                ", cashAndShortTermInvestments='" + cashAndShortTermInvestments + '\'' +
-                ", inventory='" + inventory + '\'' +
-                ", currentNetReceivables='" + currentNetReceivables + '\'' +
-                ", totalNonCurrentAssets='" + totalNonCurrentAssets + '\'' +
-                ", propertyPlantEquipment='" + propertyPlantEquipment + '\'' +
-                ", intangibleAssets='" + intangibleAssets + '\'' +
-                ", intangibleAssetsExcludingGoodwill='" + intangibleAssetsExcludingGoodwill + '\'' +
-                ", goodWill='" + goodWill + '\'' +
-                ", investments='" + investments + '\'' +
-                ", longTermInvestments='" + longTermInvestments + '\'' +
-                ", shortTermInvestments='" + shortTermInvestments + '\'' +
-                ", otherCurrentAssets='" + otherCurrentAssets + '\'' +
-                ", otherNonCurrentAssets='" + otherNonCurrentAssets + '\'' +
-                ", totalLiabilities='" + totalLiabilities + '\'' +
-                ", totalCurrentLiabilities='" + totalCurrentLiabilities + '\'' +
-                ", currentAccountsPayable='" + currentAccountsPayable + '\'' +
-                ", deferredRevenue='" + deferredRevenue + '\'' +
-                ", currentDebt='" + currentDebt + '\'' +
-                ", shortTermDebt='" + shortTermDebt + '\'' +
-                ", totalNonCurrentLiabilities='" + totalNonCurrentLiabilities + '\'' +
-                ", capitalLeaseObligations='" + capitalLeaseObligations + '\'' +
-                ", longTermDebt='" + longTermDebt + '\'' +
-                ", currentLongTermDebt='" + currentLongTermDebt + '\'' +
-                ", longTermDebtNonCurrent='" + longTermDebtNonCurrent + '\'' +
-                ", shortLongTermDebtTotal='" + shortLongTermDebtTotal + '\'' +
-                ", otherCurrentLiabilities='" + otherCurrentLiabilities + '\'' +
-                ", otherNonCurrentLiabilities='" + otherNonCurrentLiabilities + '\'' +
-                ", totalShareholderEquity='" + totalShareholderEquity + '\'' +
-                ", treasuryStock='" + treasuryStock + '\'' +
-                ", retainedEarnings='" + retainedEarnings + '\'' +
-                ", commonStock='" + commonStock + '\'' +
-                ", commonStockSharesOutstanding='" + commonStockSharesOutstanding + '\'' +
-                '}';
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

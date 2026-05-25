@@ -3,10 +3,15 @@ package com.crazzyghost.alphavantage.timeseries.response;
 public class MetaData {
 
     private String information;
+
     private String symbol;
+
     private String lastRefreshed;
+
     private String timeZone;
+
     private String interval;
+
     private String outputSize;
 
     public MetaData(String information, String symbol, String lastRefreshed, String interval, String outputSize, String timeZone) {
@@ -17,46 +22,37 @@ public class MetaData {
         this.outputSize = outputSize;
         this.timeZone = timeZone;
     }
-    
-    public static MetaData empty(){
-        return new MetaData(null, null, null, null, null, null);
+
+    public static MetaData empty() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getInformation() {
-        return information;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getSymbol() {
-        return symbol;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getLastRefreshed() {
-        return lastRefreshed;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getTimeZone() {
-        return timeZone;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getOutputSize() {
-        return outputSize;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getInterval() {
-        return interval;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("MetaData{");
-        sb.append("information=" + information);
-        sb.append("symbol=" + symbol);
-        sb.append("lastRefreshed=" + lastRefreshed);
-        sb.append("timeZone=" + timeZone);
-        if(interval != null) sb.append("interval=" + interval);
-        if(outputSize != null) sb.append("outputSize=" + outputSize);
-        sb.append("}");
-        return sb.toString();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

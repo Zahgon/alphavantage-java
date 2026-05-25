@@ -5,25 +5,23 @@ import com.squareup.moshi.Json;
 
 public class AnnualEarning {
 
-    @Json(name="fiscalDateEnding")
+    @Json(name = "fiscalDateEnding")
     private String fiscalDateEnding;
-    @Json(name="reportedEPS")
+
+    @Json(name = "reportedEPS")
     @NoneableDouble
     private Double reportedEPS;
 
     public String getFiscalDateEnding() {
-        return fiscalDateEnding;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Double getReportedEPS() {
-        return reportedEPS;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String toString() {
-        return "AnnualEarning{" +
-                "fiscalDateEnding='" + fiscalDateEnding + '\'' +
-                ", reportedEPS='" + reportedEPS + '\'' +
-                '}';
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

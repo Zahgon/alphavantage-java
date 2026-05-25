@@ -86,22 +86,24 @@ import com.crazzyghost.alphavantage.technicalindicator.response.wma.WMAResponse;
 import okhttp3.Call;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-
 import java.io.IOException;
 import java.util.Map;
 import java.util.Objects;
 
 /**
  * Access to Technical TechnicalIndicator Data
- * 
+ *
  * @author crazzyghost
  * @since 1.1.0
  */
 public final class TechnicalIndicator implements Fetcher {
 
     private TechnicalIndicatorRequest.Builder<?> builder;
+
     private Fetcher.SuccessCallback<?> successCallback;
+
     private Fetcher.FailureCallback failureCallback;
+
     private final Config config;
 
     public TechnicalIndicator(Config config) {
@@ -113,29 +115,7 @@ public final class TechnicalIndicator implements Fetcher {
      */
     @Override
     public void fetch() {
-
-        Config.checkNotNullOrKeyEmpty(config);
-
-        config.getOkHttpClient().newCall(UrlExtractor.extract(builder.build(), config.getKey()))
-                .enqueue(new okhttp3.Callback() {
-                    @Override
-                    public void onFailure(Call call, IOException e) {
-                        if (failureCallback != null)
-                            failureCallback.onFailure(new AlphaVantageException());
-                    }
-
-                    @Override
-                    public void onResponse(Call call, Response response) throws IOException {
-                        if (!response.isSuccessful()) {
-                            if (failureCallback != null)
-                                failureCallback.onFailure(new AlphaVantageException());
-                        } else {
-                            try (ResponseBody body = response.body()) {
-                                parseTechnicalIndicatorResponse(Parser.parseJSON(body.string()));
-                            }
-                        }
-                    }
-                });
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -147,19 +127,17 @@ public final class TechnicalIndicator implements Fetcher {
      * should handle this on
      * another thread
      * </p>
-     * 
+     *
      * <p>
      * Using this method will overwrite any async callback
      * </p>
-     * 
+     *
      * @since 1.4.1
      * @param successCallback internally used {@link SuccessCallback}
      * @throws AlphaVantageException exception thrown
      */
     private void fetchSync(SuccessCallback<?> successCallback) throws AlphaVantageException {
-
         Config.checkNotNullOrKeyEmpty(config);
-
         this.successCallback = successCallback;
         this.failureCallback = null;
         okhttp3.OkHttpClient client = config.getOkHttpClient();
@@ -173,7 +151,7 @@ public final class TechnicalIndicator implements Fetcher {
     @SuppressWarnings("unchecked")
     private void parsePeriodicSeriesResponse(Map<String, Object> data) {
         PeriodicSeriesResponse response = null;
-        switch (builder.function) {
+        switch(builder.function) {
             case SMA:
                 response = SMAResponse.of(data);
                 break;
@@ -221,7 +199,6 @@ public final class TechnicalIndicator implements Fetcher {
             default:
                 break;
         }
-
         if (Objects.nonNull(response) && Objects.nonNull(response.getErrorMessage())) {
             if (failureCallback != null)
                 failureCallback.onFailure(new AlphaVantageException(response.getErrorMessage()));
@@ -245,9 +222,8 @@ public final class TechnicalIndicator implements Fetcher {
 
     @SuppressWarnings("unchecked")
     private void parseSimpleTechnicalIndicatorResponse(Map<String, Object> data) {
-
         SimpleTechnicalIndicatorResponse response = null;
-        switch (builder.function) {
+        switch(builder.function) {
             case VWAP:
                 response = VWAPResponse.of(data);
                 break;
@@ -265,7 +241,6 @@ public final class TechnicalIndicator implements Fetcher {
             default:
                 break;
         }
-
         if (Objects.nonNull(response) && Objects.nonNull(response.getErrorMessage())) {
             if (failureCallback != null)
                 failureCallback.onFailure(new AlphaVantageException(response.getErrorMessage()));
@@ -338,7 +313,7 @@ public final class TechnicalIndicator implements Fetcher {
     @SuppressWarnings("unchecked")
     private void parsePriceOscillatorResponse(Map<String, Object> data) {
         PriceOscillatorResponse response = null;
-        switch (builder.function) {
+        switch(builder.function) {
             case APO:
                 response = APOResponse.of(data);
                 break;
@@ -359,7 +334,7 @@ public final class TechnicalIndicator implements Fetcher {
     @SuppressWarnings("unchecked")
     private void parsePeriodicResponse(Map<String, Object> data) {
         PeriodicResponse response = null;
-        switch (builder.function) {
+        switch(builder.function) {
             case WILLR:
                 response = WILLRResponse.of(data);
                 break;
@@ -476,7 +451,7 @@ public final class TechnicalIndicator implements Fetcher {
     @SuppressWarnings("unchecked")
     private void parseSeriesResponse(Map<String, Object> data) {
         SeriesResponse response = null;
-        switch (builder.function) {
+        switch(builder.function) {
             case HT_TRENDLINE:
                 response = HTTRENDLINEResponse.of(data);
                 break;
@@ -525,8 +500,7 @@ public final class TechnicalIndicator implements Fetcher {
     }
 
     private void parseTechnicalIndicatorResponse(Map<String, Object> data) {
-
-        switch (builder.function) {
+        switch(builder.function) {
             case SMA:
             case EMA:
             case WMA:
@@ -619,226 +593,225 @@ public final class TechnicalIndicator implements Fetcher {
             default:
                 break;
         }
-
     }
 
     public PeriodicSeriesRequestProxy<SMAResponse> sma() {
-        return new PeriodicSeriesRequestProxy<>(Function.SMA);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public PeriodicSeriesRequestProxy<EMAResponse> ema() {
-        return new PeriodicSeriesRequestProxy<>(Function.EMA);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public PeriodicSeriesRequestProxy<WMAResponse> wma() {
-        return new PeriodicSeriesRequestProxy<>(Function.WMA);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public PeriodicSeriesRequestProxy<DEMAResponse> dema() {
-        return new PeriodicSeriesRequestProxy<>(Function.DEMA);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public PeriodicSeriesRequestProxy<TEMAResponse> tema() {
-        return new PeriodicSeriesRequestProxy<>(Function.TEMA);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public PeriodicSeriesRequestProxy<TRIMAResponse> trima() {
-        return new PeriodicSeriesRequestProxy<>(Function.TRIMA);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public PeriodicSeriesRequestProxy<KAMAResponse> kama() {
-        return new PeriodicSeriesRequestProxy<>(Function.KAMA);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public MAMARequestProxy mama() {
-        return new MAMARequestProxy();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public PeriodicSeriesRequestProxy<T3Response> t3() {
-        return new PeriodicSeriesRequestProxy<>(Function.T3);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public SimpleTechnicalIndicatorRequestProxy<?, VWAPResponse> vwap() {
-        return new SimpleTechnicalIndicatorRequestProxy<>(Function.VWAP);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public MACDRequestProxy macd() {
-        return new MACDRequestProxy();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public MACDEXTRequestProxy macdext() {
-        return new MACDEXTRequestProxy();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public STOCHRequestProxy stoch() {
-        return new STOCHRequestProxy();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public STOCHFRequestProxy stochf() {
-        return new STOCHFRequestProxy();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public PeriodicSeriesRequestProxy<RSIResponse> rsi() {
-        return new PeriodicSeriesRequestProxy<>(Function.RSI);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public STOCHRSIRequestProxy stochrsi() {
-        return new STOCHRSIRequestProxy();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public PeriodicRequestProxy<WILLRResponse> willr() {
-        return new PeriodicRequestProxy<>(Function.WILLR);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public PeriodicRequestProxy<ADXResponse> adx() {
-        return new PeriodicRequestProxy<>(Function.ADX);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public PeriodicRequestProxy<ADXRResponse> adxr() {
-        return new PeriodicRequestProxy<>(Function.ADXR);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public PriceOscillatorRequestProxy<APOResponse> apo() {
-        return new PriceOscillatorRequestProxy<>(Function.APO);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public PriceOscillatorRequestProxy<PPOResponse> ppo() {
-        return new PriceOscillatorRequestProxy<>(Function.PPO);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public PeriodicSeriesRequestProxy<MOMResponse> mom() {
-        return new PeriodicSeriesRequestProxy<>(Function.MOM);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public SimpleTechnicalIndicatorRequestProxy<?, BOPResponse> bop() {
-        return new SimpleTechnicalIndicatorRequestProxy<>(Function.BOP);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public PeriodicRequestProxy<CCIResponse> cci() {
-        return new PeriodicRequestProxy<>(Function.CCI);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public PeriodicSeriesRequestProxy<CMOResponse> cmo() {
-        return new PeriodicSeriesRequestProxy<>(Function.CMO);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public PeriodicSeriesRequestProxy<ROCResponse> roc() {
-        return new PeriodicSeriesRequestProxy<>(Function.ROC);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public PeriodicSeriesRequestProxy<ROCRResponse> rocr() {
-        return new PeriodicSeriesRequestProxy<>(Function.ROCR);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public PeriodicRequestProxy<AROONResponse> aroon() {
-        return new PeriodicRequestProxy<>(Function.AROON);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public PeriodicRequestProxy<AROONOSCResponse> aroonosc() {
-        return new PeriodicRequestProxy<>(Function.AROONOSC);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public PeriodicRequestProxy<MFIResponse> mfi() {
-        return new PeriodicRequestProxy<>(Function.MFI);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public PeriodicSeriesRequestProxy<TRIXResponse> trix() {
-        return new PeriodicSeriesRequestProxy<>(Function.TRIX);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public ULTOSCRequestProxy ultosc() {
-        return new ULTOSCRequestProxy();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public PeriodicRequestProxy<DXResponse> dx() {
-        return new PeriodicRequestProxy<>(Function.DX);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public PeriodicRequestProxy<MINUSDIResponse> minusdi() {
-        return new PeriodicRequestProxy<>(Function.MINUS_DI);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public PeriodicRequestProxy<PLUSDIResponse> plusdi() {
-        return new PeriodicRequestProxy<>(Function.PLUS_DI);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public PeriodicRequestProxy<MINUSDMResponse> minusdm() {
-        return new PeriodicRequestProxy<>(Function.MINUS_DM);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public PeriodicRequestProxy<PLUSDMResponse> plusdm() {
-        return new PeriodicRequestProxy<>(Function.PLUS_DM);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public BBANDSRequestProxy bbands() {
-        return new BBANDSRequestProxy();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public PeriodicSeriesRequestProxy<MIDPOINTResponse> midpoint() {
-        return new PeriodicSeriesRequestProxy<>(Function.MIDPOINT);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public PeriodicRequestProxy<MIDPRICEResponse> midprice() {
-        return new PeriodicRequestProxy<>(Function.MIDPRICE);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public SARRequestProxy sar() {
-        return new SARRequestProxy();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public SimpleTechnicalIndicatorRequestProxy<?, TRANGEResponse> trange() {
-        return new SimpleTechnicalIndicatorRequestProxy<>(Function.TRANGE);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public PeriodicRequestProxy<ATRResponse> atr() {
-        return new PeriodicRequestProxy<>(Function.ATR);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public PeriodicRequestProxy<NATRResponse> natr() {
-        return new PeriodicRequestProxy<>(Function.NATR);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public SimpleTechnicalIndicatorRequestProxy<?, ADResponse> ad() {
-        return new SimpleTechnicalIndicatorRequestProxy<>(Function.AD);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public ADOSCRequestProxy adosc() {
-        return new ADOSCRequestProxy();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public SimpleTechnicalIndicatorRequestProxy<?, OBVResponse> obv() {
-        return new SimpleTechnicalIndicatorRequestProxy<>(Function.OBV);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public SeriesRequestProxy<HTTRENDLINEResponse> httrendline() {
-        return new SeriesRequestProxy<>(Function.HT_TRENDLINE);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public SeriesRequestProxy<HTSINEResponse> htsine() {
-        return new SeriesRequestProxy<>(Function.HT_SINE);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public SeriesRequestProxy<HTTRENDMODEResponse> httrendmode() {
-        return new SeriesRequestProxy<>(Function.HT_TRENDMODE);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public SeriesRequestProxy<HTDCPHASEResponse> htdcphase() {
-        return new SeriesRequestProxy<>(Function.HT_DCPHASE);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public SeriesRequestProxy<HTDCPERIODResponse> htdcperiod() {
-        return new SeriesRequestProxy<>(Function.HT_DCPERIOD);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public SeriesRequestProxy<HTPHASORResponse> htphasor() {
-        return new SeriesRequestProxy<>(Function.HT_PHASOR);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
      * An base proxy for building requests. Adds the functionality of adding
      * callbacks and a terminal method for
      * fetching data.
-     * 
+     *
      * @param <T> A Concrete {@link SimpleTechnicalIndicatorRequestProxy}
      *            Implementation
      */
@@ -846,10 +819,10 @@ public final class TechnicalIndicator implements Fetcher {
     public class SimpleTechnicalIndicatorRequestProxy<T extends SimpleTechnicalIndicatorRequestProxy<?, U>, U> {
 
         protected TechnicalIndicatorRequest.Builder<?> builder;
+
         protected U syncResponse;
 
         public SimpleTechnicalIndicatorRequestProxy() {
-
         }
 
         public SimpleTechnicalIndicatorRequestProxy(Function function) {
@@ -858,38 +831,32 @@ public final class TechnicalIndicator implements Fetcher {
         }
 
         public T dataType(DataType dataType) {
-            builder = builder.dataType(dataType);
-            return (T) this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public T forSymbol(String symbol) {
-            builder = builder.forSymbol(symbol);
-            return (T) this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public T interval(Interval interval) {
-            builder = builder.interval(interval);
-            return (T) this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public T onSuccess(Fetcher.SuccessCallback<?> callback) {
-            TechnicalIndicator.this.successCallback = callback;
-            return (T) this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public T onFailure(Fetcher.FailureCallback callback) {
-            TechnicalIndicator.this.failureCallback = callback;
-            return (T) this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public void fetch() {
-            TechnicalIndicator.this.builder = builder;
-            TechnicalIndicator.this.fetch();
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         /**
          * Set the response during a synchronous call
-         * 
+         *
          * @param response
          */
         private void setSyncResponse(U response) {
@@ -902,21 +869,16 @@ public final class TechnicalIndicator implements Fetcher {
          * <p>
          * When calling this method, any async callbacks will be overwritten
          * </p>
-         * 
+         *
          * @return The api response
          * @throws AlphaVantageException
          */
         public U fetchSync() throws AlphaVantageException {
-            SuccessCallback<U> callback = (e) -> setSyncResponse(e);
-            TechnicalIndicator.this.builder = this.builder;
-            TechnicalIndicator.this.fetchSync(callback);
-            return this.syncResponse;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
-
     }
 
-    public class PeriodicSeriesRequestProxy<T>
-            extends SimpleTechnicalIndicatorRequestProxy<PeriodicSeriesRequestProxy<T>, T> {
+    public class PeriodicSeriesRequestProxy<T> extends SimpleTechnicalIndicatorRequestProxy<PeriodicSeriesRequestProxy<T>, T> {
 
         public PeriodicSeriesRequestProxy(Function function) {
             builder = new PeriodicSeriesRequest.Builder();
@@ -924,13 +886,11 @@ public final class TechnicalIndicator implements Fetcher {
         }
 
         public PeriodicSeriesRequestProxy<T> timePeriod(int period) {
-            builder = ((PeriodicSeriesRequest.Builder) builder).timePeriod(period);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public PeriodicSeriesRequestProxy<T> seriesType(SeriesType series) {
-            builder = ((PeriodicSeriesRequest.Builder) builder).seriesType(series);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
@@ -942,8 +902,7 @@ public final class TechnicalIndicator implements Fetcher {
         }
 
         public PeriodicRequestProxy<T> timePeriod(int period) {
-            builder = ((PeriodicRequest.Builder) builder).timePeriod(period);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
@@ -955,8 +914,7 @@ public final class TechnicalIndicator implements Fetcher {
         }
 
         public SeriesRequestProxy<T> seriesType(SeriesType series) {
-            builder = ((SeriesRequest.Builder) builder).seriesType(series);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
@@ -967,18 +925,15 @@ public final class TechnicalIndicator implements Fetcher {
         }
 
         public MAMARequestProxy fastLimit(double fastLimit) {
-            builder = ((MAMARequest.Builder) builder).fastLimit(fastLimit);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public MAMARequestProxy seriesType(SeriesType series) {
-            builder = ((MAMARequest.Builder) builder).seriesType(series);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public MAMARequestProxy slowLimit(double slowLimit) {
-            builder = ((MAMARequest.Builder) builder).slowLimit(slowLimit);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
@@ -989,66 +944,54 @@ public final class TechnicalIndicator implements Fetcher {
         }
 
         public MACDRequestProxy fastPeriod(int fastLimit) {
-            builder = ((MACDRequest.Builder) builder).fastPeriod(fastLimit);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public MACDRequestProxy slowPeriod(int slowPeriod) {
-            builder = ((MACDRequest.Builder) builder).slowPeriod(slowPeriod);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public MACDRequestProxy signalPeriod(int signalPeriod) {
-            builder = ((MACDRequest.Builder) builder).signalPeriod(signalPeriod);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public MACDRequestProxy seriesType(SeriesType series) {
-            builder = ((MACDRequest.Builder) builder).seriesType(series);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
-    public class MACDEXTRequestProxy
-            extends SimpleTechnicalIndicatorRequestProxy<MACDEXTRequestProxy, MACDEXTResponse> {
+    public class MACDEXTRequestProxy extends SimpleTechnicalIndicatorRequestProxy<MACDEXTRequestProxy, MACDEXTResponse> {
 
         public MACDEXTRequestProxy() {
             builder = new MACDEXTRequest.Builder();
         }
 
         public MACDEXTRequestProxy fastPeriod(int period) {
-            builder = ((MACDEXTRequest.Builder) builder).fastPeriod(period);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public MACDEXTRequestProxy slowPeriod(int period) {
-            builder = ((MACDEXTRequest.Builder) builder).slowPeriod(period);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public MACDEXTRequestProxy signalPeriod(int period) {
-            builder = ((MACDEXTRequest.Builder) builder).signalPeriod(period);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public MACDEXTRequestProxy fastMaType(MAType type) {
-            builder = ((MACDEXTRequest.Builder) builder).fastMaType(type);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public MACDEXTRequestProxy slowMaType(MAType type) {
-            builder = ((MACDEXTRequest.Builder) builder).slowMaType(type);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public MACDEXTRequestProxy signalMaType(MAType type) {
-            builder = ((MACDEXTRequest.Builder) builder).signalMaType(type);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public MACDEXTRequestProxy seriesType(SeriesType series) {
-            builder = ((MACDEXTRequest.Builder) builder).seriesType(series);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
@@ -1059,28 +1002,23 @@ public final class TechnicalIndicator implements Fetcher {
         }
 
         public STOCHRequestProxy fastKPeriod(int period) {
-            builder = ((STOCHRequest.Builder) builder).fastKPeriod(period);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public STOCHRequestProxy slowKPeriod(int period) {
-            builder = ((STOCHRequest.Builder) builder).slowKPeriod(period);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public STOCHRequestProxy slowDPeriod(int period) {
-            builder = ((STOCHRequest.Builder) builder).slowDPeriod(period);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public STOCHRequestProxy slowKMaType(MAType type) {
-            builder = ((STOCHRequest.Builder) builder).slowKMaType(type);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public STOCHRequestProxy slowDMaType(MAType type) {
-            builder = ((STOCHRequest.Builder) builder).slowDMaType(type);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
@@ -1091,56 +1029,46 @@ public final class TechnicalIndicator implements Fetcher {
         }
 
         public STOCHFRequestProxy fastKPeriod(int period) {
-            builder = ((STOCHFRequest.Builder) builder).fastKPeriod(period);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public STOCHFRequestProxy fastDPeriod(int period) {
-            builder = ((STOCHFRequest.Builder) builder).fastDPeriod(period);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public STOCHFRequestProxy fastDMaType(MAType type) {
-            builder = ((STOCHFRequest.Builder) builder).fastDMaType(type);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
-    public class STOCHRSIRequestProxy
-            extends SimpleTechnicalIndicatorRequestProxy<STOCHRSIRequestProxy, STOCHRSIResponse> {
+    public class STOCHRSIRequestProxy extends SimpleTechnicalIndicatorRequestProxy<STOCHRSIRequestProxy, STOCHRSIResponse> {
 
         public STOCHRSIRequestProxy() {
             builder = new STOCHRSIRequest.Builder();
         }
 
         public STOCHRSIRequestProxy fastKPeriod(int period) {
-            builder = ((STOCHRSIRequest.Builder) builder).fastKPeriod(period);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public STOCHRSIRequestProxy fastDPeriod(int period) {
-            builder = ((STOCHRSIRequest.Builder) builder).fastDPeriod(period);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public STOCHRSIRequestProxy fastDMaType(MAType type) {
-            builder = ((STOCHRSIRequest.Builder) builder).fastDMaType(type);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public STOCHRSIRequestProxy timePeriod(int period) {
-            builder = ((STOCHRSIRequest.Builder) builder).timePeriod(period);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public STOCHRSIRequestProxy seriesType(SeriesType series) {
-            builder = ((STOCHRSIRequest.Builder) builder).seriesType(series);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
-    public class PriceOscillatorRequestProxy<T>
-            extends SimpleTechnicalIndicatorRequestProxy<PriceOscillatorRequestProxy<T>, T> {
+    public class PriceOscillatorRequestProxy<T> extends SimpleTechnicalIndicatorRequestProxy<PriceOscillatorRequestProxy<T>, T> {
 
         public PriceOscillatorRequestProxy(Function function) {
             builder = new PriceOscillatorRequest.Builder();
@@ -1148,23 +1076,19 @@ public final class TechnicalIndicator implements Fetcher {
         }
 
         public PriceOscillatorRequestProxy<T> fastPeriod(int period) {
-            builder = ((PriceOscillatorRequest.Builder) builder).fastPeriod(period);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public PriceOscillatorRequestProxy<T> slowPeriod(int period) {
-            builder = ((PriceOscillatorRequest.Builder) builder).slowPeriod(period);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public PriceOscillatorRequestProxy<T> seriesType(SeriesType series) {
-            builder = ((PriceOscillatorRequest.Builder) builder).seriesType(series);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public PriceOscillatorRequestProxy<T> maType(MAType type) {
-            builder = ((PriceOscillatorRequest.Builder) builder).maType(type);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
@@ -1175,18 +1099,15 @@ public final class TechnicalIndicator implements Fetcher {
         }
 
         public ULTOSCRequestProxy timePeriod1(int period) {
-            builder = ((ULTOSCRequest.Builder) builder).timePeriod1(period);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public ULTOSCRequestProxy timePeriod2(int period) {
-            builder = ((ULTOSCRequest.Builder) builder).timePeriod2(period);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public ULTOSCRequestProxy timePeriod3(int period) {
-            builder = ((ULTOSCRequest.Builder) builder).timePeriod3(period);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
@@ -1197,28 +1118,23 @@ public final class TechnicalIndicator implements Fetcher {
         }
 
         public BBANDSRequestProxy nbdevup(int dev) {
-            builder = ((BBANDSRequest.Builder) builder).nbdevup(dev);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public BBANDSRequestProxy nbdevdn(int dev) {
-            builder = ((BBANDSRequest.Builder) builder).nbdevdn(dev);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public BBANDSRequestProxy maType(MAType type) {
-            builder = ((BBANDSRequest.Builder) builder).maType(type);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public BBANDSRequestProxy timePeriod(int period) {
-            builder = ((BBANDSRequest.Builder) builder).timePeriod(period);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public BBANDSRequestProxy seriesType(SeriesType series) {
-            builder = ((BBANDSRequest.Builder) builder).seriesType(series);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
@@ -1229,15 +1145,12 @@ public final class TechnicalIndicator implements Fetcher {
         }
 
         public SARRequestProxy acceleration(double acceleration) {
-            builder = ((SARRequest.Builder) builder).acceleration(acceleration);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public SARRequestProxy maximum(double maximum) {
-            builder = ((SARRequest.Builder) builder).maximum(maximum);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
-
     }
 
     public class ADOSCRequestProxy extends SimpleTechnicalIndicatorRequestProxy<ADOSCRequestProxy, ADOSCResponse> {
@@ -1247,15 +1160,11 @@ public final class TechnicalIndicator implements Fetcher {
         }
 
         public ADOSCRequestProxy fastPeriod(int period) {
-            builder = ((ADOSCRequest.Builder) builder).fastPeriod(period);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public ADOSCRequestProxy slowPeriod(int period) {
-            builder = ((ADOSCRequest.Builder) builder).slowPeriod(period);
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
-
     }
-
 }

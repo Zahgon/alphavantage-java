@@ -39,7 +39,7 @@ public class ConsumerSentimentRequest extends EconomicIndicatorRequest {
 
         @Override
         public ConsumerSentimentRequest build() {
-            return new ConsumerSentimentRequest(this);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 }

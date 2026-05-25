@@ -32,7 +32,9 @@ import com.crazzyghost.alphavantage.parameters.Function;
  * @since 1.7.0
  */
 public abstract class EconomicIndicatorRequest {
+
     protected Function function;
+
     protected DataType dataType;
 
     protected EconomicIndicatorRequest(Builder<?> builder) {
@@ -40,21 +42,20 @@ public abstract class EconomicIndicatorRequest {
         this.dataType = builder.dataType;
     }
 
-    public abstract static class Builder <T extends Builder<?>> {
+    public abstract static class Builder<T extends Builder<?>> {
+
         public Function function;
+
         public DataType dataType = DataType.JSON;
 
-        public T dataType(DataType dataType){
-            this.dataType = dataType;
-            return (T) this;
+        public T dataType(DataType dataType) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public T function(Function function){
-            this.function = function;
-            return (T) this;
+        public T function(Function function) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public abstract EconomicIndicatorRequest build();
-
     }
 }

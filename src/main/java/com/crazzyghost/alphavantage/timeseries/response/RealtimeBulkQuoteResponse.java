@@ -23,13 +23,14 @@
 package com.crazzyghost.alphavantage.timeseries.response;
 
 import com.crazzyghost.alphavantage.parser.Parser;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 public class RealtimeBulkQuoteResponse {
+
     private final List<RealtimeBulkQuote> data;
+
     private final String errorMessage;
 
     private RealtimeBulkQuoteResponse(List<RealtimeBulkQuote> data) {
@@ -43,46 +44,32 @@ public class RealtimeBulkQuoteResponse {
     }
 
     public static RealtimeBulkQuoteResponse of(Map<String, Object> objectMap) {
-        Parser<RealtimeBulkQuoteResponse> parser = new RealtimeBulkQuoteParser();
-        return parser.parse(objectMap);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public List<RealtimeBulkQuote> getData() {
-        return data;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getErrorMessage() {
-        return errorMessage;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static class RealtimeBulkQuoteParser extends Parser<RealtimeBulkQuoteResponse> {
+
         @Override
         public RealtimeBulkQuoteResponse onParseError(String error) {
-            return new RealtimeBulkQuoteResponse(error);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public RealtimeBulkQuoteResponse parse(Map<String, Object> object) {
-            List<String> keys = new ArrayList<>(object.keySet());
-            if (keys.isEmpty()) {
-                return onParseError("Empty JSON returned by the API, the symbol might not be supported.");
-            }
-            try {
-                int dataIndex = 2;
-                String dataKey = keys.get(dataIndex);
-                List<RealtimeBulkQuote> data = Parser.parseJSONList(object.get(dataKey), RealtimeBulkQuote.class);
-                return new RealtimeBulkQuoteResponse(data);
-            } catch (ClassCastException | IndexOutOfBoundsException e) {
-                return onParseError(object.get(keys.get(0)).toString());
-            }
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
     @Override
     public String toString() {
-        return "RealtimeBulkQuoteResponse{" +
-                "data=" + data +
-                ", errorMessage='" + errorMessage + '\'' +
-                '}';
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -3,7 +3,6 @@ package com.crazzyghost.alphavantage.technicalindicator.response.htdcperiod;
 import com.crazzyghost.alphavantage.technicalindicator.response.SeriesResponse;
 import com.crazzyghost.alphavantage.technicalindicator.response.SimpleTechnicalIndicatorUnit;
 import com.crazzyghost.alphavantage.parser.Parser;
-
 import java.util.List;
 import java.util.Map;
 
@@ -18,25 +17,24 @@ public class HTDCPERIODResponse extends SeriesResponse {
     }
 
     public static HTDCPERIODResponse of(Map<String, Object> data) {
-        Parser<HTDCPERIODResponse> parser = new HTDCPERIODParser();
-        return parser.parse(data);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static class HTDCPERIODParser extends SeriesParser<HTDCPERIODResponse> {
 
         @Override
         public HTDCPERIODResponse get(List<SimpleTechnicalIndicatorUnit> indicatorUnits, MetaData metaData) {
-            return new HTDCPERIODResponse(indicatorUnits, metaData);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public HTDCPERIODResponse get(String error) {
-            return new HTDCPERIODResponse(error);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public String getTechnicalIndicatorKey() {
-            return "DCPERIOD";
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 }

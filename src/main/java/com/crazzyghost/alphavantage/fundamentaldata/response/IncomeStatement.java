@@ -5,216 +5,214 @@ import com.squareup.moshi.Json;
 
 public class IncomeStatement {
 
-    @Json(name="fiscalDateEnding")
+    @Json(name = "fiscalDateEnding")
     private String fiscalDateEnding;
-    @Json(name="reportedCurrency")
+
+    @Json(name = "reportedCurrency")
     private String reportedCurrency;
-    @Json(name="grossProfit")
+
+    @Json(name = "grossProfit")
     @NoneableLong
     private Long grossProfit;
-    @Json(name="totalRevenue")
+
+    @Json(name = "totalRevenue")
     @NoneableLong
-    private Long  totalRevenue;
-    @Json(name="costOfRevenue")
+    private Long totalRevenue;
+
+    @Json(name = "costOfRevenue")
     @NoneableLong
-    private Long  costOfRevenue;
-    @Json(name="costofGoodsAndServicesSold")
+    private Long costOfRevenue;
+
+    @Json(name = "costofGoodsAndServicesSold")
     @NoneableLong
-    private Long  costofGoodsAndServicesSold;
-    @Json(name="operatingIncome")
+    private Long costofGoodsAndServicesSold;
+
+    @Json(name = "operatingIncome")
     @NoneableLong
-    private Long  operatingIncome;
-    @Json(name="sellingGeneralAndAdministrative")
+    private Long operatingIncome;
+
+    @Json(name = "sellingGeneralAndAdministrative")
     @NoneableLong
-    private Long  sellingGeneralAndAdministrative;
-    @Json(name="researchAndDevelopment")
+    private Long sellingGeneralAndAdministrative;
+
+    @Json(name = "researchAndDevelopment")
     @NoneableLong
-    private Long  researchAndDevelopment;
-    @Json(name="operatingExpenses")
+    private Long researchAndDevelopment;
+
+    @Json(name = "operatingExpenses")
     @NoneableLong
-    private Long  operatingExpenses;
-    @Json(name="investmentIncomeNet")
+    private Long operatingExpenses;
+
+    @Json(name = "investmentIncomeNet")
     @NoneableLong
-    private Long  investmentIncomeNet;
-    @Json(name="netInterestIncome")
+    private Long investmentIncomeNet;
+
+    @Json(name = "netInterestIncome")
     @NoneableLong
-    private Long  netInterestIncome;
-    @Json(name="interestIncome")
+    private Long netInterestIncome;
+
+    @Json(name = "interestIncome")
     @NoneableLong
-    private Long  interestIncome;
-    @Json(name="interestExpense")
+    private Long interestIncome;
+
+    @Json(name = "interestExpense")
     @NoneableLong
-    private Long  interestExpense;
-    @Json(name="nonInterestIncome")
+    private Long interestExpense;
+
+    @Json(name = "nonInterestIncome")
     @NoneableLong
-    private Long  nonInterestIncome;
-    @Json(name="otherNonOperatingIncome")
+    private Long nonInterestIncome;
+
+    @Json(name = "otherNonOperatingIncome")
     @NoneableLong
-    private Long  otherNonOperatingIncome;
-    @Json(name="depreciation")
+    private Long otherNonOperatingIncome;
+
+    @Json(name = "depreciation")
     @NoneableLong
-    private Long  depreciation;
-    @Json(name="depreciationAndAmortization")
+    private Long depreciation;
+
+    @Json(name = "depreciationAndAmortization")
     @NoneableLong
-    private Long  depreciationAndAmortization;
-    @Json(name="incomeBeforeTax")
+    private Long depreciationAndAmortization;
+
+    @Json(name = "incomeBeforeTax")
     @NoneableLong
-    private Long  incomeBeforeTax;
-    @Json(name="incomeTaxExpense")
+    private Long incomeBeforeTax;
+
+    @Json(name = "incomeTaxExpense")
     @NoneableLong
-    private Long  incomeTaxExpense;
-    @Json(name="interestAndDebtExpense")
+    private Long incomeTaxExpense;
+
+    @Json(name = "interestAndDebtExpense")
     @NoneableLong
-    private Long  interestAndDebtExpense;
-    @Json(name="netIncomeFromContinuingOperations")
+    private Long interestAndDebtExpense;
+
+    @Json(name = "netIncomeFromContinuingOperations")
     @NoneableLong
-    private Long  netIncomeFromContinuingOperations;
-    @Json(name="comprehensiveIncomeNetOfTax")
+    private Long netIncomeFromContinuingOperations;
+
+    @Json(name = "comprehensiveIncomeNetOfTax")
     @NoneableLong
-    private Long  comprehensiveIncomeNetOfTax;
-    @Json(name="ebit")
+    private Long comprehensiveIncomeNetOfTax;
+
+    @Json(name = "ebit")
     @NoneableLong
-    private Long  ebit;
-    @Json(name="ebitda")
+    private Long ebit;
+
+    @Json(name = "ebitda")
     @NoneableLong
-    private Long  ebitda;
-    @Json(name="netIncome")
+    private Long ebitda;
+
+    @Json(name = "netIncome")
     @NoneableLong
-    private Long  netIncome;
+    private Long netIncome;
 
     public String getFiscalDateEnding() {
-        return fiscalDateEnding;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getReportedCurrency() {
-        return reportedCurrency;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getGrossProfit() {
-        return grossProfit;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getTotalRevenue() {
-        return totalRevenue;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getCostOfRevenue() {
-        return costOfRevenue;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getCostofGoodsAndServicesSold() {
-        return costofGoodsAndServicesSold;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getOperatingIncome() {
-        return operatingIncome;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getSellingGeneralAndAdministrative() {
-        return sellingGeneralAndAdministrative;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getResearchAndDevelopment() {
-        return researchAndDevelopment;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getOperatingExpenses() {
-        return operatingExpenses;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getInvestmentIncomeNet() {
-        return investmentIncomeNet;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getNetInterestIncome() {
-        return netInterestIncome;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getInterestIncome() {
-        return interestIncome;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getInterestExpense() {
-        return interestExpense;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getNonInterestIncome() {
-        return nonInterestIncome;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getOtherNonOperatingIncome() {
-        return otherNonOperatingIncome;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getDepreciation() {
-        return depreciation;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getDepreciationAndAmortization() {
-        return depreciationAndAmortization;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getIncomeBeforeTax() {
-        return incomeBeforeTax;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getIncomeTaxExpense() {
-        return incomeTaxExpense;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getInterestAndDebtExpense() {
-        return interestAndDebtExpense;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getNetIncomeFromContinuingOperations() {
-        return netIncomeFromContinuingOperations;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getComprehensiveIncomeNetOfTax() {
-        return comprehensiveIncomeNetOfTax;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getEbit() {
-        return ebit;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getEbitda() {
-        return ebitda;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Long getNetIncome() {
-        return netIncome;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String toString() {
-        return "IncomeStatement{" +
-                "fiscalDateEnding='" + fiscalDateEnding + '\'' +
-                ", reportedCurrency='" + reportedCurrency + '\'' +
-                ", grossProfit='" + grossProfit + '\'' +
-                ", totalRevenue='" + totalRevenue + '\'' +
-                ", costOfRevenue='" + costOfRevenue + '\'' +
-                ", costofGoodsAndServicesSold='" + costofGoodsAndServicesSold + '\'' +
-                ", operatingIncome='" + operatingIncome + '\'' +
-                ", sellingGeneralAndAdministrative='" + sellingGeneralAndAdministrative + '\'' +
-                ", researchAndDevelopment='" + researchAndDevelopment + '\'' +
-                ", operatingExpenses='" + operatingExpenses + '\'' +
-                ", investmentIncomeNet='" + investmentIncomeNet + '\'' +
-                ", netInterestIncome='" + netInterestIncome + '\'' +
-                ", interestIncome='" + interestIncome + '\'' +
-                ", interestExpense='" + interestExpense + '\'' +
-                ", nonInterestIncome='" + nonInterestIncome + '\'' +
-                ", otherNonOperatingIncome='" + otherNonOperatingIncome + '\'' +
-                ", depreciation='" + depreciation + '\'' +
-                ", depreciationAndAmortization='" + depreciationAndAmortization + '\'' +
-                ", incomeBeforeTax='" + incomeBeforeTax + '\'' +
-                ", incomeTaxExpense='" + incomeTaxExpense + '\'' +
-                ", interestAndDebtExpense='" + interestAndDebtExpense + '\'' +
-                ", netIncomeFromContinuingOperations='" + netIncomeFromContinuingOperations + '\'' +
-                ", comprehensiveIncomeNetOfTax='" + comprehensiveIncomeNetOfTax + '\'' +
-                ", ebit='" + ebit + '\'' +
-                ", ebitda='" + ebitda + '\'' +
-                ", netIncome='" + netIncome + '\'' +
-                '}';
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

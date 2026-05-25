@@ -33,7 +33,9 @@ import com.crazzyghost.alphavantage.parameters.Function;
 public abstract class CryptoRequest {
 
     private final String market;
+
     private final Function function;
+
     private final String symbol;
 
     protected CryptoRequest(Builder<?> builder) {
@@ -45,25 +47,23 @@ public abstract class CryptoRequest {
     public abstract static class Builder<T extends Builder<?>> {
 
         public Function function;
+
         protected String symbol;
+
         protected String market;
 
         public T function(Function function) {
-            this.function = function;
-            return (T) this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public T symbol(String symbol) {
-            this.symbol = symbol;
-            return (T) this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public T market(String market) {
-            this.market = market;
-            return (T) this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         public abstract CryptoRequest build();
     }
-
 }

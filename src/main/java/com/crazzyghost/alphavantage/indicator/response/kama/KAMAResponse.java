@@ -3,7 +3,6 @@ package com.crazzyghost.alphavantage.indicator.response.kama;
 import com.crazzyghost.alphavantage.indicator.response.PeriodicSeriesResponse;
 import com.crazzyghost.alphavantage.indicator.response.SimpleIndicatorUnit;
 import com.crazzyghost.alphavantage.parser.Parser;
-
 import java.util.List;
 import java.util.Map;
 
@@ -17,26 +16,25 @@ public class KAMAResponse extends PeriodicSeriesResponse {
         super(errorMessage);
     }
 
-    public static KAMAResponse of(Map<String, Object> stringObjectMap){
-        Parser<KAMAResponse> parser = new KAMAResponseParser();
-        return parser.parse(stringObjectMap);
+    public static KAMAResponse of(Map<String, Object> stringObjectMap) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static class KAMAResponseParser extends PeriodicSeriesParser<KAMAResponse> {
 
         @Override
         public KAMAResponse get(List<SimpleIndicatorUnit> indicatorUnits, MetaData metaData) {
-            return new KAMAResponse(indicatorUnits, metaData);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public KAMAResponse get(String errorMessage) {
-            return new KAMAResponse(errorMessage);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         protected String getIndicatorKey() {
-            return "KAMA";
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 }

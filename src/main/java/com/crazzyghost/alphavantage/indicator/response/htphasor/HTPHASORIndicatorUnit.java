@@ -1,33 +1,33 @@
 package com.crazzyghost.alphavantage.indicator.response.htphasor;
 
 public class HTPHASORIndicatorUnit {
+
     private String date;
+
     private double phaseValue;
+
     private double quadratureValue;
 
-    public HTPHASORIndicatorUnit(String date, double leadSine, double sine){
+    public HTPHASORIndicatorUnit(String date, double leadSine, double sine) {
         this.date = date;
         this.phaseValue = leadSine;
         this.quadratureValue = sine;
     }
 
     public String getDate() {
-        return date;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public double getPhaseValue() {
-        return phaseValue;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public double getQuadratureValue() {
-        return quadratureValue;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String toString() {
-        return "HTPHASORIndicatorUnit {date=" + date + ", phaseValue=" + phaseValue + ", quadratureValue=" + quadratureValue
-                + "}";
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
-    
 }

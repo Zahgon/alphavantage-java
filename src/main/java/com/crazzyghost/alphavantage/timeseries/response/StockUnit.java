@@ -1,18 +1,24 @@
 package com.crazzyghost.alphavantage.timeseries.response;
 
-
 public class StockUnit {
 
     private final double open;
-    private final double high;
-    private final double low;
-    private final double close;
-    private final double adjustedClose;
-    private final long volume;
-    private final double dividendAmount;
-    private final double splitCoefficient;
-    private final String dateTime;
 
+    private final double high;
+
+    private final double low;
+
+    private final double close;
+
+    private final double adjustedClose;
+
+    private final long volume;
+
+    private final double dividendAmount;
+
+    private final double splitCoefficient;
+
+    private final String dateTime;
 
     private StockUnit(Builder builder) {
         this.open = builder.open;
@@ -26,116 +32,105 @@ public class StockUnit {
         this.dateTime = builder.dateTime;
     }
 
-
-    public static class Builder{
+    public static class Builder {
 
         double open;
+
         double high;
+
         double low;
+
         double close;
+
         double adjustedClose;
+
         long volume;
+
         double dividendAmount;
+
         double splitCoefficient;
+
         String dateTime;
 
-        public Builder open(double open){
-            this.open = open;
-            return this;
+        public Builder open(double open) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public Builder high(double high){
-            this.high = high;
-            return this;
-        }
-        public Builder low(double low){
-            this.low = low;
-            return this;
+        public Builder high(double high) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public Builder close(double close){
-            this.close = close;
-            return this;
-        }
-        public Builder adjustedClose(double close){
-            this.adjustedClose = close;
-            return this;
+        public Builder low(double low) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public Builder dividendAmount(double dividendAmount){
-            this.dividendAmount = dividendAmount;
-            return this;
+        public Builder close(double close) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public Builder volume(long volume){
-            this.volume = volume;
-            return this;
+        public Builder adjustedClose(double close) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public Builder splitCoefficient(double splitCoefficient){
-            this.splitCoefficient = splitCoefficient;
-            return this;
+        public Builder dividendAmount(double dividendAmount) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        public Builder time(String dateTime){
-            this.dateTime = dateTime;
-            return this;
+        public Builder volume(long volume) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
+        public Builder splitCoefficient(double splitCoefficient) {
+            throw new UnsupportedOperationException("STUB: not implemented");
+        }
 
-        public StockUnit build(){
-            return new StockUnit(this);
+        public Builder time(String dateTime) {
+            throw new UnsupportedOperationException("STUB: not implemented");
+        }
+
+        public StockUnit build() {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
     public double getOpen() {
-        return open;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public double getHigh() {
-        return high;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public double getLow() {
-        return low;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public double getClose() {
-        return close;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public double getAdjustedClose() {
-        return adjustedClose;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public long getVolume() {
-        return volume;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public double getDividendAmount() {
-        return dividendAmount;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public double getSplitCoefficient() {
-        return splitCoefficient;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getDate() {
-        return dateTime;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String toString() {
-        return "\n" + "StockUnit{" +
-                "open=" + open +
-                ", high=" + high +
-                ", low=" + low +
-                ", close=" + close +
-                ", adjustedClose=" + adjustedClose +
-                ", volume=" + volume +
-                ", dividendAmount=" + dividendAmount +
-                ", splitCoefficient=" + splitCoefficient +
-                ", date=" + dateTime +
-                '}';
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }
